@@ -1,0 +1,117 @@
+{
+ "H1": "H1 did not hold (exact rate < 95.0%)",
+ "H2_band": {
+  "diff_ci95": [
+   0.09048302375165383,
+   0.12900701241514934
+  ],
+  "diff_low_minus_high": 0.109799203022305,
+  "high_band_essays": 500,
+  "high_exact_rate": 0.30789085545722716,
+  "high_matched": 2712,
+  "low_band_essays": 3774,
+  "low_exact_rate": 0.41769005847953217,
+  "low_matched": 20520,
+  "verdict": "H2 reversed (difference above zero)"
+ },
+ "H3_reasoning_vs_evaluation": {
+  "diff_ci95": [
+   0.2642319306588763,
+   0.2761209977148875
+  ],
+  "diff_reasoning_minus_evaluation": 0.27022016722726455,
+  "evaluation_exact_rate": 0.3773599779275551,
+  "reasoning_exact_rate": 0.6475801451548197,
+  "verdict": "H3 reversed (difference above zero)"
+ },
+ "checker_sha256": "d53b6b46a65024eca6ba5fa5e97d35c35c7da6d3bbe73f5362cb9e268bf15e04",
+ "dataset_file": "glm47_final.jsonl",
+ "dataset_sha256": "3b5eea942eea3e9d5984675c4d26e89e982868459eaaec7dce09d88761e69494",
+ "essay_words_median": 293.0,
+ "evaluation": {
+  "altered_word_edits": {
+   "1": 1326,
+   "2": 1311,
+   "3": 267,
+   "4": 1014
+  },
+  "categories_all": {
+   "altered": 42935,
+   "exact": 108462,
+   "not_found": 61258,
+   "punctuation_or_whitespace": 88794
+  },
+  "essays_with_quotes": 8946,
+  "exact_rate": 0.3773599779275551,
+  "exact_rate_4_to_25_words": 0.35618676553761075,
+  "exact_rate_ci95": [
+   0.37216972065307435,
+   0.3825187668416975
+  ],
+  "exact_rate_unfiltered": 0.32258230083045053,
+  "excluded_cue": 145405,
+  "excluded_question": 6794,
+  "primary_categories": {
+   "altered": 3918,
+   "exact": 19148,
+   "punctuation_or_whitespace": 27676
+  },
+  "primary_matched": 50742,
+  "quotes": 301449,
+  "under_min_words": 162866,
+  "unfiltered_matched": 97417,
+  "word_faithful_rate": 0.9227858578692207,
+  "word_faithful_rate_ci95": [
+   0.9203673609719042,
+   0.9251681990602054
+  ]
+ },
+ "generators": {
+  "glm-4.7": 8946
+ },
+ "prereg_sha256": "6134cdedfecc472edc51e33575e3a614cd66fa2b95890967c4bc5d2fc4f7d10e",
+ "python": "3.12.15",
+ "reasoning": {
+  "altered_word_edits": {
+   "1": 3724,
+   "2": 4761,
+   "3": 880,
+   "4": 4107
+  },
+  "categories_all": {
+   "altered": 84549,
+   "exact": 337178,
+   "not_found": 134594,
+   "punctuation_or_whitespace": 101039
+  },
+  "essays_with_quotes": 8946,
+  "exact_rate": 0.6475801451548197,
+  "exact_rate_4_to_25_words": 0.647437553038409,
+  "exact_rate_ci95": [
+   0.6434909749899598,
+   0.6515676013264597
+  ],
+  "exact_rate_unfiltered": 0.5692010800974435,
+  "excluded_cue": 166286,
+  "excluded_question": 23983,
+  "primary_categories": {
+   "altered": 13472,
+   "exact": 71024,
+   "punctuation_or_whitespace": 25180
+  },
+  "primary_matched": 109676,
+  "quotes": 657360,
+  "under_min_words": 492959,
+  "unfiltered_matched": 136284,
+  "word_faithful_rate": 0.8771654692001897,
+  "word_faithful_rate_ci95": [
+   0.874643906142308,
+   0.8797237713124558
+  ]
+ },
+ "records_read": 8946,
+ "rows": 8946,
+ "split_modes": {
+  "blank_line": 8946
+ }
+}
