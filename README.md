@@ -34,6 +34,14 @@ By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; 
   change the words without marking it.
 - Audit 1's H3 reversal (reasoning vs feedback) disappears after the same normalisation.
 
+## Audit 2: quote length and essay band (planned, running)
+
+[`PLAN-2.md`](PLAN-2.md) asks two questions. Do longer quotes change the student's words more often, both
+per quote and per word? And once 1b's classes are used and quote length is held fixed, do essays at band
+5.5 or below get more changed quotes than essays at 7.0 or above? `length.py` runs it on the same data
+(`setup-2.sh` fetches the pinned code and waits until the plan is public). Results will be in
+`RESULTS-2.md`.
+
 ## How it works
 
 `audit.py` finds every passage the feedback puts in double quotation marks. It sets aside quotes of the
@@ -49,6 +57,7 @@ sh setup.sh
 python -m unittest -v
 python audit.py --data glm47_final.jsonl --out results.json --workers 3
 python explain.py --data glm47_final.jsonl --out explain.json --workers 3
+python length.py --data glm47_final.jsonl --out length.json --workers 3
 ```
 
 Python 3.10+, standard library only.
@@ -57,7 +66,7 @@ Python 3.10+, standard library only.
 
 Only double-quoted passages are checked. The rule that sets aside suggested rewrites is a heuristic, and
 it misses rewrites marked with bold inside the quote. The audit covers one model, one exam and one dataset.
-See PREREG.md, RESULTS.md, PLAN-1b.md and RESULTS-1b.md.
+See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md and PLAN-2.md.
 
 ## Licence
 
