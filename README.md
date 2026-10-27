@@ -34,13 +34,19 @@ By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; 
   change the words without marking it.
 - Audit 1's H3 reversal (reasoning vs feedback) disappears after the same normalisation.
 
-## Audit 2: quote length and essay band (planned, running)
+## Audit 2: quote length and essay band (planned before running, done)
 
-[`PLAN-2.md`](PLAN-2.md) asks two questions. Do longer quotes change the student's words more often, both
-per quote and per word? And once 1b's classes are used and quote length is held fixed, do essays at band
-5.5 or below get more changed quotes than essays at 7.0 or above? `length.py` runs it on the same data
-(`setup-2.sh` fetches the pinned code and waits until the plan is public). Results will be in
-`RESULTS-2.md`.
+- Plan: [`PLAN-2.md`](PLAN-2.md). Code: `length.py` (`setup-2.sh` fetches the pinned code and waits until
+  the plan is public).
+- **Results: [`RESULTS-2.md`](RESULTS-2.md)** (`length.json` has the counts). All five predictions came out
+  reversed.
+- Short quotes change the student's words most often: 6.1% of 4-6-word quotes against 1.5% of quotes over
+  25 words. 71% of the unmarked changes are in 4-6-word quotes, and each word in a long quote is also less
+  likely to change.
+- Essays at band 7.0 or above get more changed quotes than essays at 5.5 or below, even with quote length
+  held fixed (4.1% vs 2.5% unmarked).
+- Audit 1's band gap in the exact rate survives holding length fixed (+11.8 points). Most of it is
+  formatting.
 
 ## How it works
 
@@ -50,7 +56,8 @@ exam question and suggested rewrites, then checks the rest against the essay wit
 sealed run downloads it fresh from tag v0.8.0 and records its SHA-256 in the results. The same checker runs
 in the offline [quote-check](https://github.com/munimtechnologies/quote-check) page. Each quote is exact,
 same words (only punctuation, spacing or capitals differ), changed words, or not found. `explain.py` takes
-the same quotes and records the first formatting step after which each one matches the essay.
+the same quotes and records the first formatting step after which each one matches the essay. `length.py`
+breaks 1b's classes down by quote length and essay band.
 
 ```bash
 sh setup.sh
@@ -65,8 +72,10 @@ Python 3.10+, standard library only.
 ## Limits
 
 Only double-quoted passages are checked. The rule that sets aside suggested rewrites is a heuristic, and
-it misses rewrites marked with bold inside the quote. The audit covers one model, one exam and one dataset.
-See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md and PLAN-2.md.
+it misses rewrites marked with bold inside the quote. Short quotes have the least context to match on, so
+some short "changed" quotes may be suggested phrasing rather than misquotes. The audit covers one model,
+one exam and one dataset. See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md and
+RESULTS-2.md.
 
 ## Licence
 

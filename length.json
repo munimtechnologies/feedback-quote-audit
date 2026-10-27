@@ -1,0 +1,265 @@
+{
+ "audit_sha256": "028c0d8d337f6ff07681bc7ee7c5d35b143c7cde645ae658b95f777df864965c",
+ "by_length": {
+  "11-15": {
+   "changed_rate": 0.026825127334465196,
+   "changed_rate_ci95": [
+    0.02259315461136402,
+    0.03129299570955166
+   ],
+   "changed_words_per_word": 0.009031909140075716,
+   "exact_rate": 0.3466893039049236,
+   "formatting_rate": 0.5872665534804754,
+   "quotes": 5890,
+   "unmarked_rate": 0.009847198641765705,
+   "unmarked_rate_ci95": [
+    0.007352910462430586,
+    0.012521539535310437
+   ]
+  },
+  "16-25": {
+   "changed_rate": 0.018958333333333334,
+   "changed_rate_ci95": [
+    0.01521776519349187,
+    0.022821576763485476
+   ],
+   "changed_words_per_word": 0.007476033023478279,
+   "exact_rate": 0.6777083333333334,
+   "formatting_rate": 0.28833333333333333,
+   "quotes": 4800,
+   "unmarked_rate": 0.015208333333333334,
+   "unmarked_rate_ci95": [
+    0.011877474473848718,
+    0.018711115981858338
+   ]
+  },
+  "26+": {
+   "changed_rate": 0.014985014985014986,
+   "changed_rate_ci95": [
+    0.010981697171381031,
+    0.019333494498166053
+   ],
+   "changed_words_per_word": 0.004948147537265736,
+   "exact_rate": 0.713952713952714,
+   "formatting_rate": 0.2597402597402597,
+   "quotes": 3003,
+   "unmarked_rate": 0.014652014652014652,
+   "unmarked_rate_ci95": [
+    0.010634762379528082,
+    0.019
+   ]
+  },
+  "4-6": {
+   "changed_rate": 0.06090215499933074,
+   "changed_rate_ci95": [
+    0.05777837543019043,
+    0.06418166541359242
+   ],
+   "changed_words_per_word": 0.01992653810835629,
+   "exact_rate": 0.38098425021193055,
+   "formatting_rate": 0.5180475616829519,
+   "quotes": 22413,
+   "unmarked_rate": 0.045509302636862536,
+   "unmarked_rate_ci95": [
+    0.04268956482871346,
+    0.048279319198339166
+   ]
+  },
+  "7-10": {
+   "changed_rate": 0.03648537851872096,
+   "changed_rate_ci95": [
+    0.033363196328081136,
+    0.03969503591215233
+   ],
+   "changed_words_per_word": 0.011847729185239495,
+   "exact_rate": 0.21658923203060945,
+   "formatting_rate": 0.7073654003826182,
+   "quotes": 14636,
+   "unmarked_rate": 0.01632959825088822,
+   "unmarked_rate_ci95": [
+    0.01424133933209394,
+    0.018490885429425424
+   ]
+  }
+ },
+ "checker_sha256": "d53b6b46a65024eca6ba5fa5e97d35c35c7da6d3bbe73f5362cb9e268bf15e04",
+ "consistent_with_earlier": true,
+ "dataset_file": "glm47_final.jsonl",
+ "dataset_sha256": "3b5eea942eea3e9d5984675c4d26e89e982868459eaaec7dce09d88761e69494",
+ "explain_sha256": "9f2959daf096d4df4cc9171a9c64d163255291540551f13fb4a8ff26957d14d6",
+ "plan_sha256": "a6400f6c0c36d20f2966489bc1475a1d346fe3ddeacc69185126e62d4f46b282",
+ "python": "3.12.15",
+ "records_read": 8946,
+ "rows": 8946,
+ "strata_weights": {
+  "11-25": 0.21067360372078356,
+  "26+": 0.05918174293484687,
+  "4-10": 0.7301446533443695
+ },
+ "tests": {
+  "B1": {
+   "high_essays": 500,
+   "high_quotes": 2712,
+   "high_quotes_by_stratum": {
+    "11-25": 618,
+    "26+": 181,
+    "4-10": 1913
+   },
+   "high_raw": 0.04019174041297935,
+   "high_std": 0.04097598559943847,
+   "low_essays": 3774,
+   "low_quotes": 20520,
+   "low_quotes_by_stratum": {
+    "11-25": 4480,
+    "26+": 1077,
+    "4-10": 14963
+   },
+   "low_raw": 0.02519493177387914,
+   "low_std": 0.025250085043064245,
+   "measure": "unmarked per quote",
+   "raw_diff": -0.014996808639100207,
+   "smallest_stratum_quotes": 181,
+   "std_diff": -0.015725900556374225,
+   "std_diff_ci95": [
+    -0.0240512722092759,
+    -0.007796388672309979
+   ],
+   "verdict": "reversed (difference below zero)"
+  },
+  "B2": {
+   "high_essays": 500,
+   "high_quotes": 2712,
+   "high_quotes_by_stratum": {
+    "11-25": 618,
+    "26+": 181,
+    "4-10": 1913
+   },
+   "high_raw": 0.06047197640117994,
+   "high_std": 0.06160110688721607,
+   "low_essays": 3774,
+   "low_quotes": 20520,
+   "low_quotes_by_stratum": {
+    "11-25": 4480,
+    "26+": 1077,
+    "4-10": 14963
+   },
+   "low_raw": 0.03611111111111111,
+   "low_std": 0.03612740080123323,
+   "measure": "changed per quote",
+   "raw_diff": -0.024360865290068832,
+   "smallest_stratum_quotes": 181,
+   "std_diff": -0.025473706085982838,
+   "std_diff_ci95": [
+    -0.03473278825831102,
+    -0.01650598245226297
+   ],
+   "verdict": "reversed (difference below zero)"
+  },
+  "B3": {
+   "high_essays": 500,
+   "high_quotes": 2712,
+   "high_quotes_by_stratum": {
+    "11-25": 618,
+    "26+": 181,
+    "4-10": 1913
+   },
+   "high_raw": 0.30789085545722716,
+   "high_std": 0.3000566130749811,
+   "low_essays": 3774,
+   "low_quotes": 20520,
+   "low_quotes_by_stratum": {
+    "11-25": 4480,
+    "26+": 1077,
+    "4-10": 14963
+   },
+   "low_raw": 0.41769005847953217,
+   "low_std": 0.4185288064832261,
+   "measure": "exact per quote",
+   "raw_diff": 0.109799203022305,
+   "smallest_stratum_quotes": 181,
+   "std_diff": 0.118472193408245,
+   "std_diff_ci95": [
+    0.09903112587779624,
+    0.13749265684710715
+   ],
+   "verdict": "descriptive"
+  },
+  "B4": {
+   "high_essays": 500,
+   "high_quotes": 2712,
+   "high_quotes_by_stratum": {
+    "11-25": 618,
+    "26+": 181,
+    "4-10": 1913
+   },
+   "high_raw": 0.5914454277286135,
+   "high_std": 0.5977323138967294,
+   "low_essays": 3774,
+   "low_quotes": 20520,
+   "low_quotes_by_stratum": {
+    "11-25": 4480,
+    "26+": 1077,
+    "4-10": 14963
+   },
+   "low_raw": 0.5167641325536062,
+   "low_std": 0.515987308124094,
+   "measure": "formatting per quote",
+   "raw_diff": -0.07468129517500732,
+   "smallest_stratum_quotes": 181,
+   "std_diff": -0.08174500577263544,
+   "std_diff_ci95": [
+    -0.10242499108111694,
+    -0.061245364717736894
+   ],
+   "verdict": "descriptive"
+  },
+  "L1": {
+   "diff": -0.04591714001431576,
+   "diff_ci95": [
+    -0.05122082350897204,
+    -0.04045573848528722
+   ],
+   "long": 0.014985014985014986,
+   "long_quotes": 3003,
+   "measure": "changed per quote",
+   "short": 0.06090215499933074,
+   "short_quotes": 22413,
+   "verdict": "reversed (difference below zero)"
+  },
+  "L2": {
+   "diff": -0.030857287984847884,
+   "diff_ci95": [
+    -0.03593709795782829,
+    -0.025772276633851815
+   ],
+   "long": 0.014652014652014652,
+   "long_quotes": 3003,
+   "measure": "unmarked per quote",
+   "short": 0.045509302636862536,
+   "short_quotes": 22413,
+   "verdict": "reversed (difference below zero)"
+  },
+  "L3": {
+   "diff": -0.014978390571090554,
+   "diff_ci95": [
+    -0.017054973014999954,
+    -0.01279003175741234
+   ],
+   "long": 0.004948147537265736,
+   "long_quotes": 3003,
+   "measure": "edits per quoted word",
+   "short": 0.01992653810835629,
+   "short_quotes": 22413,
+   "verdict": "reversed (difference below zero)"
+  }
+ },
+ "totals": {
+  "changed": 2193,
+  "edits": 5459,
+  "exact": 19148,
+  "formatting": 27587,
+  "n": 50742,
+  "unmarked": 1434,
+  "words": 496063
+ }
+}
