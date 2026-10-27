@@ -1,0 +1,237 @@
+{
+ "audit_sha256": "028c0d8d337f6ff07681bc7ee7c5d35b143c7cde645ae658b95f777df864965c",
+ "checker_sha256": "d53b6b46a65024eca6ba5fa5e97d35c35c7da6d3bbe73f5362cb9e268bf15e04",
+ "dataset_file": "glm47_final.jsonl",
+ "dataset_sha256": "3b5eea942eea3e9d5984675c4d26e89e982868459eaaec7dce09d88761e69494",
+ "evaluation": {
+  "consistent_with_audit1": true,
+  "counts": {
+   "altered": 3918,
+   "altered_elision": 1715,
+   "case": 1194,
+   "edges": 24083,
+   "elision": 1726,
+   "elision_words": 3,
+   "emphasis": 823,
+   "exact": 19148,
+   "n": 50742,
+   "other_punctuation": 85,
+   "spacing": 1437,
+   "typography": 50,
+   "unmarked_added_or_dropped": 1149,
+   "unmarked_negation": 30,
+   "unmarked_spelling_or_form": 92,
+   "unmarked_word_swap": 333,
+   "wc_elided": 90,
+   "wc_emphasis": 759,
+   "wc_unmarked": 1434,
+   "wc_unmarked_plain": 1350,
+   "word_changed": 2193
+  },
+  "matched_by_step": {
+   "case": 0.9210318867998897,
+   "edges": 0.8975010839147057,
+   "elision": 0.9550471010208506,
+   "emphasis": 0.3935792834338418,
+   "exact": 0.3773599779275551,
+   "spacing": 0.422884395569745,
+   "typography": 0.394564660439084
+  },
+  "measures": {
+   "char_match_after_case": {
+    "ci95": [
+     0.9186245431885035,
+     0.9234901283475163
+    ],
+    "denominator": 50742,
+    "value": 0.9210318867998897
+   },
+   "char_match_after_elision": {
+    "ci95": [
+     0.9531565284053494,
+     0.9569337525505459
+    ],
+    "denominator": 50742,
+    "value": 0.9550471010208506
+   },
+   "elision_share_of_altered": {
+    "ci95": [
+     0.42176242834872474,
+     0.45377563175695984
+    ],
+    "denominator": 3918,
+    "value": 0.4377233282286881
+   },
+   "emphasis_share_of_word_changed": {
+    "ci95": [
+     0.3249880495518244,
+     0.3675876378006921
+    ],
+    "denominator": 2193,
+    "value": 0.34610123119015046
+   },
+   "unmarked_word_changed_rate": {
+    "ci95": [
+     0.026739537469513013,
+     0.029760971520441416
+    ],
+    "denominator": 50742,
+    "value": 0.028260612510346457
+   },
+   "word_changed_rate": {
+    "ci95": [
+     0.04141115432288219,
+     0.045077314379783455
+    ],
+    "denominator": 50742,
+    "value": 0.04321863544992314
+   },
+   "word_faithful_with_elision": {
+    "ci95": [
+     0.9549207945584195,
+     0.958603426984493
+    ],
+    "denominator": 50742,
+    "value": 0.9567813645500769
+   }
+  },
+  "unmarked_kinds_share": {
+   "added_or_dropped": 0.8511111111111112,
+   "negation": 0.022222222222222223,
+   "spelling_or_form": 0.06814814814814815,
+   "word_swap": 0.24666666666666667
+  }
+ },
+ "plan_sha256": "ead5ad5fce79a2e93c3a0f0c5f0f96f390ca54246f752ac3a0a1f715af396ff2",
+ "predictions": {
+  "P1": {
+   "ci95": [
+    0.9186245431885035,
+    0.9234901283475163
+   ],
+   "high": null,
+   "low": 0.8,
+   "measure": "char_match_after_case",
+   "value": 0.9210318867998897,
+   "verdict": "held"
+  },
+  "P2": {
+   "ci95": [
+    0.42176242834872474,
+    0.45377563175695984
+   ],
+   "high": 0.7,
+   "low": 0.3,
+   "measure": "elision_share_of_altered",
+   "value": 0.4377233282286881,
+   "verdict": "held"
+  },
+  "P3": {
+   "ci95": [
+    0.04141115432288219,
+    0.045077314379783455
+   ],
+   "high": 0.05,
+   "low": null,
+   "measure": "word_changed_rate",
+   "value": 0.04321863544992314,
+   "verdict": "held"
+  },
+  "P4": {
+   "ci95": [
+    0.3249880495518244,
+    0.3675876378006921
+   ],
+   "high": null,
+   "low": 0.2,
+   "measure": "emphasis_share_of_word_changed",
+   "value": 0.34610123119015046,
+   "verdict": "held"
+  },
+  "P5": {
+   "ci95": [
+    0.026739537469513013,
+    0.029760971520441416
+   ],
+   "high": 0.04,
+   "low": 0.01,
+   "measure": "unmarked_word_changed_rate",
+   "value": 0.028260612510346457,
+   "verdict": "held"
+  }
+ },
+ "python": "3.12.15",
+ "reasoning": {
+  "consistent_with_audit1": true,
+  "counts": {
+   "altered": 13472,
+   "altered_elision": 8868,
+   "case": 3151,
+   "edges": 18678,
+   "elision": 8889,
+   "elision_words": 26,
+   "emphasis": 88,
+   "exact": 71024,
+   "n": 109676,
+   "other_punctuation": 154,
+   "spacing": 2633,
+   "typography": 446,
+   "unmarked_added_or_dropped": 3482,
+   "unmarked_negation": 94,
+   "unmarked_spelling_or_form": 153,
+   "unmarked_word_swap": 540,
+   "wc_elided": 602,
+   "wc_emphasis": 88,
+   "wc_unmarked": 4499,
+   "wc_unmarked_plain": 3904,
+   "word_changed": 4587
+  },
+  "matched_by_step": {
+   "case": 0.8754878004303586,
+   "edges": 0.8467577227470002,
+   "elision": 0.9565356139902987,
+   "emphasis": 0.6483825084795215,
+   "exact": 0.6475801451548197,
+   "spacing": 0.6764561070790328,
+   "typography": 0.6524490316933513
+  },
+  "measures": {
+   "char_match_after_case": {
+    "denominator": 109676,
+    "value": 0.8754878004303586
+   },
+   "char_match_after_elision": {
+    "denominator": 109676,
+    "value": 0.9565356139902987
+   },
+   "elision_share_of_altered": {
+    "denominator": 13472,
+    "value": 0.6582541567695962
+   },
+   "emphasis_share_of_word_changed": {
+    "denominator": 4587,
+    "value": 0.019184652278177457
+   },
+   "unmarked_word_changed_rate": {
+    "denominator": 109676,
+    "value": 0.041020824975382036
+   },
+   "word_changed_rate": {
+    "denominator": 109676,
+    "value": 0.041823188300083886
+   },
+   "word_faithful_with_elision": {
+    "denominator": 109676,
+    "value": 0.9581768116999161
+   }
+  },
+  "unmarked_kinds_share": {
+   "added_or_dropped": 0.891905737704918,
+   "negation": 0.024077868852459015,
+   "spelling_or_form": 0.0391905737704918,
+   "word_swap": 0.13831967213114754
+  }
+ },
+ "records_read": 8946,
+ "rows": 8946
+}
