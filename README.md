@@ -48,16 +48,19 @@ By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; 
 - Audit 1's band gap in the exact rate survives holding length fixed (+11.8 points). Most of it is
   formatting.
 
-## Audit 2b: why do stronger essays get more changed quotes? (planned before running)
+## Audit 2b: why do stronger essays get more changed quotes? (planned before running, done)
 
 - Plan: [`PLAN-2b.md`](PLAN-2b.md). Code: `band.py` (`setup-2b.sh` fetches the pinned code and waits until
   the plan is public).
-- Audit 2's reversed band finding was a surprise, and audit 2 read no quotes, so it left three explanations
-  untested. This pass tests them on the same data with counts only: whether weak essays have more quotes
-  taken out as rewrite-cued (T1), whether the band gap survives keeping only tight matches with word-level
-  similarity at least 0.8 (T2), and whether the strong band's changed quotes are a looser match of the essay
-  more often (T3).
-- **Results and `band.json` to follow.**
+- **Results: [`RESULTS-2b.md`](RESULTS-2b.md)** (`band.json` has the counts). Audit 2's reversed band
+  finding was a surprise, and audit 2 read no quotes, so it left three explanations untested. This pass
+  tested them on the same data with counts only.
+- The reversal has two causes. Weaker essays have more of their quotes marked as rewrites and taken out of
+  the measured set (T1: 49.2% vs 42.6% of eligible quotes), which leaves their remaining set cleaner. But
+  even among tight, genuine quote attempts (word-level similarity at least 0.8) the strong band still
+  changes words more often (T2: 3.03% vs 1.69%).
+- There is no clear band difference in how loose the changed quotes are (T3), so "suggested phrasing" does
+  not explain the strong band's higher rate; loose near-misses are common in both bands.
 
 ## How it works
 
@@ -87,8 +90,8 @@ Python 3.10+, standard library only.
 Only double-quoted passages are checked. The rule that sets aside suggested rewrites is a heuristic, and
 it misses rewrites marked with bold inside the quote. Short quotes have the least context to match on, so
 some short "changed" quotes may be suggested phrasing rather than misquotes. The audit covers one model,
-one exam and one dataset. See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md and
-PLAN-2b.md.
+one exam and one dataset. See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md,
+PLAN-2b.md and RESULTS-2b.md.
 
 ## Licence
 

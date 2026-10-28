@@ -1,0 +1,80 @@
+{
+ "audit_sha256": "028c0d8d337f6ff07681bc7ee7c5d35b143c7cde645ae658b95f777df864965c",
+ "checker_sha256": "d53b6b46a65024eca6ba5fa5e97d35c35c7da6d3bbe73f5362cb9e268bf15e04",
+ "consistent_with_earlier": true,
+ "dataset_file": "glm47_final.jsonl",
+ "dataset_sha256": "3b5eea942eea3e9d5984675c4d26e89e982868459eaaec7dce09d88761e69494",
+ "explain_sha256": "9f2959daf096d4df4cc9171a9c64d163255291540551f13fb4a8ff26957d14d6",
+ "high_essays": 500,
+ "low_essays": 3774,
+ "plan_sha256": "86323dbb827b5f9583658e3eeeeee6753bbcae12073918d5749198993e1bb1e2",
+ "python": "3.12.15",
+ "records_read": 8946,
+ "rows": 8946,
+ "tests": {
+  "R0_changed_rate_all": {
+   "diff_ci95": [
+    -0.0334835352264492,
+    -0.01540793871524569
+   ],
+   "diff_low_minus_high": -0.024360865290068832,
+   "high_denom": 2712,
+   "high_rate": 0.06047197640117994,
+   "low_denom": 20520,
+   "low_rate": 0.03611111111111111,
+   "measure": "raw word-changed rate by band (reference; audit 2 B2 is the length-standardised test)",
+   "verdict": "descriptive"
+  },
+  "T1_cue_exclusion": {
+   "diff_ci95": [
+    0.05369126028519001,
+    0.0792324003714418
+   ],
+   "diff_low_minus_high": 0.06643082119276006,
+   "high_denom": 4735,
+   "high_rate": 0.42555438225976766,
+   "low_denom": 40550,
+   "low_rate": 0.4919852034525277,
+   "measure": "rewrite-cue exclusion rate (predicted higher for weak essays)",
+   "predicted_sign": 1,
+   "verdict": "held (weak essays higher)"
+  },
+  "T2_changed_rate_tight": {
+   "diff_ci95": [
+    -0.020916646976220126,
+    -0.006601841492824699
+   ],
+   "diff_low_minus_high": -0.013466065380073208,
+   "high_denom": 2571,
+   "high_rate": 0.030338389731621937,
+   "low_denom": 19855,
+   "low_rate": 0.01687232435154873,
+   "measure": "word-changed rate among tight (similarity >= 0.8) matches (predicted still higher for strong essays)",
+   "predicted_sign": -1,
+   "verdict": "held (strong essays higher)"
+  },
+  "T3_loose_share_of_changed": {
+   "diff_ci95": [
+    -0.06446950674478688,
+    0.11268200034678397
+   ],
+   "diff_low_minus_high": 0.02351798821631934,
+   "high_denom": 164,
+   "high_rate": 0.524390243902439,
+   "low_denom": 741,
+   "low_rate": 0.5479082321187584,
+   "measure": "share of changed quotes that are a loose (similarity < 0.8) match (predicted higher for strong essays)",
+   "predicted_sign": -1,
+   "verdict": "no clear difference"
+  }
+ },
+ "totals": {
+  "cue_excl": 46524,
+  "eligible": 97417,
+  "n": 50742,
+  "prim_tight": 48677,
+  "wc": 2193,
+  "wc_loose": 1167,
+  "wc_tight": 1026
+ }
+}
