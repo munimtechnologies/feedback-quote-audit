@@ -48,6 +48,17 @@ By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; 
 - Audit 1's band gap in the exact rate survives holding length fixed (+11.8 points). Most of it is
   formatting.
 
+## Audit 2b: why do stronger essays get more changed quotes? (planned before running)
+
+- Plan: [`PLAN-2b.md`](PLAN-2b.md). Code: `band.py` (`setup-2b.sh` fetches the pinned code and waits until
+  the plan is public).
+- Audit 2's reversed band finding was a surprise, and audit 2 read no quotes, so it left three explanations
+  untested. This pass tests them on the same data with counts only: whether weak essays have more quotes
+  taken out as rewrite-cued (T1), whether the band gap survives keeping only tight matches with word-level
+  similarity at least 0.8 (T2), and whether the strong band's changed quotes are a looser match of the essay
+  more often (T3).
+- **Results and `band.json` to follow.**
+
 ## How it works
 
 `audit.py` finds every passage the feedback puts in double quotation marks. It sets aside quotes of the
@@ -57,7 +68,8 @@ sealed run downloads it fresh from tag v0.8.0 and records its SHA-256 in the res
 in the offline [quote-check](https://github.com/munimtechnologies/quote-check) page. Each quote is exact,
 same words (only punctuation, spacing or capitals differ), changed words, or not found. `explain.py` takes
 the same quotes and records the first formatting step after which each one matches the essay. `length.py`
-breaks 1b's classes down by quote length and essay band.
+breaks 1b's classes down by quote length and essay band, and `band.py` breaks the band difference down by
+rewrite-cue exclusion and by how tightly each quote matches the essay.
 
 ```bash
 sh setup.sh
@@ -65,6 +77,7 @@ python -m unittest -v
 python audit.py --data glm47_final.jsonl --out results.json --workers 3
 python explain.py --data glm47_final.jsonl --out explain.json --workers 3
 python length.py --data glm47_final.jsonl --out length.json --workers 3
+python band.py --data glm47_final.jsonl --out band.json --workers 3
 ```
 
 Python 3.10+, standard library only.
@@ -74,8 +87,8 @@ Python 3.10+, standard library only.
 Only double-quoted passages are checked. The rule that sets aside suggested rewrites is a heuristic, and
 it misses rewrites marked with bold inside the quote. Short quotes have the least context to match on, so
 some short "changed" quotes may be suggested phrasing rather than misquotes. The audit covers one model,
-one exam and one dataset. See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md and
-RESULTS-2.md.
+one exam and one dataset. See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md and
+PLAN-2b.md.
 
 ## Licence
 
