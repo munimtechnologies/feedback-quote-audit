@@ -62,6 +62,19 @@ By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; 
 - There is no clear band difference in how loose the changed quotes are (T3), so "suggested phrasing" does
   not explain the strong band's higher rate; loose near-misses are common in both bands.
 
+## Audit 3: genuine misquotes or near-misses, by quote length? (planned before running, done)
+
+- Plan: [`PLAN-3.md`](PLAN-3.md). Code: `length_tight.py` (`setup-3.sh` fetches the pinned code and waits
+  until the plan is public).
+- **Results: [`RESULTS-3.md`](RESULTS-3.md)** (`length-tight.json` has the counts). Both predictions came
+  out reversed.
+- Genuine misquotes (tight matches, word-level similarity at least 0.8, that still alter a word) are a
+  short-quote problem: 3.19% of tight 4-6-word quotes against 0.74% of tight quotes of 11 or more words.
+- When a long quote does change the student's words, it is more often a loose near-miss than a one-word
+  slip: 66.3% of changed 11+-word quotes are loose, against 50.1% of changed 4-6-word quotes.
+- The fixed 0.8 cutoff favours both predicted directions, so it cannot explain either reversal. For a
+  checker: show the similarity and the quote length together, not a single tight/loose label.
+
 ## How it works
 
 `audit.py` finds every passage the feedback puts in double quotation marks. It sets aside quotes of the
@@ -71,8 +84,9 @@ sealed run downloads it fresh from tag v0.8.0 and records its SHA-256 in the res
 in the offline [quote-check](https://github.com/munimtechnologies/quote-check) page. Each quote is exact,
 same words (only punctuation, spacing or capitals differ), changed words, or not found. `explain.py` takes
 the same quotes and records the first formatting step after which each one matches the essay. `length.py`
-breaks 1b's classes down by quote length and essay band, and `band.py` breaks the band difference down by
-rewrite-cue exclusion and by how tightly each quote matches the essay.
+breaks 1b's classes down by quote length and essay band, `band.py` breaks the band difference down by
+rewrite-cue exclusion and by how tightly each quote matches the essay, and `length_tight.py` breaks that
+tight/loose split down by quote length.
 
 ```bash
 sh setup.sh
@@ -81,6 +95,7 @@ python audit.py --data glm47_final.jsonl --out results.json --workers 3
 python explain.py --data glm47_final.jsonl --out explain.json --workers 3
 python length.py --data glm47_final.jsonl --out length.json --workers 3
 python band.py --data glm47_final.jsonl --out band.json --workers 3
+python length_tight.py --data glm47_final.jsonl --out length-tight.json --workers 3
 ```
 
 Python 3.10+, standard library only.
@@ -88,10 +103,10 @@ Python 3.10+, standard library only.
 ## Limits
 
 Only double-quoted passages are checked. The rule that sets aside suggested rewrites is a heuristic, and
-it misses rewrites marked with bold inside the quote. Short quotes have the least context to match on, so
-some short "changed" quotes may be suggested phrasing rather than misquotes. The audit covers one model,
-one exam and one dataset. See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md,
-PLAN-2b.md and RESULTS-2b.md.
+it misses rewrites marked with bold inside the quote. Similarity is a proxy: no pass here reads quote
+text, so none can tell a suggested phrase from a heavily altered misquote; only a human reading of a sample
+could. The audit covers one model, one exam and one dataset. See PREREG.md, RESULTS.md, PLAN-1b.md,
+RESULTS-1b.md, PLAN-2.md, RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md and RESULTS-3.md.
 
 ## Licence
 

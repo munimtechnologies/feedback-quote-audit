@@ -1,0 +1,141 @@
+{
+ "audit_sha256": "028c0d8d337f6ff07681bc7ee7c5d35b143c7cde645ae658b95f777df864965c",
+ "by_length": {
+  "11-15": {
+   "changed": 158,
+   "changed_rate": 0.026825127334465196,
+   "loose_share_of_changed": 0.6012658227848101,
+   "loose_share_of_changed_ci95": [
+    0.5225806451612903,
+    0.6776550751879696
+   ],
+   "quotes": 5890,
+   "tight_changed_rate": 0.011093502377179081,
+   "tight_changed_rate_ci95": [
+    0.008398913396847087,
+    0.013928329196454042
+   ],
+   "tight_matches": 5679
+  },
+  "16-25": {
+   "changed": 91,
+   "changed_rate": 0.018958333333333334,
+   "loose_share_of_changed": 0.7802197802197802,
+   "loose_share_of_changed_ci95": [
+    0.6923076923076923,
+    0.8681318681318682
+   ],
+   "quotes": 4800,
+   "tight_changed_rate": 0.004253509145044662,
+   "tight_changed_rate_ci95": [
+    0.0025429116338207248,
+    0.006191322548097639
+   ],
+   "tight_matches": 4702
+  },
+  "26+": {
+   "changed": 45,
+   "changed_rate": 0.014985014985014986,
+   "loose_share_of_changed": 0.6444444444444445,
+   "loose_share_of_changed_ci95": [
+    0.5111111111111111,
+    0.7777777777777778
+   ],
+   "quotes": 3003,
+   "tight_changed_rate": 0.005398110661268556,
+   "tight_changed_rate_ci95": [
+    0.0030313236780060626,
+    0.008108108108108109
+   ],
+   "tight_matches": 2964
+  },
+  "4-6": {
+   "changed": 1365,
+   "changed_rate": 0.06090215499933074,
+   "loose_share_of_changed": 0.5010989010989011,
+   "loose_share_of_changed_ci95": [
+    0.4739925681255161,
+    0.528343023255814
+   ],
+   "quotes": 22413,
+   "tight_changed_rate": 0.03194183864915572,
+   "tight_changed_rate_ci95": [
+    0.02954693072539213,
+    0.03435329529693909
+   ],
+   "tight_matches": 21320
+  },
+  "7-10": {
+   "changed": 534,
+   "changed_rate": 0.03648537851872096,
+   "loose_share_of_changed": 0.5393258426966292,
+   "loose_share_of_changed_ci95": [
+    0.49719599866739145,
+    0.5820624616927621
+   ],
+   "quotes": 14636,
+   "tight_changed_rate": 0.017556380245503853,
+   "tight_changed_rate_ci95": [
+    0.015318164381376302,
+    0.01993293101513724
+   ],
+   "tight_matches": 14012
+  }
+ },
+ "checker_sha256": "d53b6b46a65024eca6ba5fa5e97d35c35c7da6d3bbe73f5362cb9e268bf15e04",
+ "consistent_with_earlier": true,
+ "dataset_file": "glm47_final.jsonl",
+ "dataset_sha256": "3b5eea942eea3e9d5984675c4d26e89e982868459eaaec7dce09d88761e69494",
+ "explain_sha256": "9f2959daf096d4df4cc9171a9c64d163255291540551f13fb4a8ff26957d14d6",
+ "plan_sha256": "dabd79b73c57ce9b988eaa032ddbd942a4b71ec50056fcf6393805c04f607bd4",
+ "python": "3.12.15",
+ "records_read": 8946,
+ "rows": 8946,
+ "strata": {
+  "long": "11+",
+  "short": "4-6"
+ },
+ "tests": {
+  "A1_tight_changed_rate": {
+   "diff_ci95": [
+    -0.027255167980368644,
+    -0.02173780303898714
+   ],
+   "diff_long_minus_short": -0.02452332984435992,
+   "long": 0.007418508804795804,
+   "long_denom": 13345,
+   "measure": "word-changed rate among tight (similarity >= 0.8) matches (predicted higher for long quotes)",
+   "predicted_sign": 1,
+   "short": 0.03194183864915572,
+   "short_denom": 21320,
+   "verdict": "reversed (short quotes higher)"
+  },
+  "A2_loose_share_of_changed": {
+   "diff_ci95": [
+    0.10159226121454053,
+    0.22360723658210452
+   ],
+   "diff_long_minus_short": 0.16216640502354784,
+   "long": 0.6632653061224489,
+   "long_denom": 294,
+   "measure": "share of changed quotes that are a loose (similarity < 0.8) match (predicted higher for short quotes)",
+   "predicted_sign": -1,
+   "short": 0.5010989010989011,
+   "short_denom": 1365,
+   "verdict": "reversed (long quotes higher)"
+  },
+  "R0_loose_share_all": {
+   "denominator": 2193,
+   "measure": "overall share of changed quotes that are a loose match (reference; audit 2b = 0.532)",
+   "value": 0.5321477428180574,
+   "verdict": "descriptive"
+  }
+ },
+ "totals": {
+  "n": 50742,
+  "prim_tight": 48677,
+  "wc": 2193,
+  "wc_loose": 1167,
+  "wc_tight": 1026
+ }
+}
