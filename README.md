@@ -7,7 +7,7 @@ fixes a spelling or a verb form while copying, the student never sees their own 
 MV2's preregistered studies in [feedback-commons](https://github.com/munimtechnologies/feedback-commons)
 measured this for small local models generating feedback themselves (about 93% of matched quotes exact
 in v5). This repository audits public datasets of AI-written essay feedback instead, starting with
-feedback from a large model.
+feedback from a large model and now extending to six models on a second dataset.
 
 By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; text CC BY 4.0.
 
@@ -75,18 +75,35 @@ By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; 
 - The fixed 0.8 cutoff favours both predicted directions, so it cannot explain either reversal. For a
   checker: show the similarity and the quote length together, not a single tight/loose label.
 
+## Audit 4: six models on a second dataset — the first cross-model check (planned before running, done)
+
+- Data: [FeedType](https://github.com/nia135/FeedType) at commit `ad955eca` (Almousa et al., AIME-Con 2026,
+  arXiv:2609.28026), six LLMs × three prompts on SEFORA university essays (arXiv:2607.00274), CC BY-NC 4.0.
+  Counts only, no essay or feedback text redistributed.
+- Plan: [`PLAN-4.md`](PLAN-4.md). Code: `feedtype.py` (`setup-4.sh` fetches the pinned checker, `audit.py`
+  and `explain.py`, hash-checks them, and waits until the plan is public).
+- **Results: [`RESULTS-4.md`](RESULTS-4.md)** (`feedtype.json` has the counts). **All three predictions
+  held** — the first audit to replicate rather than reverse.
+- Across six models and three prompts, 1.18% of 27,462 primary-set quotes change the student's words (C1,
+  bound 5%). Short quotes change words more than long ones (C3: 2.29% vs 0.68%).
+- Small models change words more than large ones *as a pool* (C2: 3.85% vs 0.81%), but this is driven by
+  LearnLM (21,317 faithful quotes, 0.22%) dragging the large pool down, not by size: Mistral-24B, a larger
+  model, has the highest single-model rate (13.2%). Per-model rates span 0.22% to 13.2%.
+- Teachers in this corpus almost never quote the student verbatim (9 primary quotes in 198 files).
+
 ## How it works
 
 `audit.py` finds every passage the feedback puts in double quotation marks. It sets aside quotes of the
-exam question and suggested rewrites, then checks the rest against the essay with
-`verbatim_quote_check.py`. That file is a copy of feedback-commons `tools/verbatim_quote_check.py`; the
-sealed run downloads it fresh from tag v0.8.0 and records its SHA-256 in the results. The same checker runs
-in the offline [quote-check](https://github.com/munimtechnologies/quote-check) page. Each quote is exact,
-same words (only punctuation, spacing or capitals differ), changed words, or not found. `explain.py` takes
-the same quotes and records the first formatting step after which each one matches the essay. `length.py`
-breaks 1b's classes down by quote length and essay band, `band.py` breaks the band difference down by
-rewrite-cue exclusion and by how tightly each quote matches the essay, and `length_tight.py` breaks that
-tight/loose split down by quote length.
+exam question (or, for FeedType, the teacher comments the model saw) and suggested rewrites, then checks
+the rest against the essay with `verbatim_quote_check.py`. That file is a copy of feedback-commons
+`tools/verbatim_quote_check.py`; the sealed run downloads it fresh from tag v0.8.0 and records its SHA-256
+in the results. The same checker runs in the offline
+[quote-check](https://github.com/munimtechnologies/quote-check) page. Each quote is exact, same words
+(only punctuation, spacing or capitals differ), changed words, or not found. `explain.py` records the
+first formatting step after which each quote matches. `length.py` breaks 1b's classes down by quote length
+and essay band, `band.py` breaks the band difference down by rewrite-cue exclusion and match tightness,
+`length_tight.py` breaks the tight/loose split down by length, and `feedtype.py` runs the same primary-set
+and word-changed logic over the FeedType dataset per model, per prompt and per model-prompt cell.
 
 ```bash
 sh setup.sh
@@ -96,6 +113,7 @@ python explain.py --data glm47_final.jsonl --out explain.json --workers 3
 python length.py --data glm47_final.jsonl --out length.json --workers 3
 python band.py --data glm47_final.jsonl --out band.json --workers 3
 python length_tight.py --data glm47_final.jsonl --out length-tight.json --workers 3
+python feedtype.py --data feedtype.tar.gz --out feedtype.json --workers 3
 ```
 
 Python 3.10+, standard library only.
@@ -105,8 +123,9 @@ Python 3.10+, standard library only.
 Only double-quoted passages are checked. The rule that sets aside suggested rewrites is a heuristic, and
 it misses rewrites marked with bold inside the quote. Similarity is a proxy: no pass here reads quote
 text, so none can tell a suggested phrase from a heavily altered misquote; only a human reading of a sample
-could. The audit covers one model, one exam and one dataset. See PREREG.md, RESULTS.md, PLAN-1b.md,
-RESULTS-1b.md, PLAN-2.md, RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md and RESULTS-3.md.
+could. Audits 1-3 cover one model, one exam and one dataset; audit 4 adds six models on a second dataset
+(FeedType/SEFORA, non-commercial). See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md,
+RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md, RESULTS-3.md, PLAN-4.md and RESULTS-4.md.
 
 ## Licence
 
