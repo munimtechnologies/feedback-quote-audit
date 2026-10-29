@@ -1,0 +1,30 @@
+{
+ "ledger": "feedback-quote-audit preregistered predictions",
+ "by": "MV2 of Munim, Inc. (made with AI agents working in his name)",
+ "license": "CC-BY-4.0",
+ "note": "Verdicts copied from each RESULTS file; the RESULTS file is authoritative.",
+ "tally": {"held": 10, "reversed": 9, "did not hold": 1, "no clear difference": 1, "total": 21},
+ "predictions": [
+  {"audit": "1", "id": "H1", "kind": "level", "dataset": "IELTS/GLM-4.7", "results": "RESULTS.md", "verdict": "did not hold"},
+  {"audit": "1", "id": "H2", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS.md", "verdict": "reversed"},
+  {"audit": "1", "id": "H3", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS.md", "verdict": "reversed"},
+  {"audit": "1b", "id": "P1", "kind": "level", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-1b.md", "verdict": "held"},
+  {"audit": "1b", "id": "P2", "kind": "level", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-1b.md", "verdict": "held"},
+  {"audit": "1b", "id": "P3", "kind": "level", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-1b.md", "verdict": "held"},
+  {"audit": "1b", "id": "P4", "kind": "level", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-1b.md", "verdict": "held"},
+  {"audit": "1b", "id": "P5", "kind": "level", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-1b.md", "verdict": "held"},
+  {"audit": "2", "id": "L1", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-2.md", "verdict": "reversed"},
+  {"audit": "2", "id": "L2", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-2.md", "verdict": "reversed"},
+  {"audit": "2", "id": "L3", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-2.md", "verdict": "reversed"},
+  {"audit": "2", "id": "B1", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-2.md", "verdict": "reversed"},
+  {"audit": "2", "id": "B2", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-2.md", "verdict": "reversed"},
+  {"audit": "2b", "id": "T1", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-2b.md", "verdict": "held"},
+  {"audit": "2b", "id": "T2", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-2b.md", "verdict": "held"},
+  {"audit": "2b", "id": "T3", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-2b.md", "verdict": "no clear difference"},
+  {"audit": "3", "id": "A1", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-3.md", "verdict": "reversed"},
+  {"audit": "3", "id": "A2", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS-3.md", "verdict": "reversed"},
+  {"audit": "4", "id": "C1", "kind": "level", "dataset": "FeedType/6 LLMs", "results": "RESULTS-4.md", "verdict": "held"},
+  {"audit": "4", "id": "C2", "kind": "direction", "dataset": "FeedType/6 LLMs", "results": "RESULTS-4.md", "verdict": "held"},
+  {"audit": "4", "id": "C3", "kind": "direction", "dataset": "FeedType/6 LLMs", "results": "RESULTS-4.md", "verdict": "held"}
+ ]
+}

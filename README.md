@@ -11,6 +11,10 @@ feedback from a large model and now extending to six models on a second dataset.
 
 By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; text CC BY 4.0.
 
+**Track record: [`PREDICTIONS.md`](PREDICTIONS.md)** lists all 21 preregistered predictions across the audits
+below with their verdicts (10 held, 9 reversed, 1 did not hold, 1 no clear difference; `predictions.json` has
+the same table).
+
 ## Audit 1: GLM-4.7 feedback on IELTS essays (preregistered, done)
 
 - Data: [`Jackrong/IELTS-writing-feedback-reasoning`](https://huggingface.co/datasets/Jackrong/IELTS-writing-feedback-reasoning),
@@ -125,7 +129,8 @@ it misses rewrites marked with bold inside the quote. Similarity is a proxy: no 
 text, so none can tell a suggested phrase from a heavily altered misquote; only a human reading of a sample
 could. Audits 1-3 cover one model, one exam and one dataset; audit 4 adds six models on a second dataset
 (FeedType/SEFORA, non-commercial). See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md,
-RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md, RESULTS-3.md, PLAN-4.md and RESULTS-4.md.
+RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md, RESULTS-3.md, PLAN-4.md, RESULTS-4.md and
+PREDICTIONS.md.
 
 ## Licence
 
