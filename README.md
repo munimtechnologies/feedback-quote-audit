@@ -8,6 +8,8 @@ MV2's preregistered studies in [feedback-commons](https://github.com/munimtechno
 measured this for small local models generating feedback themselves (about 93% of matched quotes exact
 in v5). This repository audits public datasets of AI-written essay feedback instead, starting with
 feedback from a large model and now covering three datasets and at least eight generating models.
+Audit 6 goes back to generating feedback, to test one thing published data cannot: what the model is told
+about the student.
 
 By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; text CC BY 4.0.
 
@@ -126,6 +128,21 @@ below with their verdicts (12 held, 9 reversed, 2 did not hold, 1 no clear diffe
   top-ranked: 10.03% vs 2.48%, CI of the difference +3.89 to +11.48 points (G4, exploratory, **held**). On
   this wider set 96.0% of SpecEval's quotes keep the student's words.
 
+## Audit 6: does saying "English language learner" change how AI feedback quotes the student? (preregistered, running)
+
+- Data: [PERSUADE 2.0](https://github.com/scrosseye/persuade_corpus_2.0) (Crossley et al. 2024, CC BY 4.0),
+  grades 6-12 argumentative essays with the school-recorded ELL status. Counts only, no essay or feedback text.
+- Design note and sizing probes: [`groundwork/audit-6/`](groundwork/audit-6/). Plan:
+  [`PLAN-6.md`](PLAN-6.md), committed before any audit-6 feedback was generated. Code: `audit6.py`
+  (`setup-6.sh` fetches the pinned groundwork `fetch.py` and `models.json` and waits until the plan and the
+  code are public; `fetch.py` hash-checks the data and both models).
+- Two small Apache-2.0 open models on CPU (Qwen2.5-1.5B-Instruct, SmolLM2-1.7B-Instruct) write excerpt-JSON
+  feedback on matched pairs: an ELL student's essay with and without one sentence saying the student is an
+  English language learner, and a non-ELL essay with the same writing prompt and score.
+- Predictions, per model: S1, ELL essays get more word-changed excerpts than matched non-ELL essays; L1,
+  the label sentence moves the rate by less than 4 points; C1, short excerpts change words more than long.
+- Results will be in RESULTS-6.md whatever they show.
+
 ## How it works
 
 `audit.py` finds every passage the feedback puts in double quotation marks. It sets aside quotes of the
@@ -140,7 +157,9 @@ and essay band, `band.py` breaks the band difference down by rewrite-cue exclusi
 `length_tight.py` breaks the tight/loose split down by length, `feedtype.py` runs the same primary-set
 and word-changed logic over the FeedType dataset per model, per prompt and per model-prompt cell,
 `speceval.py` runs it over each distinct SpecEval feedback text by its rank in the pairs, and `cues.py`
-splits SpecEval's matched quotes by the kind of cue before them.
+splits SpecEval's matched quotes by the kind of cue before them. `audit6.py` is different: it generates the
+feedback itself with llama-cpp-python, asks for explicit excerpts (so no quote-finding or rewrite filter is
+needed) and classifies each excerpt against its essay.
 
 ```bash
 sh setup.sh
@@ -153,10 +172,13 @@ python length_tight.py --data glm47_final.jsonl --out length-tight.json --worker
 python feedtype.py --data feedtype.tar.gz --out feedtype.json --workers 3
 python speceval.py --data speceval_dataset.json --out speceval.json
 python cues.py --data speceval_dataset.json --out cues.json
+# audit 6 (needs llama-cpp-python 0.3.36 and gdown 6.5.1)
+sh setup-6.sh && python fetch.py --data-dir data --models models.json --paths-out paths.json
+python audit6.py --paths paths.json --models models.json --model qwen2.5-1.5b-instruct-q4_k_m --out audit6-qwen.json
 ```
 
-Python 3.10+, standard library only (`setup-5.sh` and `setup-5b.sh` use gdown to fetch SpecEval from Google
-Drive).
+Python 3.10+, standard library only for audits 1-5b (`setup-5.sh` and `setup-5b.sh` use gdown to fetch
+SpecEval from Google Drive).
 
 ## Limits
 
@@ -166,9 +188,10 @@ aside genuine quotes, which matters most on SpecEval (76% of its matched 4+-word
 them). Similarity is a proxy: no pass here reads quote text, so none can tell a suggested phrase from a
 heavily altered misquote; only a human reading of a sample could. Audits 1-3 cover one model, one exam and
 one dataset; audit 4 adds six models on a second dataset (FeedType/SEFORA, non-commercial); audit 5 adds a
-third (SpecEval/ASAP++). See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md,
-PLAN-2b.md, RESULTS-2b.md, PLAN-3.md, RESULTS-3.md, PLAN-4.md, RESULTS-4.md, PLAN-5.md, RESULTS-5.md,
-PLAN-5b.md, RESULTS-5b.md and PREDICTIONS.md.
+third (SpecEval/ASAP++); audit 6 uses two small CPU models, not the models schools use. See PREREG.md,
+RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md,
+RESULTS-3.md, PLAN-4.md, RESULTS-4.md, PLAN-5.md, RESULTS-5.md, PLAN-5b.md, RESULTS-5b.md, PLAN-6.md and
+PREDICTIONS.md.
 
 ## Licence
 
