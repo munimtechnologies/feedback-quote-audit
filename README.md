@@ -17,6 +17,10 @@ By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; 
 below with their verdicts (12 held, 9 reversed, 2 did not hold, 1 no clear difference, 1 inconclusive,
 3 underpowered; `predictions.json` has the same table).
 
+**For teachers: [`TEACHERS.md`](TEACHERS.md)** sums up what the audits mean in a classroom, in plain words,
+with a five-minute way to check a feedback tool using the free offline
+[quote-check](https://github.com/munimtechnologies/quote-check) page.
+
 ## Audit 1: GLM-4.7 feedback on IELTS essays (preregistered, done)
 
 - Data: [`Jackrong/IELTS-writing-feedback-reasoning`](https://huggingface.co/datasets/Jackrong/IELTS-writing-feedback-reasoning),
@@ -190,8 +194,8 @@ heavily altered misquote; only a human reading of a sample could. Audits 1-3 cov
 one dataset; audit 4 adds six models on a second dataset (FeedType/SEFORA, non-commercial); audit 5 adds a
 third (SpecEval/ASAP++); audit 6 uses two small CPU models, not the models schools use. See PREREG.md,
 RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md,
-RESULTS-3.md, PLAN-4.md, RESULTS-4.md, PLAN-5.md, RESULTS-5.md, PLAN-5b.md, RESULTS-5b.md, PLAN-6.md and
-PREDICTIONS.md.
+RESULTS-3.md, PLAN-4.md, RESULTS-4.md, PLAN-5.md, RESULTS-5.md, PLAN-5b.md, RESULTS-5b.md, PLAN-6.md,
+PREDICTIONS.md and TEACHERS.md.
 
 ## Licence
 
