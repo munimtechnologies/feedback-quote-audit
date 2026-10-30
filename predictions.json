@@ -3,7 +3,7 @@
  "by": "MV2 of Munim, Inc. (made with AI agents working in his name)",
  "license": "CC-BY-4.0",
  "note": "Verdicts copied from each RESULTS file; the RESULTS file is authoritative.",
- "tally": {"held": 10, "reversed": 9, "did not hold": 2, "no clear difference": 1, "underpowered": 2, "total": 24},
+ "tally": {"held": 12, "reversed": 9, "did not hold": 2, "no clear difference": 1, "inconclusive": 1, "underpowered": 3, "total": 28},
  "predictions": [
   {"audit": "1", "id": "H1", "kind": "level", "dataset": "IELTS/GLM-4.7", "results": "RESULTS.md", "verdict": "did not hold"},
   {"audit": "1", "id": "H2", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS.md", "verdict": "reversed"},
@@ -28,6 +28,10 @@
   {"audit": "4", "id": "C3", "kind": "direction", "dataset": "FeedType/6 LLMs", "results": "RESULTS-4.md", "verdict": "held"},
   {"audit": "5", "id": "E1", "kind": "level", "dataset": "SpecEval/FeedEval", "results": "RESULTS-5.md", "verdict": "did not hold"},
   {"audit": "5", "id": "E2", "kind": "direction", "dataset": "SpecEval/FeedEval", "results": "RESULTS-5.md", "verdict": "underpowered"},
-  {"audit": "5", "id": "E3", "kind": "margin", "dataset": "SpecEval/FeedEval", "results": "RESULTS-5.md", "verdict": "underpowered"}
+  {"audit": "5", "id": "E3", "kind": "margin", "dataset": "SpecEval/FeedEval", "results": "RESULTS-5.md", "verdict": "underpowered"},
+  {"audit": "5b", "id": "G1", "kind": "count", "dataset": "SpecEval/FeedEval", "results": "RESULTS-5b.md", "verdict": "held"},
+  {"audit": "5b", "id": "G2", "kind": "equivalence", "dataset": "SpecEval/FeedEval", "results": "RESULTS-5b.md", "verdict": "inconclusive"},
+  {"audit": "5b", "id": "G3", "kind": "direction", "dataset": "SpecEval/FeedEval", "results": "RESULTS-5b.md", "verdict": "underpowered"},
+  {"audit": "5b", "id": "G4", "kind": "direction", "exploratory": true, "dataset": "SpecEval/FeedEval", "results": "RESULTS-5b.md", "verdict": "held"}
  ]
 }

@@ -3,29 +3,32 @@
 By MV2 of Munim, Inc. Made with AI agents working in his name. Text CC BY 4.0.
 
 Each audit here wrote its predictions into a plan committed before its sealed run read any quote. This page
-puts all 24 of them in one place, with the verdict exactly as its RESULTS file states it, so nobody has to
-read seven reports to see the track record. Numbers are copied from the RESULTS files; where this page and a
+puts all 28 of them in one place, with the verdict exactly as its RESULTS file states it, so nobody has to
+read eight reports to see the track record. Numbers are copied from the RESULTS files; where this page and a
 RESULTS file disagree, the RESULTS file is right. `predictions.json` holds the same table.
 
 ## Tally
 
 | Verdict | Count |
 |---|---|
-| held | 10 |
+| held | 12 |
 | reversed (the whole 95% CI on the opposite side) | 9 |
 | did not hold (level target missed, not a direction) | 2 |
 | no clear difference (CI spans zero) | 1 |
-| underpowered (too few quotes for the plan's floor; no verdict) | 2 |
-| **Total** | **24** |
+| inconclusive (equivalence test: CI neither inside nor outside the band) | 1 |
+| underpowered (too few quotes for the plan's floor; no verdict) | 3 |
+| **Total** | **28** |
 
 Audits 1-3 (one model, GLM-4.7, on one IELTS dataset, including 1b and 2b) got their *direction* wrong 9
 times out of 12 direction predictions (2 held, 1 no clear difference). Their other 6 predictions were levels
 or ranges: 1b's five held, but 1b's plan was written after audit 1's results were known and is labelled
 exploratory, and audit 1's H1 did not hold. Audit 4, on an independent dataset with six models, held all
 three. Audit 5, on a third dataset, missed its level target narrowly (6.17% against a 5% bound) and had too
-few quotes to test its two comparisons.
+few quotes to test its two comparisons. Follow-up 5b found that audit 5's filter had set most of the quoting
+aside; on the wider set, its exploratory G4 held.
 The patterns that replicated across datasets: most quotes keep the student's words, and short quotes change
-words more often than long ones (tested and held in audits 2-4; same direction but underpowered in audit 5).
+words more often than long ones (tested and held in audits 2-4; same direction but underpowered in audit 5,
+and same direction descriptively on 5b's wider set).
 
 ## Audit 1: GLM-4.7 feedback on 8,946 IELTS essays ([PREREG.md](PREREG.md), [RESULTS.md](RESULTS.md))
 
@@ -95,16 +98,30 @@ Only 0.60% of SpecEval's 71,586 distinct feedback texts contain a primary-set qu
 under the plan's floor of 100 quotes a side. E3's point estimate leans against the prediction (top-ranked
 feedback changed fewer words), but it gets no verdict.
 
+## Follow-up 5b: what the rewrite-cue filter set aside in SpecEval ([PLAN-5b.md](PLAN-5b.md), [RESULTS-5b.md](RESULTS-5b.md))
+
+| ID | Prediction | Observed | Verdict |
+|---|---|---|---|
+| G1 | Quotes behind citation cues only ("for example", "such as", "e.g.") are at least as many as primary quotes | 1,546 vs 519 | held |
+| G2 | Cited quotes change words at a rate within 3 points of primary quotes (whole CI inside the band) | 3.23% vs 6.17%, diff -2.93 pts (CI -5.26 to -0.66) | inconclusive |
+| G3 | Edit-cued quotes change words more often than cited quotes | 36.46% vs 3.23%, diff +33.22 pts (CI +24.01 to +42.61); 96 edit-cued quotes | underpowered |
+| G4 | (exploratory) On primary + cited quotes, bottom-ranked feedback changes words more than top-ranked | 10.03% vs 2.48%, diff +7.55 pts (CI +3.89 to +11.48) | held |
+
+G4's direction was chosen after audit 5's E3 was seen and it reuses E3's essays, so it is exploratory, not a
+replication.
+
 ## What the record says
 
 - Point and direction guesses from intuition were unreliable on a single model: in audits 1-3, nine of
   twelve direction predictions came out reversed.
 - The findings that held across datasets are the useful ones for a checker: most quotes keep the student's
-  words (IELTS 4.3% word-changed after formatting; FeedType 1.18%; SpecEval 6.17%), and short quotes are where
-  word changes concentrate (audits 2, 3 and 4).
+  words (IELTS 4.3% word-changed after formatting; FeedType 1.18%; SpecEval 6.17% on audit 5's narrow set and
+  3.97% on 5b's wider set), and short quotes are where word changes concentrate (audits 2, 3 and 4).
 - Model matters more than size: per-model word-changed rates on FeedType span 0.22% to 13.2%.
 - Feedback that quotes rarely gives little to test: a power floor fixed in advance is what stopped audit 5
   from over-reading 16 changed quotes.
+- A filter carried from one dataset to another needs checking: audit 1's rewrite cue list set aside three
+  quarters of SpecEval's matched quotes, almost all for a "for example" or "such as" in front of them.
 
 Limits are those of each audit: double quotes only, a heuristic for suggested rewrites, and similarity as a
 proxy that no counts-only pass can replace with human reading.

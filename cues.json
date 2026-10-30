@@ -1,0 +1,397 @@
+{
+ "audit_sha256": "028c0d8d337f6ff07681bc7ee7c5d35b143c7cde645ae658b95f777df864965c",
+ "by_rank": {
+  "bottom": {
+   "cited": {
+    "long_rate": 0.08163265306122448,
+    "loose_share_of_changed": 0.2857142857142857,
+    "short_rate": 0.10714285714285714,
+    "word_changed_rate": 0.09333333333333334,
+    "word_changed_rate_ci95": [
+     0.05726872246696035,
+     0.13275046683445635
+    ]
+   },
+   "counts": {
+    "feedback": 29856,
+    "matched4": 315,
+    "n_cited": 225,
+    "n_edit": 16,
+    "n_long_cited": 49,
+    "n_long_edit": 1,
+    "n_long_primary": 2,
+    "n_long_wide": 51,
+    "n_primary": 74,
+    "n_short_cited": 112,
+    "n_short_edit": 13,
+    "n_short_primary": 52,
+    "n_short_wide": 164,
+    "n_wide": 299,
+    "quotes": 3792,
+    "texts_cited": 207,
+    "texts_edit": 15,
+    "texts_primary": 64,
+    "texts_wide": 268,
+    "wc_cited": 21,
+    "wc_edit": 3,
+    "wc_long_cited": 4,
+    "wc_long_edit": 0,
+    "wc_long_primary": 0,
+    "wc_long_wide": 4,
+    "wc_loose_cited": 6,
+    "wc_loose_edit": 0,
+    "wc_loose_primary": 1,
+    "wc_loose_wide": 7,
+    "wc_primary": 9,
+    "wc_short_cited": 12,
+    "wc_short_edit": 3,
+    "wc_short_primary": 8,
+    "wc_short_wide": 20,
+    "wc_wide": 30
+   },
+   "edit": {
+    "long_rate": 0.0,
+    "loose_share_of_changed": 0.0,
+    "short_rate": 0.23076923076923078,
+    "word_changed_rate": 0.1875,
+    "word_changed_rate_ci95": [
+     0.0,
+     0.375
+    ]
+   },
+   "essays": 10398,
+   "primary": {
+    "long_rate": 0.0,
+    "loose_share_of_changed": 0.1111111111111111,
+    "short_rate": 0.15384615384615385,
+    "word_changed_rate": 0.12162162162162163,
+    "word_changed_rate_ci95": [
+     0.04225352112676056,
+     0.2112984154929573
+    ]
+   },
+   "wide": {
+    "long_rate": 0.0784313725490196,
+    "loose_share_of_changed": 0.23333333333333334,
+    "short_rate": 0.12195121951219512,
+    "word_changed_rate": 0.10033444816053512,
+    "word_changed_rate_ci95": [
+     0.06578947368421052,
+     0.13782327586206894
+    ]
+   }
+  },
+  "middle": {
+   "cited": {
+    "long_rate": 0.014705882352941176,
+    "loose_share_of_changed": 0.16666666666666666,
+    "short_rate": 0.03282275711159737,
+    "word_changed_rate": 0.022443890274314215,
+    "word_changed_rate_ci95": [
+     0.012437810945273632,
+     0.03379224030037547
+    ]
+   },
+   "counts": {
+    "feedback": 11874,
+    "matched4": 1084,
+    "n_cited": 802,
+    "n_edit": 44,
+    "n_long_cited": 136,
+    "n_long_edit": 2,
+    "n_long_primary": 28,
+    "n_long_wide": 164,
+    "n_primary": 238,
+    "n_short_cited": 457,
+    "n_short_edit": 32,
+    "n_short_primary": 153,
+    "n_short_wide": 610,
+    "n_wide": 1040,
+    "quotes": 5728,
+    "texts_cited": 684,
+    "texts_edit": 42,
+    "texts_primary": 196,
+    "texts_wide": 853,
+    "wc_cited": 18,
+    "wc_edit": 20,
+    "wc_long_cited": 2,
+    "wc_long_edit": 0,
+    "wc_long_primary": 0,
+    "wc_long_wide": 2,
+    "wc_loose_cited": 3,
+    "wc_loose_edit": 13,
+    "wc_loose_primary": 4,
+    "wc_loose_wide": 7,
+    "wc_primary": 16,
+    "wc_short_cited": 15,
+    "wc_short_edit": 20,
+    "wc_short_primary": 15,
+    "wc_short_wide": 30,
+    "wc_wide": 34
+   },
+   "edit": {
+    "long_rate": 0.0,
+    "loose_share_of_changed": 0.65,
+    "short_rate": 0.625,
+    "word_changed_rate": 0.45454545454545453,
+    "word_changed_rate_ci95": [
+     0.3181818181818182,
+     0.5952380952380952
+    ]
+   },
+   "essays": 6013,
+   "primary": {
+    "long_rate": 0.0,
+    "loose_share_of_changed": 0.25,
+    "short_rate": 0.09803921568627451,
+    "word_changed_rate": 0.06722689075630252,
+    "word_changed_rate_ci95": [
+     0.0375,
+     0.10126721686276695
+    ]
+   },
+   "wide": {
+    "long_rate": 0.012195121951219513,
+    "loose_share_of_changed": 0.20588235294117646,
+    "short_rate": 0.04918032786885246,
+    "word_changed_rate": 0.032692307692307694,
+    "word_changed_rate_ci95": [
+     0.022157996146435453,
+     0.04410354745925216
+    ]
+   }
+  },
+  "top": {
+   "cited": {
+    "long_rate": 0.009615384615384616,
+    "loose_share_of_changed": 0.18181818181818182,
+    "short_rate": 0.03496503496503497,
+    "word_changed_rate": 0.02119460500963391,
+    "word_changed_rate_ci95": [
+     0.00945179584120983,
+     0.03612167300380228
+    ]
+   },
+   "counts": {
+    "feedback": 29856,
+    "matched4": 762,
+    "n_cited": 519,
+    "n_edit": 36,
+    "n_long_cited": 104,
+    "n_long_edit": 2,
+    "n_long_primary": 26,
+    "n_long_wide": 130,
+    "n_primary": 207,
+    "n_short_cited": 286,
+    "n_short_edit": 29,
+    "n_short_primary": 128,
+    "n_short_wide": 414,
+    "n_wide": 726,
+    "quotes": 4893,
+    "texts_cited": 434,
+    "texts_edit": 32,
+    "texts_primary": 173,
+    "texts_wide": 580,
+    "wc_cited": 11,
+    "wc_edit": 12,
+    "wc_long_cited": 1,
+    "wc_long_edit": 0,
+    "wc_long_primary": 2,
+    "wc_long_wide": 3,
+    "wc_loose_cited": 2,
+    "wc_loose_edit": 10,
+    "wc_loose_primary": 0,
+    "wc_loose_wide": 2,
+    "wc_primary": 7,
+    "wc_short_cited": 10,
+    "wc_short_edit": 11,
+    "wc_short_primary": 4,
+    "wc_short_wide": 14,
+    "wc_wide": 18
+   },
+   "edit": {
+    "long_rate": 0.0,
+    "loose_share_of_changed": 0.8333333333333334,
+    "short_rate": 0.3793103448275862,
+    "word_changed_rate": 0.3333333333333333,
+    "word_changed_rate_ci95": [
+     0.19444444444444445,
+     0.47368421052631576
+    ]
+   },
+   "essays": 10398,
+   "primary": {
+    "long_rate": 0.07692307692307693,
+    "loose_share_of_changed": 0.0,
+    "short_rate": 0.03125,
+    "word_changed_rate": 0.033816425120772944,
+    "word_changed_rate_ci95": [
+     0.01020408163265306,
+     0.06000462962962956
+    ]
+   },
+   "wide": {
+    "long_rate": 0.023076923076923078,
+    "loose_share_of_changed": 0.1111111111111111,
+    "short_rate": 0.033816425120772944,
+    "word_changed_rate": 0.024793388429752067,
+    "word_changed_rate_ci95": [
+     0.013793103448275862,
+     0.03719599427753934
+    ]
+   }
+  }
+ },
+ "checker_sha256": "d53b6b46a65024eca6ba5fa5e97d35c35c7da6d3bbe73f5362cb9e268bf15e04",
+ "dataset_file": "speceval_dataset.json",
+ "dataset_sha256": "3d7e88527155194cbf597a9de75ee06d45b79871a68a06bbb6ab04f089bd996b",
+ "essay_text_conflicts": 0,
+ "essays": 10398,
+ "explain_sha256": "9f2959daf096d4df4cc9171a9c64d163255291540551f13fb4a8ff26957d14d6",
+ "feedback_texts": 71586,
+ "plan_sha256": "a676def6c349a13771ab30786993bd6cf7aee6fbb044d03ff1079b354e328437",
+ "pooled": {
+  "cited": {
+   "long_rate": 0.02422145328719723,
+   "loose_share_of_changed": 0.22,
+   "short_rate": 0.04327485380116959,
+   "word_changed_rate": 0.03234152652005175,
+   "word_changed_rate_ci95": [
+    0.023746701846965697,
+    0.041557413986781255
+   ]
+  },
+  "counts": {
+   "feedback": 71586,
+   "matched4": 2161,
+   "n_cited": 1546,
+   "n_edit": 96,
+   "n_long_cited": 289,
+   "n_long_edit": 5,
+   "n_long_primary": 56,
+   "n_long_wide": 345,
+   "n_primary": 519,
+   "n_short_cited": 855,
+   "n_short_edit": 74,
+   "n_short_primary": 333,
+   "n_short_wide": 1188,
+   "n_wide": 2065,
+   "quotes": 14413,
+   "texts_cited": 1325,
+   "texts_edit": 89,
+   "texts_primary": 433,
+   "texts_wide": 1701,
+   "wc_cited": 50,
+   "wc_edit": 35,
+   "wc_long_cited": 7,
+   "wc_long_edit": 0,
+   "wc_long_primary": 2,
+   "wc_long_wide": 9,
+   "wc_loose_cited": 11,
+   "wc_loose_edit": 23,
+   "wc_loose_primary": 5,
+   "wc_loose_wide": 16,
+   "wc_primary": 32,
+   "wc_short_cited": 37,
+   "wc_short_edit": 34,
+   "wc_short_primary": 27,
+   "wc_short_wide": 64,
+   "wc_wide": 82
+  },
+  "edit": {
+   "long_rate": 0.0,
+   "loose_share_of_changed": 0.6571428571428571,
+   "short_rate": 0.4594594594594595,
+   "word_changed_rate": 0.3645833333333333,
+   "word_changed_rate_ci95": [
+    0.2765957446808511,
+    0.4574468085106383
+   ]
+  },
+  "essays": 10398,
+  "primary": {
+   "long_rate": 0.03571428571428571,
+   "loose_share_of_changed": 0.15625,
+   "short_rate": 0.08108108108108109,
+   "word_changed_rate": 0.06165703275529865,
+   "word_changed_rate_ci95": [
+    0.04109461255367001,
+    0.08382066276803118
+   ]
+  },
+  "wide": {
+   "long_rate": 0.02608695652173913,
+   "loose_share_of_changed": 0.1951219512195122,
+   "short_rate": 0.05387205387205387,
+   "word_changed_rate": 0.03970944309927361,
+   "word_changed_rate_ci95": [
+    0.03139839961847681,
+    0.04876922810421285
+   ]
+  }
+ },
+ "python": "3.12.15",
+ "records": 41730,
+ "rows": 26809,
+ "sha256_as_probed": true,
+ "skipped_records": 0,
+ "speceval_sha256": "2286209befde8407c1a4a20330b2d0c0d265890c42d35016b60186fe12e18a4f",
+ "splits": {
+  "test": 4173,
+  "train": 37557
+ },
+ "tests": {
+  "G1_cited_vs_primary_count": {
+   "cited": 1546,
+   "measure": "matched 4+-word quotes: cited set size vs primary set size",
+   "primary": 519,
+   "verdict": "held"
+  },
+  "G2_cited_vs_primary_rate": {
+   "band": 0.03,
+   "cited": 0.03234152652005175,
+   "denominators": [
+    1546,
+    519
+   ],
+   "diff": -0.029315506235246903,
+   "diff_ci95": [
+    -0.052637855397636074,
+    -0.0066218183895517015
+   ],
+   "measure": "word-changed rate, cited minus primary quotes (paired by essay)",
+   "primary": 0.06165703275529865,
+   "verdict": "inconclusive"
+  },
+  "G3_edit_vs_cited": {
+   "cited": 0.03234152652005175,
+   "denominators": [
+    96,
+    1546
+   ],
+   "diff": 0.3322418068132816,
+   "diff_ci95": [
+    0.24006859741038017,
+    0.42607004821804767
+   ],
+   "edit-cued": 0.3645833333333333,
+   "measure": "word-changed rate, edit-cued minus cited quotes (paired by essay)",
+   "verdict": "underpowered (fewer than 100 quotes on a side)"
+  },
+  "G4_bottom_vs_top_wide": {
+   "bottom-ranked": 0.10033444816053512,
+   "denominators": [
+    299,
+    726
+   ],
+   "diff": 0.07554105973078305,
+   "diff_ci95": [
+    0.03894085637547148,
+    0.11477042530134272
+   ],
+   "measure": "word-changed rate on primary + cited quotes, bottom-ranked minus top-ranked feedback (paired by essay)",
+   "top-ranked": 0.024793388429752067,
+   "verdict": "held (bottom-ranked higher)"
+  }
+ }
+}
