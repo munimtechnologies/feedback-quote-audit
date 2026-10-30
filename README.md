@@ -95,6 +95,20 @@ the same table).
   model, has the highest single-model rate (13.2%). Per-model rates span 0.22% to 13.2%.
 - Teachers in this corpus almost never quote the student verbatim (9 primary quotes in 198 files).
 
+## Audit 5: does feedback ranked "more specific" quote more faithfully? (planned, running)
+
+- Data: SpecEval (`speceval_dataset.json`, SHA-256 `3d7e8852…`), the specificity preference set released with
+  [FeedEval](https://github.com/BBeeChu/FeedEval) (Chu, Kim and Yi, ACL Findings 2026, arXiv:2601.04574):
+  about 41K chosen/rejected pairs of LLM feedback on ASAP++ student essays, ranked by a specificity score that
+  counts the essay passages the feedback quotes. Counts only, no essay or feedback text redistributed.
+- Plan: [`PLAN-5.md`](PLAN-5.md), committed before any quote was checked. Code: `speceval.py` (`setup-5.sh`
+  fetches the pinned checker, `audit.py` and `explain.py`, hash-checks them and the data, and waits until the
+  plan is public).
+- Predictions: E1 the pooled word-changed rate is at most 5% (third dataset); E2 short quotes change words
+  more than long ones; E3 (new) feedback the specificity ranking puts on top is not more faithful to the
+  student's words than the feedback it puts at the bottom (margin 1 point). Results will be posted as
+  RESULTS-5.md whether they hold or not.
+
 ## How it works
 
 `audit.py` finds every passage the feedback puts in double quotation marks. It sets aside quotes of the
@@ -106,8 +120,9 @@ in the results. The same checker runs in the offline
 (only punctuation, spacing or capitals differ), changed words, or not found. `explain.py` records the
 first formatting step after which each quote matches. `length.py` breaks 1b's classes down by quote length
 and essay band, `band.py` breaks the band difference down by rewrite-cue exclusion and match tightness,
-`length_tight.py` breaks the tight/loose split down by length, and `feedtype.py` runs the same primary-set
-and word-changed logic over the FeedType dataset per model, per prompt and per model-prompt cell.
+`length_tight.py` breaks the tight/loose split down by length, `feedtype.py` runs the same primary-set
+and word-changed logic over the FeedType dataset per model, per prompt and per model-prompt cell, and
+`speceval.py` runs it over each distinct SpecEval feedback text by its rank in the pairs.
 
 ```bash
 sh setup.sh
@@ -118,9 +133,10 @@ python length.py --data glm47_final.jsonl --out length.json --workers 3
 python band.py --data glm47_final.jsonl --out band.json --workers 3
 python length_tight.py --data glm47_final.jsonl --out length-tight.json --workers 3
 python feedtype.py --data feedtype.tar.gz --out feedtype.json --workers 3
+python speceval.py --data speceval_dataset.json --out speceval.json
 ```
 
-Python 3.10+, standard library only.
+Python 3.10+, standard library only (`setup-5.sh` uses gdown to fetch SpecEval from Google Drive).
 
 ## Limits
 
@@ -128,9 +144,9 @@ Only double-quoted passages are checked. The rule that sets aside suggested rewr
 it misses rewrites marked with bold inside the quote. Similarity is a proxy: no pass here reads quote
 text, so none can tell a suggested phrase from a heavily altered misquote; only a human reading of a sample
 could. Audits 1-3 cover one model, one exam and one dataset; audit 4 adds six models on a second dataset
-(FeedType/SEFORA, non-commercial). See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md,
-RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md, RESULTS-3.md, PLAN-4.md, RESULTS-4.md and
-PREDICTIONS.md.
+(FeedType/SEFORA, non-commercial); audit 5 adds a third (SpecEval/ASAP++). See PREREG.md, RESULTS.md,
+PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md, RESULTS-3.md,
+PLAN-4.md, RESULTS-4.md, PLAN-5.md and PREDICTIONS.md.
 
 ## Licence
 
