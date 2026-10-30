@@ -111,6 +111,19 @@ below with their verdicts (10 held, 9 reversed, 2 did not hold, 1 no clear diffe
 - Descriptively, top-ranked feedback changed fewer words than bottom-ranked (3.4% vs 12.2%), and 27 of the
   32 changed quotes are close copies with a word altered. Neither is a verdict.
 
+## Follow-up 5b: what the rewrite-cue filter set aside in SpecEval (planned before running, running)
+
+- Plan: [`PLAN-5b.md`](PLAN-5b.md), written after audit 5's counts were known and committed before this pass
+  counts anything. Code: `cues.py` (`setup-5b.sh` fetches the pinned checker, `audit.py`, `explain.py` and
+  audit 5's `speceval.py`, hash-checks the data, and waits until the plan is public).
+- Audit 1's rewrite-cue rule set aside 79% of SpecEval's quoted passages, and its cue list includes "for
+  example", "such as" and "e.g.", which also introduce genuine quotes. This pass splits matched 4+-word quotes
+  into primary (no cue), cited (citation cues only) and edit-cued sets.
+- Predictions: G1 the cited set is at least as large as the primary set; G2 cited quotes change words at a
+  rate within 3 points of primary quotes; G3 edit-cued quotes change words more than cited ones; G4
+  (exploratory) on primary + cited quotes, bottom-ranked feedback changes words more than top-ranked.
+  Results will be posted as RESULTS-5b.md whether they hold or not.
+
 ## How it works
 
 `audit.py` finds every passage the feedback puts in double quotation marks. It sets aside quotes of the
@@ -123,8 +136,9 @@ in the results. The same checker runs in the offline
 first formatting step after which each quote matches. `length.py` breaks 1b's classes down by quote length
 and essay band, `band.py` breaks the band difference down by rewrite-cue exclusion and match tightness,
 `length_tight.py` breaks the tight/loose split down by length, `feedtype.py` runs the same primary-set
-and word-changed logic over the FeedType dataset per model, per prompt and per model-prompt cell, and
-`speceval.py` runs it over each distinct SpecEval feedback text by its rank in the pairs.
+and word-changed logic over the FeedType dataset per model, per prompt and per model-prompt cell,
+`speceval.py` runs it over each distinct SpecEval feedback text by its rank in the pairs, and `cues.py`
+splits SpecEval's matched quotes by the kind of cue before them.
 
 ```bash
 sh setup.sh
@@ -136,20 +150,23 @@ python band.py --data glm47_final.jsonl --out band.json --workers 3
 python length_tight.py --data glm47_final.jsonl --out length-tight.json --workers 3
 python feedtype.py --data feedtype.tar.gz --out feedtype.json --workers 3
 python speceval.py --data speceval_dataset.json --out speceval.json
+python cues.py --data speceval_dataset.json --out cues.json
 ```
 
-Python 3.10+, standard library only (`setup-5.sh` uses gdown to fetch SpecEval from Google Drive).
+Python 3.10+, standard library only (`setup-5.sh` and `setup-5b.sh` use gdown to fetch SpecEval from Google
+Drive).
 
 ## Limits
 
 Only double-quoted passages are checked. The rule that sets aside suggested rewrites is a heuristic: it
 misses rewrites marked with bold inside the quote, and its cue list ("for example", "such as") also sets
-aside some genuine quotes, which matters most on SpecEval (79% of its quoted passages). Similarity is a
-proxy: no pass here reads quote text, so none can tell a suggested phrase from a heavily altered misquote;
-only a human reading of a sample could. Audits 1-3 cover one model, one exam and one dataset; audit 4 adds
-six models on a second dataset (FeedType/SEFORA, non-commercial); audit 5 adds a third (SpecEval/ASAP++).
-See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md,
-PLAN-3.md, RESULTS-3.md, PLAN-4.md, RESULTS-4.md, PLAN-5.md, RESULTS-5.md and PREDICTIONS.md.
+aside some genuine quotes, which matters most on SpecEval (79% of its quoted passages; follow-up 5b counts
+them). Similarity is a proxy: no pass here reads quote text, so none can tell a suggested phrase from a
+heavily altered misquote; only a human reading of a sample could. Audits 1-3 cover one model, one exam and
+one dataset; audit 4 adds six models on a second dataset (FeedType/SEFORA, non-commercial); audit 5 adds a
+third (SpecEval/ASAP++). See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md,
+PLAN-2b.md, RESULTS-2b.md, PLAN-3.md, RESULTS-3.md, PLAN-4.md, RESULTS-4.md, PLAN-5.md, RESULTS-5.md,
+PLAN-5b.md and PREDICTIONS.md.
 
 ## Licence
 
