@@ -1,0 +1,183 @@
+{
+ "category_counts_per_essay": {
+  "assignment": {
+   "In \"The Challenge of Exploring Venus,\" the author suggests studying Venus is a worthy pursuit despite the dangers it presents. Using details from the article, write an essay evaluating how well the author supports this idea. Be sure to include: a claim that evaluates how well the author supports the idea that studying Venus is a worthy pursuit despite the dangers; an explanation of the evidence from the article that supports your claim; an introduction, a body, and a conclusion to your essay.": 928,
+   "In the article \"Making Mona Lisa Smile,\" the author describes how a new technology called the Facial Action Coding System enables computers to identify human emotions. Using details from the article, write an essay arguing whether the use of this technology to read the emotional expressions of students in a classroom is valuable.": 1103,
+   "In the article \u201cDriverless Cars are Coming,\u201d the author presents both positive and negative aspects of driverless cars. Using details from the article, create an argument for or against the development of these cars.  Be sure to include: your position on driverless cars; appropriate details from the article that support your position; an introduction, a body, and a conclusion to your argumentative essay.": 1386,
+   "Some of your friends perform community service. For example, some tutor elementary school children and others clean up litter. They think helping the community is very important. But other friends of yours think community service takes too much time away from what they need or want to do. \nYour principal is deciding whether to require all students to perform community service. \nWrite a letter to your principal in which you take a position on whether students should be required to perform community service. Support your position with examples.": 768,
+   "Some schools offer distance learning as an option for students to attend classes from home by way of online or video conferencing. Do you think students would benefit from being able to attend classes from home? Take a position on this issue. Support your response with reasons and examples.": 1498,
+   "Some schools require students to complete summer projects to assure they continue learning during their break. Should these summer projects be teacher-designed or student-designed? Take a position on this question. Support your response with reasons and specific examples.": 875,
+   "Today the majority of humans own and operate cell phones on a daily basis. In essay form, explain if drivers should or should not be able to use cell phones in any capacity while operating a vehicle.": 701,
+   "When people ask for advice, they sometimes talk to more than one person. Explain why seeking multiple opinions can help someone make a better choice. Use specific details and examples in your response.": 1544,
+   "Write a letter to your state senator in which you argue in favor of keeping the Electoral College or changing to election by popular vote for the president of the United States. Use the information from the texts in your essay. Manage your time carefully so that you can read the passages; plan your response; write your response; and revise and edit your response. Be sure to include a claim; address counterclaims; use evidence from multiple sources; and avoid overly relying on one source. Your response should be in the form of a multiparagraph essay. Write your response in the space provided.": 1818,
+   "Write an explanatory essay to inform fellow citizens about the advantages of limiting car usage. Your essay must be based on ideas and information that can be found in the passage set. Manage your time carefully so that you can read the passages; plan your response; write your response; and revise and edit your response. Be sure to use evidence from multiple sources; and avoid overly relying on one source. Your response should be in the form of a multiparagraph essay. Write your essay in the space provided.": 983,
+   "You have just read the article, 'A Cowboy Who Rode the Waves.' Luke's participation in the Seagoing Cowboys program allowed him to experience adventures and visit many unique places. Using information from the article, write an argument from Luke's point of view convincing others to participate in the Seagoing Cowboys program. Be sure to include: reasons to join the program; details from the article to support Luke's claims; an introduction, a body, and a conclusion to your essay.": 688,
+   "You have read the article 'Unmasking the Face on Mars.' Imagine you are a scientist at NASA discussing the Face with someone who thinks it was created by aliens. Using information in the article, write an argumentative essay to convince someone that the Face is just a natural landform.Be sure to include: claims to support your argument that the Face is a natural landform; evidence from the article to support your claims; an introduction, a body, and a conclusion to your argumentative essay.": 819,
+   "Your principal has decided that all students must participate in at least one extracurricular activity. For example, students could participate in sports, work on the yearbook, or serve on the student council. Do you agree or disagree with this decision? Use specific details and examples to convince others to support your position. ": 839,
+   "Your principal is considering changing school policy so that students may not participate in sports or other activities unless they have at least a grade B average. Many students have a grade C average. \nShe would like to hear the students' views on this possible policy change. Write a letter to your principal arguing for or against requiring at least a grade B average to participate in sports or other activities. Be sure to support your arguments with specific reasons.": 815,
+   "Your principal is reconsidering the school's cell phone policy. She is considering two possible policies: \nPolicy 1: Allow students to bring phones to school and use them during lunch periods and other free times, as long as the phones are turned off during class time. \nPolicy 2: Do not allow students to have phones at school at all.\nWrite a letter to your principal convincing her which policy you believe is better. Support your position with specific reasons.": 829
+  },
+  "competition_set": {
+   "train": 15594
+  },
+  "discourse_effectiveness": {
+   "": 3990,
+   "Adequate": 9043,
+   "Effective": 1921,
+   "Ineffective": 640
+  },
+  "discourse_type": {
+   "Claim": 153,
+   "Concluding Statement": 1,
+   "Counterclaim": 12,
+   "Evidence": 233,
+   "Lead": 7606,
+   "Position": 3599,
+   "Unannotated": 3990
+  },
+  "economically_disadvantaged": {
+   "": 3534,
+   "Economically disadvantaged": 5391,
+   "Not economically disadvantaged": 6669
+  },
+  "ell_status": {
+   "": 722,
+   " ": 75,
+   "No": 13467,
+   "Yes": 1330
+  },
+  "gender": {
+   "F": 7882,
+   "M": 7712
+  },
+  "grade_level": {
+   "": 701,
+   "10": 4654,
+   "11": 1863,
+   "12": 243,
+   "6": 688,
+   "8": 5614,
+   "9": 1831
+  },
+  "hierarchical_label": {
+   "": 15352,
+   "Claim": 43,
+   "Counterclaim": 2,
+   "Position": 197
+  },
+  "holistic_essay_score": {
+   "1": 610,
+   "2": 3218,
+   "3": 4943,
+   "4": 4194,
+   "5": 2082,
+   "6": 547
+  },
+  "prompt_name": {
+   "\"A Cowboy Who Rode the Waves\"": 688,
+   "Car-free cities": 983,
+   "Cell phones at school": 829,
+   "Community service": 768,
+   "Distance learning": 1498,
+   "Does the electoral college work?": 1818,
+   "Driverless cars": 1386,
+   "Exploring Venus": 928,
+   "Facial action coding system": 1103,
+   "Grades for extracurricular activities": 815,
+   "Mandatory extracurricular activities": 839,
+   "Phones and driving": 701,
+   "Seeking multiple opinions": 1544,
+   "Summer projects": 875,
+   "The Face on Mars": 819
+  },
+  "provider": {
+   "Florida": 2801,
+   "Georgia Virtual": 701,
+   "Indiana": 4924,
+   "NCES": 2412,
+   "Virginia": 4756
+  },
+  "race_ethnicity": {
+   "American Indian/Alaskan Native": 68,
+   "Asian/Pacific Islander": 1072,
+   "Black/African American": 2975,
+   "Hispanic/Latino": 3869,
+   "Two or more races/Other": 598,
+   "White": 7012
+  },
+  "source_text": {
+   "": 7869,
+   "\"A Cowboy Who Rode the Waves\"": 688,
+   "\"Driverless Cars are Coming\"": 1386,
+   "\"Making Mona Lisa Smile\", by Nick D'Alto": 1103,
+   "\"The Challenge of Exploring Venus\"": 928,
+   "\"Unmasking the Face on Mars\"": 819,
+   "Source 1: \"In German Suburb, Life Goes On Without Cars,\" by Elisabeth Rosenthal \n Source 2: \"Paris bans driving due to smog,\" by Robert Duffer \n Source 3: \"Car-free day is spinning into a big hit in Bogota,\" by Andrew Selsky \n Source 4: \"The end of car culture,\" by Elisabeth Rosenthal": 983,
+   "Source 1: \"What is the Electoral College?\", by the Office of the Federal Register \n Source 2: \"The Indefensible Electoral College: Why even the best-laid defenses of the system are wrong,\" by Bradford Plumer \n Source 3: \"In Defense of the Electoral College: Five reasons to keep our despised method of choosing the President,\" by Judge Richard A. Posner": 1818
+  },
+  "student_disability_status": {
+   "": 3502,
+   "Identified as having disability": 1516,
+   "Not identified as having disability": 10576
+  },
+  "task": {
+   "Independent": 7869,
+   "Text dependent": 7725
+  }
+ },
+ "columns": [
+  "essay_id",
+  "essay_id_comp",
+  "competition_set",
+  "full_text",
+  "holistic_essay_score",
+  "discourse_id",
+  "discourse_start",
+  "discourse_end",
+  "discourse_text",
+  "discourse_type",
+  "discourse_type_num",
+  "discourse_effectiveness",
+  "hierarchical_id",
+  "hierarchical_text",
+  "hierarchical_label",
+  "provider",
+  "task",
+  "source_text",
+  "prompt_name",
+  "assignment",
+  "gender",
+  "grade_level",
+  "ell_status",
+  "race_ethnicity",
+  "economically_disadvantaged",
+  "student_disability_status",
+  "essay_word_count"
+ ],
+ "essays": 15594,
+ "file_bytes": 616894963,
+ "file_sha256": "f61319edd8bf16a982711ea0399fad59c05afaec05cdf0767f16a2c05c467e23",
+ "high_cardinality_columns": [
+  "discourse_end",
+  "discourse_id",
+  "discourse_start",
+  "discourse_text",
+  "discourse_type_num",
+  "essay_id",
+  "essay_word_count",
+  "hierarchical_id",
+  "hierarchical_text"
+ ],
+ "id_column": "essay_id_comp",
+ "is_zip": false,
+ "python": "3.12.15",
+ "rows": 173266,
+ "text_column": "full_text",
+ "text_words_per_essay": {
+  "0.05": 184,
+  "0.25": 278,
+  "0.5": 384,
+  "0.75": 520,
+  "0.95": 796
+ }
+}

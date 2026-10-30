@@ -1,0 +1,20 @@
+[
+ {
+  "name": "qwen2.5-1.5b-instruct-q4_k_m",
+  "repo": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+  "commit": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+  "file": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+  "bytes": 1117320736,
+  "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+  "license": "apache-2.0"
+ },
+ {
+  "name": "smollm2-1.7b-instruct-q4_k_m",
+  "repo": "HuggingFaceTB/SmolLM2-1.7B-Instruct-GGUF",
+  "commit": "2d4a76a30b4af41ecd395c35725ac11688d4cfe4",
+  "file": "smollm2-1.7b-instruct-q4_k_m.gguf",
+  "bytes": 1055609536,
+  "sha256": "decd2598bc2c8ed08c19adc3c8fdd461ee19ed5708679d1c54ef54a5a30d4f33",
+  "license": "apache-2.0"
+ }
+]
