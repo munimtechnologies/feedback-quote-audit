@@ -1,0 +1,344 @@
+{
+ "audit_sha256": "028c0d8d337f6ff07681bc7ee7c5d35b143c7cde645ae658b95f777df864965c",
+ "by_rank": {
+  "bottom": {
+   "counts": {
+    "excluded_cue": 3054,
+    "feedback": 29856,
+    "feedback_quoting": 64,
+    "feedback_with_wc": 8,
+    "n": 74,
+    "n_long": 2,
+    "n_short": 52,
+    "not_found": 746,
+    "prim_tight": 73,
+    "quotes": 3792,
+    "under_min_words": 3474,
+    "wc": 9,
+    "wc_long": 0,
+    "wc_loose": 1,
+    "wc_short": 8,
+    "wc_tight": 8
+   },
+   "essays": 10398,
+   "feedback_with_changed_share": 0.0002679528403001072,
+   "loose_share_of_changed": 0.1111111111111111,
+   "primary_quotes_per_feedback": 0.0024785637727759912,
+   "quoting_feedback_share": 0.0021436227224008574,
+   "word_changed_rate": 0.12162162162162163,
+   "word_changed_rate_ci95": [
+    0.05063291139240506,
+    0.2125
+   ]
+  },
+  "middle": {
+   "counts": {
+    "excluded_cue": 4719,
+    "feedback": 11874,
+    "feedback_quoting": 196,
+    "feedback_with_wc": 16,
+    "n": 238,
+    "n_long": 28,
+    "n_short": 153,
+    "not_found": 772,
+    "prim_tight": 234,
+    "quotes": 5728,
+    "under_min_words": 4641,
+    "wc": 16,
+    "wc_long": 0,
+    "wc_loose": 4,
+    "wc_short": 15,
+    "wc_tight": 12
+   },
+   "essays": 6013,
+   "feedback_with_changed_share": 0.00134748189321206,
+   "loose_share_of_changed": 0.25,
+   "primary_quotes_per_feedback": 0.02004379316152939,
+   "quoting_feedback_share": 0.016506653191847735,
+   "word_changed_rate": 0.06722689075630252,
+   "word_changed_rate_ci95": [
+    0.03734439834024896,
+    0.100418410041841
+   ]
+  },
+  "top": {
+   "counts": {
+    "excluded_cue": 3673,
+    "feedback": 29856,
+    "feedback_quoting": 173,
+    "feedback_with_wc": 7,
+    "n": 207,
+    "n_long": 26,
+    "n_short": 128,
+    "not_found": 555,
+    "prim_tight": 207,
+    "quotes": 4893,
+    "under_min_words": 4128,
+    "wc": 7,
+    "wc_long": 2,
+    "wc_loose": 0,
+    "wc_short": 4,
+    "wc_tight": 7
+   },
+   "essays": 10398,
+   "feedback_with_changed_share": 0.00023445873526259378,
+   "loose_share_of_changed": 0.0,
+   "primary_quotes_per_feedback": 0.006933279742765273,
+   "quoting_feedback_share": 0.005794480171489817,
+   "word_changed_rate": 0.033816425120772944,
+   "word_changed_rate_ci95": [
+    0.010101010101010102,
+    0.0594059405940594
+   ]
+  }
+ },
+ "by_set": {
+  "1": {
+   "counts": {
+    "excluded_cue": 3842,
+    "feedback": 15711,
+    "feedback_quoting": 119,
+    "feedback_with_wc": 8,
+    "n": 135,
+    "n_long": 21,
+    "n_short": 81,
+    "not_found": 597,
+    "prim_tight": 134,
+    "quotes": 5013,
+    "under_min_words": 4442,
+    "wc": 8,
+    "wc_long": 1,
+    "wc_loose": 1,
+    "wc_short": 7,
+    "wc_tight": 7
+   },
+   "essays": 1780,
+   "feedback_with_changed_share": 0.0005091973776335052,
+   "loose_share_of_changed": 0.125,
+   "primary_quotes_per_feedback": 0.0085927057475654,
+   "quoting_feedback_share": 0.00757431099229839,
+   "word_changed_rate": 0.05925925925925926
+  },
+  "2": {
+   "counts": {
+    "excluded_cue": 3375,
+    "feedback": 15891,
+    "feedback_quoting": 59,
+    "feedback_with_wc": 9,
+    "n": 72,
+    "n_long": 9,
+    "n_short": 43,
+    "not_found": 681,
+    "prim_tight": 70,
+    "quotes": 4290,
+    "under_min_words": 3970,
+    "wc": 10,
+    "wc_long": 0,
+    "wc_loose": 2,
+    "wc_short": 8,
+    "wc_tight": 8
+   },
+   "essays": 1787,
+   "feedback_with_changed_share": 0.0005663583160279403,
+   "loose_share_of_changed": 0.2,
+   "primary_quotes_per_feedback": 0.004530866528223523,
+   "quoting_feedback_share": 0.0037127934050720534,
+   "word_changed_rate": 0.1388888888888889
+  },
+  "3": {
+   "counts": {
+    "excluded_cue": 1379,
+    "feedback": 9668,
+    "feedback_quoting": 86,
+    "feedback_with_wc": 5,
+    "n": 111,
+    "n_long": 7,
+    "n_short": 73,
+    "not_found": 267,
+    "prim_tight": 110,
+    "quotes": 1650,
+    "under_min_words": 1199,
+    "wc": 5,
+    "wc_long": 1,
+    "wc_loose": 1,
+    "wc_short": 4,
+    "wc_tight": 4
+   },
+   "essays": 1649,
+   "feedback_with_changed_share": 0.000517170045510964,
+   "loose_share_of_changed": 0.2,
+   "primary_quotes_per_feedback": 0.011481175010343401,
+   "quoting_feedback_share": 0.00889532478278858,
+   "word_changed_rate": 0.04504504504504504
+  },
+  "4": {
+   "counts": {
+    "excluded_cue": 994,
+    "feedback": 8657,
+    "feedback_quoting": 79,
+    "feedback_with_wc": 4,
+    "n": 97,
+    "n_long": 14,
+    "n_short": 57,
+    "not_found": 174,
+    "prim_tight": 96,
+    "quotes": 1192,
+    "under_min_words": 827,
+    "wc": 4,
+    "wc_long": 0,
+    "wc_loose": 1,
+    "wc_short": 3,
+    "wc_tight": 3
+   },
+   "essays": 1681,
+   "feedback_with_changed_share": 0.0004620538292711101,
+   "loose_share_of_changed": 0.25,
+   "primary_quotes_per_feedback": 0.01120480535982442,
+   "quoting_feedback_share": 0.009125563128104424,
+   "word_changed_rate": 0.041237113402061855
+  },
+  "5": {
+   "counts": {
+    "excluded_cue": 836,
+    "feedback": 11812,
+    "feedback_quoting": 57,
+    "feedback_with_wc": 4,
+    "n": 65,
+    "n_long": 2,
+    "n_short": 54,
+    "not_found": 147,
+    "prim_tight": 65,
+    "quotes": 1135,
+    "under_min_words": 938,
+    "wc": 4,
+    "wc_long": 0,
+    "wc_loose": 0,
+    "wc_short": 4,
+    "wc_tight": 4
+   },
+   "essays": 1756,
+   "feedback_with_changed_share": 0.0003386386725364037,
+   "loose_share_of_changed": 0.0,
+   "primary_quotes_per_feedback": 0.00550287842871656,
+   "quoting_feedback_share": 0.004825601083643752,
+   "word_changed_rate": 0.06153846153846154
+  },
+  "6": {
+   "counts": {
+    "excluded_cue": 1020,
+    "feedback": 9847,
+    "feedback_quoting": 33,
+    "feedback_with_wc": 1,
+    "n": 39,
+    "n_long": 3,
+    "n_short": 25,
+    "not_found": 207,
+    "prim_tight": 39,
+    "quotes": 1133,
+    "under_min_words": 867,
+    "wc": 1,
+    "wc_long": 0,
+    "wc_loose": 0,
+    "wc_short": 1,
+    "wc_tight": 1
+   },
+   "essays": 1745,
+   "feedback_with_changed_share": 0.00010155377272265665,
+   "loose_share_of_changed": 0.0,
+   "primary_quotes_per_feedback": 0.003960597136183609,
+   "quoting_feedback_share": 0.0033512744998476693,
+   "word_changed_rate": 0.02564102564102564
+  }
+ },
+ "checker_sha256": "d53b6b46a65024eca6ba5fa5e97d35c35c7da6d3bbe73f5362cb9e268bf15e04",
+ "dataset_file": "speceval_dataset.json",
+ "dataset_sha256": "3d7e88527155194cbf597a9de75ee06d45b79871a68a06bbb6ab04f089bd996b",
+ "essay_text_conflicts": 0,
+ "essays": 10398,
+ "explain_sha256": "9f2959daf096d4df4cc9171a9c64d163255291540551f13fb4a8ff26957d14d6",
+ "feedback_texts": 71586,
+ "plan_sha256": "34ddfb6ccd659555c8b8c388a57c94875c30580582f5ec436c050a90a8d6bbe0",
+ "pooled": {
+  "counts": {
+   "excluded_cue": 11446,
+   "feedback": 71586,
+   "feedback_quoting": 433,
+   "feedback_with_wc": 31,
+   "n": 519,
+   "n_long": 56,
+   "n_short": 333,
+   "not_found": 2073,
+   "prim_tight": 514,
+   "quotes": 14413,
+   "under_min_words": 12243,
+   "wc": 32,
+   "wc_long": 2,
+   "wc_loose": 5,
+   "wc_short": 27,
+   "wc_tight": 27
+  },
+  "essays": 10398,
+  "feedback_with_changed_share": 0.00043304556756907774,
+  "loose_share_of_changed": 0.15625,
+  "primary_quotes_per_feedback": 0.007250020953817785,
+  "quoting_feedback_share": 0.006048668734110021,
+  "word_changed_rate": 0.06165703275529865,
+  "word_changed_rate_ci95": [
+   0.040967525891077786,
+   0.08302260414720712
+  ]
+ },
+ "python": "3.12.15",
+ "records": 41730,
+ "rows": 26809,
+ "sha256_as_probed": true,
+ "skipped_records": 0,
+ "splits": {
+  "test": 4173,
+  "train": 37557
+ },
+ "tests": {
+  "E1_pooled_word_changed": {
+   "ci95": [
+    0.040967525891077786,
+    0.08302260414720712
+   ],
+   "denominator": 519,
+   "high": 0.05,
+   "measure": "word-changed rate among primary-set quotes, all distinct feedback texts",
+   "value": 0.06165703275529865,
+   "verdict": "did not hold"
+  },
+  "E2_short_vs_long": {
+   "denominators": [
+    333,
+    56
+   ],
+   "diff": 0.04536679536679537,
+   "diff_ci95": [
+    -0.01586325653294203,
+    0.0972644376899696
+   ],
+   "long quotes": 0.03571428571428571,
+   "measure": "word-changed rate, 4-6-word quotes minus 11+-word quotes (paired by essay)",
+   "short quotes": 0.08108108108108109,
+   "verdict": "underpowered (fewer than 100 quotes on a side)"
+  },
+  "E3_top_vs_bottom": {
+   "bottom-ranked": 0.12162162162162163,
+   "denominators": [
+    207,
+    74
+   ],
+   "diff": -0.08780519650084868,
+   "diff_ci95": [
+    -0.18088240252461887,
+    -0.009017309680251497
+   ],
+   "margin": -0.01,
+   "measure": "word-changed rate, top-ranked minus bottom-ranked feedback (paired by essay)",
+   "top-ranked": 0.033816425120772944,
+   "verdict": "underpowered (fewer than 100 quotes on a side)"
+  }
+ }
+}

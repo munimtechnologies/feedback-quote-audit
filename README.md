@@ -7,13 +7,13 @@ fixes a spelling or a verb form while copying, the student never sees their own 
 MV2's preregistered studies in [feedback-commons](https://github.com/munimtechnologies/feedback-commons)
 measured this for small local models generating feedback themselves (about 93% of matched quotes exact
 in v5). This repository audits public datasets of AI-written essay feedback instead, starting with
-feedback from a large model and now extending to six models on a second dataset.
+feedback from a large model and now covering three datasets and at least eight generating models.
 
 By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; text CC BY 4.0.
 
-**Track record: [`PREDICTIONS.md`](PREDICTIONS.md)** lists all 21 preregistered predictions across the audits
-below with their verdicts (10 held, 9 reversed, 1 did not hold, 1 no clear difference; `predictions.json` has
-the same table).
+**Track record: [`PREDICTIONS.md`](PREDICTIONS.md)** lists all 24 preregistered predictions across the audits
+below with their verdicts (10 held, 9 reversed, 2 did not hold, 1 no clear difference, 2 underpowered;
+`predictions.json` has the same table).
 
 ## Audit 1: GLM-4.7 feedback on IELTS essays (preregistered, done)
 
@@ -95,19 +95,21 @@ the same table).
   model, has the highest single-model rate (13.2%). Per-model rates span 0.22% to 13.2%.
 - Teachers in this corpus almost never quote the student verbatim (9 primary quotes in 198 files).
 
-## Audit 5: does feedback ranked "more specific" quote more faithfully? (planned, running)
+## Audit 5: does feedback ranked "more specific" quote more faithfully? (planned before running, done)
 
 - Data: SpecEval (`speceval_dataset.json`, SHA-256 `3d7e8852…`), the specificity preference set released with
   [FeedEval](https://github.com/BBeeChu/FeedEval) (Chu, Kim and Yi, ACL Findings 2026, arXiv:2601.04574):
-  about 41K chosen/rejected pairs of LLM feedback on ASAP++ student essays, ranked by a specificity score that
-  counts the essay passages the feedback quotes. Counts only, no essay or feedback text redistributed.
+  41,730 chosen/rejected pairs of LLM feedback on 10,398 ASAP++ student essays, ranked by a specificity score
+  that counts the essay passages the feedback quotes. Counts only, no essay or feedback text redistributed.
 - Plan: [`PLAN-5.md`](PLAN-5.md), committed before any quote was checked. Code: `speceval.py` (`setup-5.sh`
   fetches the pinned checker, `audit.py` and `explain.py`, hash-checks them and the data, and waits until the
   plan is public).
-- Predictions: E1 the pooled word-changed rate is at most 5% (third dataset); E2 short quotes change words
-  more than long ones; E3 (new) feedback the specificity ranking puts on top is not more faithful to the
-  student's words than the feedback it puts at the bottom (margin 1 point). Results will be posted as
-  RESULTS-5.md whether they hold or not.
+- **Results: [`RESULTS-5.md`](RESULTS-5.md)** (`speceval.json` has the counts). E1 **did not hold**, narrowly:
+  6.17% of 519 primary-set quotes change the student's words (CI 4.10–8.30%; bound 5%). E2 and E3 are
+  **underpowered**: the feedback rarely quotes the student at length (0.60% of 71,586 distinct texts), so the
+  long-quote and bottom-ranked sides fell under the plan's floor of 100 quotes.
+- Descriptively, top-ranked feedback changed fewer words than bottom-ranked (3.4% vs 12.2%), and 27 of the
+  32 changed quotes are close copies with a word altered. Neither is a verdict.
 
 ## How it works
 
@@ -140,13 +142,14 @@ Python 3.10+, standard library only (`setup-5.sh` uses gdown to fetch SpecEval f
 
 ## Limits
 
-Only double-quoted passages are checked. The rule that sets aside suggested rewrites is a heuristic, and
-it misses rewrites marked with bold inside the quote. Similarity is a proxy: no pass here reads quote
-text, so none can tell a suggested phrase from a heavily altered misquote; only a human reading of a sample
-could. Audits 1-3 cover one model, one exam and one dataset; audit 4 adds six models on a second dataset
-(FeedType/SEFORA, non-commercial); audit 5 adds a third (SpecEval/ASAP++). See PREREG.md, RESULTS.md,
-PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md, RESULTS-3.md,
-PLAN-4.md, RESULTS-4.md, PLAN-5.md and PREDICTIONS.md.
+Only double-quoted passages are checked. The rule that sets aside suggested rewrites is a heuristic: it
+misses rewrites marked with bold inside the quote, and its cue list ("for example", "such as") also sets
+aside some genuine quotes, which matters most on SpecEval (79% of its quoted passages). Similarity is a
+proxy: no pass here reads quote text, so none can tell a suggested phrase from a heavily altered misquote;
+only a human reading of a sample could. Audits 1-3 cover one model, one exam and one dataset; audit 4 adds
+six models on a second dataset (FeedType/SEFORA, non-commercial); audit 5 adds a third (SpecEval/ASAP++).
+See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md,
+PLAN-3.md, RESULTS-3.md, PLAN-4.md, RESULTS-4.md, PLAN-5.md, RESULTS-5.md and PREDICTIONS.md.
 
 ## Licence
 

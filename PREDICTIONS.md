@@ -3,8 +3,8 @@
 By MV2 of Munim, Inc. Made with AI agents working in his name. Text CC BY 4.0.
 
 Each audit here wrote its predictions into a plan committed before its sealed run read any quote. This page
-puts all 21 of them in one place, with the verdict exactly as its RESULTS file states it, so nobody has to
-read six reports to see the track record. Numbers are copied from the RESULTS files; where this page and a
+puts all 24 of them in one place, with the verdict exactly as its RESULTS file states it, so nobody has to
+read seven reports to see the track record. Numbers are copied from the RESULTS files; where this page and a
 RESULTS file disagree, the RESULTS file is right. `predictions.json` holds the same table.
 
 ## Tally
@@ -13,17 +13,19 @@ RESULTS file disagree, the RESULTS file is right. `predictions.json` holds the s
 |---|---|
 | held | 10 |
 | reversed (the whole 95% CI on the opposite side) | 9 |
-| did not hold (level target missed, not a direction) | 1 |
+| did not hold (level target missed, not a direction) | 2 |
 | no clear difference (CI spans zero) | 1 |
-| **Total** | **21** |
+| underpowered (too few quotes for the plan's floor; no verdict) | 2 |
+| **Total** | **24** |
 
 Audits 1-3 (one model, GLM-4.7, on one IELTS dataset, including 1b and 2b) got their *direction* wrong 9
 times out of 12 direction predictions (2 held, 1 no clear difference). Their other 6 predictions were levels
 or ranges: 1b's five held, but 1b's plan was written after audit 1's results were known and is labelled
 exploratory, and audit 1's H1 did not hold. Audit 4, on an independent dataset with six models, held all
-three.
-The patterns that replicated across both datasets: most quotes keep the student's words, and short quotes
-change words more often than long ones.
+three. Audit 5, on a third dataset, missed its level target narrowly (6.17% against a 5% bound) and had too
+few quotes to test its two comparisons.
+The patterns that replicated across datasets: most quotes keep the student's words, and short quotes change
+words more often than long ones (tested and held in audits 2-4; same direction but underpowered in audit 5).
 
 ## Audit 1: GLM-4.7 feedback on 8,946 IELTS essays ([PREREG.md](PREREG.md), [RESULTS.md](RESULTS.md))
 
@@ -81,14 +83,28 @@ Audit 1's exact rate mostly measures formatting (bold, ellipses, curly quotes); 
 C2 held as a pool, but LearnLM's volume (21,317 quotes at 0.22%) drives it, not model size: Mistral-24B, a
 larger model, has the highest single-model rate (13.2%).
 
+## Audit 5: FeedEval's SpecEval specificity pairs ([PLAN-5.md](PLAN-5.md), [RESULTS-5.md](RESULTS-5.md))
+
+| ID | Prediction | Observed | Verdict |
+|---|---|---|---|
+| E1 | Pooled word-changed rate over all distinct feedback texts is at most 5% | 6.17% (32 / 519), CI 4.10-8.30% | did not hold |
+| E2 | Short (4-6-word) quotes change words more than long (11+-word) quotes | 8.11% vs 3.57%, diff +4.54 pts (CI -1.59 to +9.73); 56 long quotes | underpowered |
+| E3 | Top-ranked feedback is not more faithful than bottom-ranked by more than 1 point | 3.38% vs 12.16%, diff -8.78 pts (CI -18.09 to -0.90); 74 bottom-ranked quotes | underpowered |
+
+Only 0.60% of SpecEval's 71,586 distinct feedback texts contain a primary-set quote, so the comparisons fell
+under the plan's floor of 100 quotes a side. E3's point estimate leans against the prediction (top-ranked
+feedback changed fewer words), but it gets no verdict.
+
 ## What the record says
 
 - Point and direction guesses from intuition were unreliable on a single model: in audits 1-3, nine of
   twelve direction predictions came out reversed.
-- The two findings that held on both datasets are the useful ones for a checker: most quotes keep the
-  student's words (IELTS 4.3% word-changed after formatting; FeedType 1.18%), and short quotes are where
+- The findings that held across datasets are the useful ones for a checker: most quotes keep the student's
+  words (IELTS 4.3% word-changed after formatting; FeedType 1.18%; SpecEval 6.17%), and short quotes are where
   word changes concentrate (audits 2, 3 and 4).
 - Model matters more than size: per-model word-changed rates on FeedType span 0.22% to 13.2%.
+- Feedback that quotes rarely gives little to test: a power floor fixed in advance is what stopped audit 5
+  from over-reading 16 changed quotes.
 
 Limits are those of each audit: double quotes only, a heuristic for suggested rewrites, and similarity as a
 proxy that no counts-only pass can replace with human reading.
