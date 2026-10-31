@@ -8,14 +8,14 @@ MV2's preregistered studies in [feedback-commons](https://github.com/munimtechno
 measured this for small local models generating feedback themselves (about 93% of matched quotes exact
 in v5). This repository audits public datasets of AI-written essay feedback instead, starting with
 feedback from a large model and now covering three datasets and at least eight generating models.
-Audit 6 went back to generating feedback, to test one thing published data cannot: what the model is told
-about the student.
+Audits 6 and 7 went back to generating feedback, to test one thing published data cannot: what the model is
+told about the student.
 
 By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; text CC BY 4.0.
 
 **Track record: [`PREDICTIONS.md`](PREDICTIONS.md)** lists all 34 preregistered predictions across the audits
 below with their verdicts (12 held, 9 reversed, 2 did not hold, 1 no clear difference, 1 inconclusive,
-9 underpowered; `predictions.json` has the same table).
+9 underpowered; `predictions.json` has the same table). Audit 7's three predictions are added once it is done.
 
 **For teachers: [`TEACHERS.md`](TEACHERS.md)** sums up what the audits mean in a classroom, in plain words,
 with a five-minute way to check a feedback tool using the free offline
@@ -152,6 +152,20 @@ with a five-minute way to check a feedback tool using the free offline
   SmolLM (200 pairs) could not be placed in the essay for about half its excerpts and changed the words in
   51-61% of the rest. The gap between the two models dwarfs any ELL or label difference seen.
 
+## Audit 7: the powered re-test of audit 6 (preregistered, running)
+
+- Same data, pairs, prompt, label sentence and classifier as audit 6, with Qwen2.5-1.5B only, on the 640
+  matched pairs after the 146 audit 6 used (pairs 147-786), in four sealed CPU shards.
+- Design note and sizing probe: [`groundwork/audit-7/`](groundwork/audit-7/). The probe re-ran audit 6's
+  first 20 pairs with only the token limit raised: every reply that finished both times came back identical,
+  no finished reply needed more than 594 tokens, and 8 of the 13 replies audit 6 had lost now finished
+  (`probe7.json` has the counts).
+- Plan: [`PLAN-7.md`](PLAN-7.md), committed before any audit-7 feedback was generated. Code: `audit7.py`
+  imports `audit6.py` (SHA-256 checked) and changes only the token limit, 450 to 800; `setup-7.sh` waits
+  until the plan and the code are public.
+- Predictions: S1 and L1 as in audit 6 with the floor raised to 600 located excerpts a side, and T1 (new):
+  excerpts in replies longer than 450 tokens, the ones audit 6 lost, change the student's words more often.
+
 ## How it works
 
 `audit.py` finds every passage the feedback puts in double quotation marks. It sets aside quotes of the
@@ -168,7 +182,8 @@ and word-changed logic over the FeedType dataset per model, per prompt and per m
 `speceval.py` runs it over each distinct SpecEval feedback text by its rank in the pairs, and `cues.py`
 splits SpecEval's matched quotes by the kind of cue before them. `audit6.py` is different: it generates the
 feedback itself with llama-cpp-python, asks for explicit excerpts (so no quote-finding or rewrite filter is
-needed) and classifies each excerpt against its essay.
+needed) and classifies each excerpt against its essay. `audit7.py` runs `audit6.py` shard by shard and
+pools the shards.
 
 ```bash
 sh setup.sh
@@ -184,6 +199,9 @@ python cues.py --data speceval_dataset.json --out cues.json
 # audit 6 (needs llama-cpp-python 0.3.36 and gdown 6.5.1)
 sh setup-6.sh && python fetch.py --data-dir data --models models.json --paths-out paths.json
 python audit6.py --paths paths.json --models models.json --model qwen2.5-1.5b-instruct-q4_k_m --out audit6-qwen.json
+# audit 7: one shard per machine, then pool
+python audit7.py run --shard 1 --paths paths.json --models models.json --out audit7-shard-1.json
+python audit7.py pool --shard-json audit7-shard-*.json --out audit7-pooled.json
 ```
 
 Python 3.10+, standard library only for audits 1-5b (`setup-5.sh` and `setup-5b.sh` use gdown to fetch
@@ -197,10 +215,10 @@ aside genuine quotes, which matters most on SpecEval (76% of its matched 4+-word
 them). Similarity is a proxy: no pass here reads quote text, so none can tell a suggested phrase from a
 heavily altered misquote; only a human reading of a sample could. Audits 1-3 cover one model, one exam and
 one dataset; audit 4 adds six models on a second dataset (FeedType/SEFORA, non-commercial); audit 5 adds a
-third (SpecEval/ASAP++); audit 6 uses two small CPU models, not the models schools use. See PREREG.md,
+third (SpecEval/ASAP++); audits 6 and 7 use small CPU models, not the models schools use. See PREREG.md,
 RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md,
 RESULTS-3.md, PLAN-4.md, RESULTS-4.md, PLAN-5.md, RESULTS-5.md, PLAN-5b.md, RESULTS-5b.md, PLAN-6.md,
-RESULTS-6.md, PREDICTIONS.md and TEACHERS.md.
+RESULTS-6.md, PLAN-7.md, PREDICTIONS.md and TEACHERS.md.
 
 ## Licence
 
