@@ -3,8 +3,8 @@
 By MV2 of Munim, Inc. Made with AI agents working in his name. Text CC BY 4.0.
 
 Each audit here wrote its predictions into a plan committed before its sealed run read any quote. This page
-puts all 28 of them in one place, with the verdict exactly as its RESULTS file states it, so nobody has to
-read eight reports to see the track record. Numbers are copied from the RESULTS files; where this page and a
+puts all 34 of them in one place, with the verdict exactly as its RESULTS file states it, so nobody has to
+read nine reports to see the track record. Numbers are copied from the RESULTS files; where this page and a
 RESULTS file disagree, the RESULTS file is right. `predictions.json` holds the same table.
 
 ## Tally
@@ -16,8 +16,8 @@ RESULTS file disagree, the RESULTS file is right. `predictions.json` holds the s
 | did not hold (level target missed, not a direction) | 2 |
 | no clear difference (CI spans zero) | 1 |
 | inconclusive (equivalence test: CI neither inside nor outside the band) | 1 |
-| underpowered (too few quotes for the plan's floor; no verdict) | 3 |
-| **Total** | **28** |
+| underpowered (too few quotes for the plan's floor; no verdict) | 9 |
+| **Total** | **34** |
 
 Audits 1-3 (one model, GLM-4.7, on one IELTS dataset, including 1b and 2b) got their *direction* wrong 9
 times out of 12 direction predictions (2 held, 1 no clear difference). Their other 6 predictions were levels
@@ -25,7 +25,8 @@ or ranges: 1b's five held, but 1b's plan was written after audit 1's results wer
 exploratory, and audit 1's H1 did not hold. Audit 4, on an independent dataset with six models, held all
 three. Audit 5, on a third dataset, missed its level target narrowly (6.17% against a 5% bound) and had too
 few quotes to test its two comparisons. Follow-up 5b found that audit 5's filter had set most of the quoting
-aside; on the wider set, its exploratory G4 held.
+aside; on the wider set, its exploratory G4 held. Audit 6 generated its own feedback with two small models;
+all six of its verdicts are underpowered.
 The patterns that replicated across datasets: most quotes keep the student's words, and short quotes change
 words more often than long ones (tested and held in audits 2-4; same direction but underpowered in audit 5,
 and same direction descriptively on 5b's wider set).
@@ -110,6 +111,24 @@ feedback changed fewer words), but it gets no verdict.
 G4's direction was chosen after audit 5's E3 was seen and it reuses E3's essays, so it is exploratory, not a
 replication.
 
+## Audit 6: saying "English language learner" in the prompt, PERSUADE 2.0 ([PLAN-6.md](PLAN-6.md), [RESULTS-6.md](RESULTS-6.md))
+
+Q = Qwen2.5-1.5B-Instruct (146 pairs, stopped by the time budget); S = SmolLM2-1.7B-Instruct (200 pairs).
+Each comparison needed 300 located excerpts a side (100 for C1).
+
+| ID | Prediction | Observed | Verdict |
+|---|---|---|---|
+| S1-Q | With the baseline prompt, ELL essays' excerpts change words more than matched non-ELL essays' | 8.81% (261) vs 12.71% (299), diff -3.90 pts (CI -10.57 to +2.76) | underpowered |
+| L1-Q | Adding the label moves the ELL rate by less than 4 points | 7.07% (311) vs 8.81% (261), diff -1.74 pts (CI -5.08 to +1.40) | underpowered |
+| C1-Q | Short (4-6-word) excerpts change words more than long (11+-word) | 6.25% (16) vs 9.75% (810), diff -3.50 pts (CI -12.12 to +13.94) | underpowered |
+| S1-S | as S1-Q | 60.30% (267) vs 50.98% (306), diff +9.32 pts (CI -1.04 to +19.67) | underpowered |
+| L1-S | as L1-Q | 60.71% (280) vs 60.30% (267), diff +0.41 pts (CI -7.50 to +8.04) | underpowered |
+| C1-S | as C1-Q | 33.33% (6) vs 59.61% (765), diff -26.27 pts (CI -63.34 to +41.75) | underpowered |
+
+Qwen lost 30-40% of its replies to the 450-token limit because its excerpts ran past the 25 words asked for;
+about half of SmolLM's "excerpts" could not be found in the essay at all. Neither model wrote enough short
+excerpts for C1.
+
 ## What the record says
 
 - Point and direction guesses from intuition were unreliable on a single model: in audits 1-3, nine of
@@ -117,9 +136,10 @@ replication.
 - The findings that held across datasets are the useful ones for a checker: most quotes keep the student's
   words (IELTS 4.3% word-changed after formatting; FeedType 1.18%; SpecEval 6.17% on audit 5's narrow set and
   3.97% on 5b's wider set), and short quotes are where word changes concentrate (audits 2, 3 and 4).
-- Model matters more than size: per-model word-changed rates on FeedType span 0.22% to 13.2%.
+- Model matters more than size: per-model word-changed rates on FeedType span 0.22% to 13.2%, and in audit 6
+  two small models of similar size kept the student's words in about 9 in 10 and about 1 in 5 excerpts.
 - Feedback that quotes rarely gives little to test: a power floor fixed in advance is what stopped audit 5
-  from over-reading 16 changed quotes.
+  from over-reading 16 changed quotes, and audit 6 from reading a 9-point gap with a CI that spans zero.
 - A filter carried from one dataset to another needs checking: audit 1's rewrite cue list set aside three
   quarters of SpecEval's matched quotes, almost all for a "for example" or "such as" in front of them.
 

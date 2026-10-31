@@ -8,14 +8,14 @@ MV2's preregistered studies in [feedback-commons](https://github.com/munimtechno
 measured this for small local models generating feedback themselves (about 93% of matched quotes exact
 in v5). This repository audits public datasets of AI-written essay feedback instead, starting with
 feedback from a large model and now covering three datasets and at least eight generating models.
-Audit 6 goes back to generating feedback, to test one thing published data cannot: what the model is told
+Audit 6 went back to generating feedback, to test one thing published data cannot: what the model is told
 about the student.
 
 By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; text CC BY 4.0.
 
-**Track record: [`PREDICTIONS.md`](PREDICTIONS.md)** lists all 28 preregistered predictions across the audits
+**Track record: [`PREDICTIONS.md`](PREDICTIONS.md)** lists all 34 preregistered predictions across the audits
 below with their verdicts (12 held, 9 reversed, 2 did not hold, 1 no clear difference, 1 inconclusive,
-3 underpowered; `predictions.json` has the same table).
+9 underpowered; `predictions.json` has the same table).
 
 **For teachers: [`TEACHERS.md`](TEACHERS.md)** sums up what the audits mean in a classroom, in plain words,
 with a five-minute way to check a feedback tool using the free offline
@@ -132,7 +132,7 @@ with a five-minute way to check a feedback tool using the free offline
   top-ranked: 10.03% vs 2.48%, CI of the difference +3.89 to +11.48 points (G4, exploratory, **held**). On
   this wider set 96.0% of SpecEval's quotes keep the student's words.
 
-## Audit 6: does saying "English language learner" change how AI feedback quotes the student? (preregistered, running)
+## Audit 6: does saying "English language learner" change how AI feedback quotes the student? (preregistered, done)
 
 - Data: [PERSUADE 2.0](https://github.com/scrosseye/persuade_corpus_2.0) (Crossley et al. 2024, CC BY 4.0),
   grades 6-12 argumentative essays with the school-recorded ELL status. Counts only, no essay or feedback text.
@@ -140,12 +140,17 @@ with a five-minute way to check a feedback tool using the free offline
   [`PLAN-6.md`](PLAN-6.md), committed before any audit-6 feedback was generated. Code: `audit6.py`
   (`setup-6.sh` fetches the pinned groundwork `fetch.py` and `models.json` and waits until the plan and the
   code are public; `fetch.py` hash-checks the data and both models).
-- Two small Apache-2.0 open models on CPU (Qwen2.5-1.5B-Instruct, SmolLM2-1.7B-Instruct) write excerpt-JSON
+- Two small Apache-2.0 open models on CPU (Qwen2.5-1.5B-Instruct, SmolLM2-1.7B-Instruct) wrote excerpt-JSON
   feedback on matched pairs: an ELL student's essay with and without one sentence saying the student is an
   English language learner, and a non-ELL essay with the same writing prompt and score.
-- Predictions, per model: S1, ELL essays get more word-changed excerpts than matched non-ELL essays; L1,
-  the label sentence moves the rate by less than 4 points; C1, short excerpts change words more than long.
-- Results will be in RESULTS-6.md whatever they show.
+- **Results: [`RESULTS-6.md`](RESULTS-6.md)** (`audit6-qwen.json` and `audit6-smollm.json` have the
+  counts). **All six verdicts are underpowered**: no comparison reached the plan's floor of 300 located
+  excerpts a side (100 for short excerpts), so the ELL question (S1, L1) and the short-quote question (C1)
+  get no answer from these runs.
+- Why: Qwen (146 pairs, stopped by the time budget) kept the student's words in about 9 in 10 located
+  excerpts but wrote excerpts longer than the 25 words asked for, so 30-40% of its replies ran out of tokens;
+  SmolLM (200 pairs) could not be placed in the essay for about half its excerpts and changed the words in
+  51-61% of the rest. The gap between the two models dwarfs any ELL or label difference seen.
 
 ## How it works
 
@@ -195,7 +200,7 @@ one dataset; audit 4 adds six models on a second dataset (FeedType/SEFORA, non-c
 third (SpecEval/ASAP++); audit 6 uses two small CPU models, not the models schools use. See PREREG.md,
 RESULTS.md, PLAN-1b.md, RESULTS-1b.md, PLAN-2.md, RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md,
 RESULTS-3.md, PLAN-4.md, RESULTS-4.md, PLAN-5.md, RESULTS-5.md, PLAN-5b.md, RESULTS-5b.md, PLAN-6.md,
-PREDICTIONS.md and TEACHERS.md.
+RESULTS-6.md, PREDICTIONS.md and TEACHERS.md.
 
 ## Licence
 

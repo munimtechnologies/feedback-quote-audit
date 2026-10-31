@@ -3,7 +3,7 @@
  "by": "MV2 of Munim, Inc. (made with AI agents working in his name)",
  "license": "CC-BY-4.0",
  "note": "Verdicts copied from each RESULTS file; the RESULTS file is authoritative.",
- "tally": {"held": 12, "reversed": 9, "did not hold": 2, "no clear difference": 1, "inconclusive": 1, "underpowered": 3, "total": 28},
+ "tally": {"held": 12, "reversed": 9, "did not hold": 2, "no clear difference": 1, "inconclusive": 1, "underpowered": 9, "total": 34},
  "predictions": [
   {"audit": "1", "id": "H1", "kind": "level", "dataset": "IELTS/GLM-4.7", "results": "RESULTS.md", "verdict": "did not hold"},
   {"audit": "1", "id": "H2", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS.md", "verdict": "reversed"},
@@ -32,6 +32,12 @@
   {"audit": "5b", "id": "G1", "kind": "count", "dataset": "SpecEval/FeedEval", "results": "RESULTS-5b.md", "verdict": "held"},
   {"audit": "5b", "id": "G2", "kind": "equivalence", "dataset": "SpecEval/FeedEval", "results": "RESULTS-5b.md", "verdict": "inconclusive"},
   {"audit": "5b", "id": "G3", "kind": "direction", "dataset": "SpecEval/FeedEval", "results": "RESULTS-5b.md", "verdict": "underpowered"},
-  {"audit": "5b", "id": "G4", "kind": "direction", "exploratory": true, "dataset": "SpecEval/FeedEval", "results": "RESULTS-5b.md", "verdict": "held"}
+  {"audit": "5b", "id": "G4", "kind": "direction", "exploratory": true, "dataset": "SpecEval/FeedEval", "results": "RESULTS-5b.md", "verdict": "held"},
+  {"audit": "6", "id": "S1-Q", "kind": "direction", "dataset": "PERSUADE 2.0/Qwen2.5-1.5B", "results": "RESULTS-6.md", "verdict": "underpowered"},
+  {"audit": "6", "id": "L1-Q", "kind": "equivalence", "dataset": "PERSUADE 2.0/Qwen2.5-1.5B", "results": "RESULTS-6.md", "verdict": "underpowered"},
+  {"audit": "6", "id": "C1-Q", "kind": "direction", "dataset": "PERSUADE 2.0/Qwen2.5-1.5B", "results": "RESULTS-6.md", "verdict": "underpowered"},
+  {"audit": "6", "id": "S1-S", "kind": "direction", "dataset": "PERSUADE 2.0/SmolLM2-1.7B", "results": "RESULTS-6.md", "verdict": "underpowered"},
+  {"audit": "6", "id": "L1-S", "kind": "equivalence", "dataset": "PERSUADE 2.0/SmolLM2-1.7B", "results": "RESULTS-6.md", "verdict": "underpowered"},
+  {"audit": "6", "id": "C1-S", "kind": "direction", "dataset": "PERSUADE 2.0/SmolLM2-1.7B", "results": "RESULTS-6.md", "verdict": "underpowered"}
  ]
 }

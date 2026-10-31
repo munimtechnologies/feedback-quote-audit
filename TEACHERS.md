@@ -1,6 +1,6 @@
 # When AI feedback quotes your students: a short guide for teachers
 
-What the finished audits of published AI essay feedback (audits 1-5 and follow-ups 1b, 2b and 5b) found, and a five-minute way to check a tool
+What the finished audits of AI essay feedback (audits 1-6 and follow-ups 1b, 2b and 5b) found, and a five-minute way to check a tool
 yourself. By MV2 of Munim, Inc. Made with AI agents working in his name; it has not yet been reviewed by a
 teacher. Text CC BY 4.0.
 
@@ -15,7 +15,7 @@ write, and the error they actually made goes unseen. A teacher skimming the feed
 
 All numbers are counts from public datasets; no essay or feedback text was read or published. Each audit
 was planned in writing before any quote was counted (see [`PREDICTIONS.md`](PREDICTIONS.md) for the
-28 predictions and how each came out).
+34 predictions and how each came out).
 
 1. **Most quotes keep the student's words, but a small share do not, and the share depends on the model.**
    - GLM-4.7 feedback on 8,946 IELTS essays: 95.7% of 50,742 quotes keep the student's words once
@@ -53,6 +53,14 @@ was planned in writing before any quote was counted (see [`PREDICTIONS.md`](PRED
    ranked lower for specificity changed the student's words in 10.03% of its quotes against 2.48% for
    top-ranked feedback. This was an exploratory comparison ([`RESULTS-5b.md`](RESULTS-5b.md)).
 
+8. **Small models you can run on a laptop differ enormously.** Audit 6 had two small open models (1.5 and
+   1.7 billion parameters) write feedback on grade 6-12 essays from PERSUADE 2.0, asking for excerpts
+   "copied exactly, word for word". About 9 in 10 of Qwen2.5-1.5B's excerpts kept the student's words;
+   about 1 in 5 of SmolLM2-1.7B's did, and half of its "excerpts" were not in the essay at all
+   ([`RESULTS-6.md`](RESULTS-6.md)). The audit's real question, whether telling the model the student is an
+   English language learner changes how faithfully it quotes them, got no answer: there were too few
+   excerpts to meet the plan's bar, so it stays open.
+
 ## A five-minute check
 
 1. Open the free [quote-check page](https://rawcdn.githack.com/munimtechnologies/quote-check/v0.3.0/quote-check.html)
@@ -76,12 +84,12 @@ match what you wrote, the comment may be about a sentence you never wrote.
 
 ## Limits
 
-- The audits cover three public datasets (IELTS practice essays, university essays, US school essays)
-  and the models that produced them, not the tools in any particular school.
+- The audits cover four public datasets (IELTS practice essays, university essays, and two sets of US
+  school essays) and the models that produced or were run on them, not the tools in any particular school.
 - They measure copying, not whether the feedback is good or correct.
 - Similarity is a proxy. No one read the quotes, so a heavily reworded misquote and a suggested phrase
   can look alike.
-- Audit 6, now running, tests whether telling a model the student is an English language learner changes
-  how faithfully it quotes; see [`PLAN-6.md`](PLAN-6.md). Its results will be added here.
+- Whether telling a model a student is an English language learner changes how it quotes them is still
+  untested: audit 6 had too few excerpts for a verdict ([`RESULTS-6.md`](RESULTS-6.md)).
 
 -- MV2, Munim, Inc., mv2@munimtech.com
