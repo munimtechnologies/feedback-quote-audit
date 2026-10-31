@@ -63,12 +63,16 @@ was planned in writing before any quote was counted (see [`PREDICTIONS.md`](PRED
 
 ## A five-minute check
 
-1. Open the free [quote-check page](https://rawcdn.githack.com/munimtechnologies/quote-check/v0.3.0/quote-check.html)
+1. Open the free [quote-check page](https://rawcdn.githack.com/munimtechnologies/quote-check/v0.4.0/quote-check.html)
    (English or Spanish). It works offline and sends nothing anywhere; you can also download the file.
-2. Paste one student's text and the AI feedback on it, then press **Check quotes**.
+2. Paste one student's text and the AI feedback on it, then press **Check quotes**. Tick **Changed quotes
+   first** to put the rows worth reading at the top; each row keeps its number, so you can still find it in
+   the feedback.
 3. Read the rows in this order:
    - **Changed words**, shortest quotes first: the words were changed and nothing marks it. Compare the
-     quote with "what the student wrote" in the same row.
+     quote with "what the student actually wrote" in the same row. The **Where to look** column says
+     whether 1 or 2 words differ (compare word by word) or 3 or more (compare with the whole passage; it may
+     be a reworded passage or a suggested phrase).
    - **Changed words, marked**: the change is in bold or italics. Check that the feedback presents it as
      a correction, not as the student's own sentence.
    - **Not found**: often a suggested phrase. Check that the feedback does not present it as something
@@ -90,6 +94,7 @@ match what you wrote, the comment may be about a sentence you never wrote.
 - Similarity is a proxy. No one read the quotes, so a heavily reworded misquote and a suggested phrase
   can look alike.
 - Whether telling a model a student is an English language learner changes how it quotes them is still
-  untested: audit 6 had too few excerpts for a verdict ([`RESULTS-6.md`](RESULTS-6.md)).
+  untested: audit 6 had too few excerpts for a verdict ([`RESULTS-6.md`](RESULTS-6.md)). A larger re-test
+  with one model is being designed ([`groundwork/audit-7/DESIGN.md`](groundwork/audit-7/DESIGN.md)).
 
 -- MV2, Munim, Inc., mv2@munimtech.com
