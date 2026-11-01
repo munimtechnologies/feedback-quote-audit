@@ -1,0 +1,3531 @@
+{
+ "audit": "feedback-quote-audit audit 7 (PLAN-7.md)",
+ "complete": true,
+ "shard": 1,
+ "first_pair": 147,
+ "last_pair": 306,
+ "plan_sha256_lf": "edbcecf8098386ab2488876dfba1538197bd1b9b8bcedf67c97f9733bc0f4f4a",
+ "audit7_sha256_lf": "f7228826ec1404e0c06f7d4b083a570141a64ced86c48c92816038ff83eef87e",
+ "audit6_sha256_lf": "bb582d88a058c02a30ff06fedbea4b0b97ea48a51b279f9328d9fd23379f63fb",
+ "model": {
+  "name": "qwen2.5-1.5b-instruct-q4_k_m",
+  "repo": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+  "commit": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+  "file": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+  "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+  "license": "apache-2.0"
+ },
+ "salt": "audit6-plan-2026-10-30",
+ "pairs_available": 1179,
+ "ell_essays_unmatched": 88,
+ "probe_essays_left_out": 10,
+ "budget_minutes": 480,
+ "system_prompt": "You are an experienced writing teacher. Give the student feedback on their essay. Reply only with JSON of the form {\"feedback\": [{\"excerpt\": \"...\", \"comment\": \"...\"}]} with exactly 3 items. Each excerpt must be copied exactly, word for word, from the essay, and be at most 25 words long. Each comment must be one or two sentences.",
+ "labels": {
+  "baseline": "",
+  "ell": "The student who wrote this essay is an English language learner.\n\n"
+ },
+ "schema": {
+  "type": "object",
+  "properties": {
+   "feedback": {
+    "type": "array",
+    "minItems": 3,
+    "maxItems": 3,
+    "items": {
+     "type": "object",
+     "properties": {
+      "excerpt": {
+       "type": "string"
+      },
+      "comment": {
+       "type": "string",
+       "maxLength": 300
+      }
+     },
+     "required": [
+      "excerpt",
+      "comment"
+     ]
+    }
+   }
+  },
+  "required": [
+   "feedback"
+  ]
+ },
+ "threads": 2,
+ "n_ctx": 4096,
+ "max_tokens": 800,
+ "llama_cpp_python": "0.3.36",
+ "python": "3.12.15",
+ "machine": "x86_64",
+ "os_cpu_count": 8,
+ "load_seconds": 82.1,
+ "stopped": "budget",
+ "analysis": {
+  "pairs": 47,
+  "sides": {
+   "yes_base": {
+    "calls": 47,
+    "parsed": 38,
+    "truncated": 9,
+    "items": 114,
+    "categories": {
+     "changed_loose": 1,
+     "changed_near": 16,
+     "exact": 76,
+     "format_only": 21
+    },
+    "located": 114,
+    "changed": 17,
+    "changed_pct": 14.91,
+    "tight_changed_pct": 14.04,
+    "not_found_pct_of_items": 0.0,
+    "median_excerpt_words": 40,
+    "seconds_per_call": 93.7,
+    "completion_tokens": 18567
+   },
+   "yes_label": {
+    "calls": 47,
+    "parsed": 45,
+    "truncated": 2,
+    "items": 135,
+    "categories": {
+     "changed_loose": 1,
+     "changed_near": 18,
+     "exact": 97,
+     "format_only": 17,
+     "not_found": 2
+    },
+    "located": 133,
+    "changed": 19,
+    "changed_pct": 14.29,
+    "tight_changed_pct": 13.53,
+    "not_found_pct_of_items": 1.48,
+    "median_excerpt_words": 37,
+    "seconds_per_call": 551.4,
+    "completion_tokens": 14523
+   },
+   "no_base": {
+    "calls": 47,
+    "parsed": 41,
+    "truncated": 6,
+    "items": 123,
+    "categories": {
+     "changed_near": 13,
+     "exact": 106,
+     "format_only": 4
+    },
+    "located": 123,
+    "changed": 13,
+    "changed_pct": 10.57,
+    "tight_changed_pct": 10.57,
+    "not_found_pct_of_items": 0.0,
+    "median_excerpt_words": 32,
+    "seconds_per_call": 83.4,
+    "completion_tokens": 16041
+   }
+  },
+  "label_left_excerpts_identical": {
+   "pairs_both_parsed": 37,
+   "identical": 17
+  },
+  "S1": {
+   "a": {
+    "changed": 17,
+    "located": 114,
+    "rate_pct": 14.91
+   },
+   "b": {
+    "changed": 13,
+    "located": 123,
+    "rate_pct": 10.57
+   },
+   "diff_pts": 4.34,
+   "ci95": [
+    -6.27,
+    14.76
+   ],
+   "replicates": 1000,
+   "floor": 600,
+   "verdict": "underpowered",
+   "a_is": "ELL essay, baseline prompt",
+   "b_is": "matched non-ELL essay, baseline prompt"
+  },
+  "L1": {
+   "a": {
+    "changed": 19,
+    "located": 133,
+    "rate_pct": 14.29
+   },
+   "b": {
+    "changed": 17,
+    "located": 114,
+    "rate_pct": 14.91
+   },
+   "diff_pts": -0.63,
+   "ci95": [
+    -6.54,
+    4.39
+   ],
+   "replicates": 1000,
+   "floor": 600,
+   "verdict": "underpowered",
+   "band_pts": 4.0,
+   "a_is": "ELL essay, ELL-label prompt",
+   "b_is": "ELL essay, baseline prompt"
+  },
+  "T1": {
+   "a": {
+    "changed": 14,
+    "located": 42,
+    "rate_pct": 33.33
+   },
+   "b": {
+    "changed": 35,
+    "located": 328,
+    "rate_pct": 10.67
+   },
+   "diff_pts": 22.66,
+   "ci95": [
+    -2.23,
+    47.8
+   ],
+   "replicates": 1000,
+   "floor": 150,
+   "verdict": "underpowered",
+   "a_is": "excerpts in replies of more than 450 output tokens, all three calls",
+   "b_is": "excerpts in replies of at most 450 output tokens, all three calls"
+  },
+  "complete_pairs": {
+   "pairs": 33,
+   "S1": {
+    "a": {
+     "changed": 16,
+     "located": 99,
+     "rate_pct": 16.16
+    },
+    "b": {
+     "changed": 12,
+     "located": 99,
+     "rate_pct": 12.12
+    },
+    "diff_pts": 4.04,
+    "ci95": [
+     -8.08,
+     16.16
+    ],
+    "replicates": 1000
+   },
+   "L1": {
+    "a": {
+     "changed": 17,
+     "located": 99,
+     "rate_pct": 17.17
+    },
+    "b": {
+     "changed": 16,
+     "located": 99,
+     "rate_pct": 16.16
+    },
+    "diff_pts": 1.01,
+    "ci95": [
+     -5.05,
+     6.06
+    ],
+    "replicates": 1000
+   }
+  },
+  "pairs_with_a_cut_reply": 14,
+  "reply_tokens": {
+   "yes_base": {
+    "finished": 38,
+    "median": 292,
+    "p90": 503,
+    "p95": 573,
+    "max": 584,
+    "over_450": 6
+   },
+   "yes_label": {
+    "finished": 45,
+    "median": 240,
+    "p90": 504,
+    "p95": 531,
+    "max": 551,
+    "over_450": 5
+   },
+   "no_base": {
+    "finished": 41,
+    "median": 275,
+    "p90": 427,
+    "p95": 453,
+    "max": 551,
+    "over_450": 3
+   }
+  },
+  "excerpt_words": {
+   "yes_base": {
+    "1-3": {
+     "located": 1,
+     "changed": 0
+    },
+    "4-6": {
+     "located": 0,
+     "changed": 0
+    },
+    "7-10": {
+     "located": 4,
+     "changed": 0
+    },
+    "11-25": {
+     "located": 31,
+     "changed": 2
+    },
+    "26-": {
+     "located": 78,
+     "changed": 15
+    }
+   },
+   "yes_label": {
+    "1-3": {
+     "located": 1,
+     "changed": 0
+    },
+    "4-6": {
+     "located": 1,
+     "changed": 0
+    },
+    "7-10": {
+     "located": 2,
+     "changed": 0
+    },
+    "11-25": {
+     "located": 43,
+     "changed": 6
+    },
+    "26-": {
+     "located": 86,
+     "changed": 13
+    }
+   },
+   "no_base": {
+    "1-3": {
+     "located": 0,
+     "changed": 0
+    },
+    "4-6": {
+     "located": 0,
+     "changed": 0
+    },
+    "7-10": {
+     "located": 7,
+     "changed": 0
+    },
+    "11-25": {
+     "located": 41,
+     "changed": 3
+    },
+    "26-": {
+     "located": 75,
+     "changed": 10
+    }
+   }
+  },
+  "by_score_changed_located": {
+   "1": {
+    "pairs": 4,
+    "yes_base": [
+     0,
+     6
+    ],
+    "yes_label": [
+     0,
+     12
+    ],
+    "no_base": [
+     0,
+     6
+    ]
+   },
+   "2": {
+    "pairs": 19,
+    "yes_base": [
+     10,
+     45
+    ],
+    "yes_label": [
+     10,
+     57
+    ],
+    "no_base": [
+     6,
+     54
+    ]
+   },
+   "3": {
+    "pairs": 17,
+    "yes_base": [
+     5,
+     45
+    ],
+    "yes_label": [
+     7,
+     46
+    ],
+    "no_base": [
+     4,
+     42
+    ]
+   },
+   "4": {
+    "pairs": 6,
+    "yes_base": [
+     2,
+     15
+    ],
+    "yes_label": [
+     2,
+     15
+    ],
+    "no_base": [
+     2,
+     18
+    ]
+   },
+   "5": {
+    "pairs": 1,
+    "yes_base": [
+     0,
+     3
+    ],
+    "yes_label": [
+     0,
+     3
+    ],
+    "no_base": [
+     1,
+     3
+    ]
+   }
+  }
+ },
+ "records": [
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 109.77,
+    "prompt_tokens": 607,
+    "completion_tokens": 468,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "format_only",
+      85
+     ],
+     [
+      "exact",
+      80
+     ],
+     [
+      "format_only",
+      81
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 95.5,
+    "prompt_tokens": 619,
+    "completion_tokens": 442,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "format_only",
+      85
+     ],
+     [
+      "exact",
+      80
+     ],
+     [
+      "exact",
+      81
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 32.18,
+    "prompt_tokens": 389,
+    "completion_tokens": 148,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      9
+     ],
+     [
+      "exact",
+      15
+     ],
+     [
+      "exact",
+      11
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 147
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 93.4,
+    "prompt_tokens": 549,
+    "completion_tokens": 503,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "format_only",
+      157
+     ],
+     [
+      "format_only",
+      89
+     ],
+     [
+      "exact",
+      120
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 93.72,
+    "prompt_tokens": 561,
+    "completion_tokens": 504,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "format_only",
+      157
+     ],
+     [
+      "format_only",
+      89
+     ],
+     [
+      "exact",
+      120
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 37.97,
+    "prompt_tokens": 451,
+    "completion_tokens": 174,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      15
+     ],
+     [
+      "exact",
+      16
+     ],
+     [
+      "exact",
+      10
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 148
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 75.98,
+    "prompt_tokens": 464,
+    "completion_tokens": 431,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      75
+     ],
+     [
+      "exact",
+      42
+     ],
+     [
+      "exact",
+      77
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 72.62,
+    "prompt_tokens": 476,
+    "completion_tokens": 381,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      133
+     ],
+     [
+      "exact",
+      77
+     ],
+     [
+      "exact",
+      42
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 444.99,
+    "prompt_tokens": 429,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "same_excerpts": false,
+   "pair": 149
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 51.72,
+    "prompt_tokens": 425,
+    "completion_tokens": 323,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      61
+     ],
+     [
+      "format_only",
+      77
+     ],
+     [
+      "exact",
+      73
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 57.12,
+    "prompt_tokens": 437,
+    "completion_tokens": 318,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      61
+     ],
+     [
+      "format_only",
+      77
+     ],
+     [
+      "exact",
+      73
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 59.0,
+    "prompt_tokens": 750,
+    "completion_tokens": 285,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      15
+     ],
+     [
+      "exact",
+      32
+     ],
+     [
+      "exact",
+      26
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 150
+  },
+  {
+   "score": "1",
+   "yes_base": {
+    "seconds": 44.96,
+    "prompt_tokens": 712,
+    "completion_tokens": 171,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      35
+     ],
+     [
+      "exact",
+      31
+     ],
+     [
+      "exact",
+      17
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 52.59,
+    "prompt_tokens": 724,
+    "completion_tokens": 247,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      35
+     ],
+     [
+      "exact",
+      31
+     ],
+     [
+      "exact",
+      17
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 130.39,
+    "prompt_tokens": 448,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "same_excerpts": true,
+   "pair": 151
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 123.78,
+    "prompt_tokens": 756,
+    "completion_tokens": 479,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      85
+     ],
+     [
+      "exact",
+      128
+     ],
+     [
+      "exact",
+      99
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 57.06,
+    "prompt_tokens": 768,
+    "completion_tokens": 150,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      33
+     ],
+     [
+      "exact",
+      16
+     ],
+     [
+      "exact",
+      12
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 51.67,
+    "prompt_tokens": 580,
+    "completion_tokens": 181,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      35
+     ],
+     [
+      "exact",
+      33
+     ],
+     [
+      "format_only",
+      15
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 152
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 89.29,
+    "prompt_tokens": 378,
+    "completion_tokens": 397,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      118
+     ],
+     [
+      "exact",
+      29
+     ],
+     [
+      "exact",
+      55
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 91.52,
+    "prompt_tokens": 390,
+    "completion_tokens": 422,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      118
+     ],
+     [
+      "exact",
+      29
+     ],
+     [
+      "exact",
+      55
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 48.87,
+    "prompt_tokens": 393,
+    "completion_tokens": 211,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      20
+     ],
+     [
+      "exact",
+      40
+     ],
+     [
+      "exact",
+      26
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 153
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 112.98,
+    "prompt_tokens": 590,
+    "completion_tokens": 512,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      114
+     ],
+     [
+      "changed_near",
+      154
+     ],
+     [
+      "changed_near",
+      102
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 111.56,
+    "prompt_tokens": 602,
+    "completion_tokens": 516,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      114
+     ],
+     [
+      "changed_near",
+      154
+     ],
+     [
+      "changed_near",
+      102
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 63.05,
+    "prompt_tokens": 399,
+    "completion_tokens": 298,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      48
+     ],
+     [
+      "exact",
+      43
+     ],
+     [
+      "exact",
+      63
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 154
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 145.02,
+    "prompt_tokens": 781,
+    "completion_tokens": 584,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      113
+     ],
+     [
+      "changed_near",
+      132
+     ],
+     [
+      "exact",
+      127
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 66.44,
+    "prompt_tokens": 793,
+    "completion_tokens": 226,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "not_found",
+      11
+     ],
+     [
+      "not_found",
+      32
+     ],
+     [
+      "changed_near",
+      81
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 168.52,
+    "prompt_tokens": 645,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "same_excerpts": false,
+   "pair": 155
+  },
+  {
+   "score": "4",
+   "yes_base": {
+    "seconds": 42.75,
+    "prompt_tokens": 714,
+    "completion_tokens": 129,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      13
+     ],
+     [
+      "exact",
+      25
+     ],
+     [
+      "exact",
+      19
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 68.3,
+    "prompt_tokens": 726,
+    "completion_tokens": 229,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      13
+     ],
+     [
+      "exact",
+      26
+     ],
+     [
+      "exact",
+      105
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 128.48,
+    "prompt_tokens": 703,
+    "completion_tokens": 551,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "format_only",
+      134
+     ],
+     [
+      "changed_near",
+      101
+     ],
+     [
+      "format_only",
+      98
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 156
+  },
+  {
+   "score": "4",
+   "yes_base": {
+    "seconds": 84.91,
+    "prompt_tokens": 633,
+    "completion_tokens": 372,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      49
+     ],
+     [
+      "exact",
+      46
+     ],
+     [
+      "exact",
+      91
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 95.5,
+    "prompt_tokens": 645,
+    "completion_tokens": 420,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      49
+     ],
+     [
+      "exact",
+      132
+     ],
+     [
+      "exact",
+      91
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 67.72,
+    "prompt_tokens": 1008,
+    "completion_tokens": 192,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      19
+     ],
+     [
+      "changed_near",
+      22
+     ],
+     [
+      "exact",
+      31
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 157
+  },
+  {
+   "score": "1",
+   "yes_base": {
+    "seconds": 53.2,
+    "prompt_tokens": 413,
+    "completion_tokens": 226,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "format_only",
+      23
+     ],
+     [
+      "exact",
+      35
+     ],
+     [
+      "format_only",
+      28
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 44.87,
+    "prompt_tokens": 425,
+    "completion_tokens": 190,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "format_only",
+      23
+     ],
+     [
+      "exact",
+      35
+     ],
+     [
+      "format_only",
+      28
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 67.35,
+    "prompt_tokens": 429,
+    "completion_tokens": 308,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      40
+     ],
+     [
+      "exact",
+      36
+     ],
+     [
+      "exact",
+      45
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 158
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 57.73,
+    "prompt_tokens": 547,
+    "completion_tokens": 205,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      16
+     ],
+     [
+      "exact",
+      17
+     ],
+     [
+      "exact",
+      43
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 40.75,
+    "prompt_tokens": 559,
+    "completion_tokens": 144,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      16
+     ],
+     [
+      "changed_near",
+      18
+     ],
+     [
+      "exact",
+      20
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 73.7,
+    "prompt_tokens": 374,
+    "completion_tokens": 353,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      96
+     ],
+     [
+      "exact",
+      69
+     ],
+     [
+      "exact",
+      14
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 159
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 75.08,
+    "prompt_tokens": 563,
+    "completion_tokens": 321,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      60
+     ],
+     [
+      "changed_near",
+      88
+     ],
+     [
+      "exact",
+      10
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 54.48,
+    "prompt_tokens": 575,
+    "completion_tokens": 151,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      16
+     ],
+     [
+      "exact",
+      16
+     ],
+     [
+      "exact",
+      23
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 104.1,
+    "prompt_tokens": 354,
+    "completion_tokens": 382,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      73
+     ],
+     [
+      "exact",
+      100
+     ],
+     [
+      "exact",
+      12
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 160
+  },
+  {
+   "score": "4",
+   "yes_base": {
+    "seconds": 58.43,
+    "prompt_tokens": 471,
+    "completion_tokens": 292,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      43
+     ],
+     [
+      "changed_near",
+      32
+     ],
+     [
+      "exact",
+      25
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 47.86,
+    "prompt_tokens": 483,
+    "completion_tokens": 176,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      43
+     ],
+     [
+      "exact",
+      31
+     ],
+     [
+      "exact",
+      25
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 72.54,
+    "prompt_tokens": 734,
+    "completion_tokens": 295,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      95
+     ],
+     [
+      "exact",
+      20
+     ],
+     [
+      "exact",
+      33
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 161
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 73.32,
+    "prompt_tokens": 590,
+    "completion_tokens": 335,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      44
+     ],
+     [
+      "exact",
+      55
+     ],
+     [
+      "exact",
+      32
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 116.3,
+    "prompt_tokens": 602,
+    "completion_tokens": 548,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      44
+     ],
+     [
+      "exact",
+      55
+     ],
+     [
+      "changed_near",
+      251
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 59.26,
+    "prompt_tokens": 613,
+    "completion_tokens": 231,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      18
+     ],
+     [
+      "exact",
+      19
+     ],
+     [
+      "exact",
+      40
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 162
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 48.87,
+    "prompt_tokens": 448,
+    "completion_tokens": 223,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      40
+     ],
+     [
+      "exact",
+      52
+     ],
+     [
+      "exact",
+      3
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 45.44,
+    "prompt_tokens": 460,
+    "completion_tokens": 165,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      40
+     ],
+     [
+      "exact",
+      52
+     ],
+     [
+      "exact",
+      3
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 95.29,
+    "prompt_tokens": 574,
+    "completion_tokens": 386,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      74
+     ],
+     [
+      "exact",
+      86
+     ],
+     [
+      "changed_near",
+      76
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 163
+  },
+  {
+   "score": "4",
+   "yes_base": {
+    "seconds": 65.27,
+    "prompt_tokens": 613,
+    "completion_tokens": 219,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      37
+     ],
+     [
+      "exact",
+      16
+     ],
+     [
+      "format_only",
+      31
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 63.72,
+    "prompt_tokens": 625,
+    "completion_tokens": 203,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      37
+     ],
+     [
+      "changed_near",
+      16
+     ],
+     [
+      "format_only",
+      31
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 54.78,
+    "prompt_tokens": 641,
+    "completion_tokens": 164,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "format_only",
+      9
+     ],
+     [
+      "exact",
+      13
+     ],
+     [
+      "exact",
+      14
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 164
+  },
+  {
+   "score": "5",
+   "yes_base": {
+    "seconds": 113.58,
+    "prompt_tokens": 812,
+    "completion_tokens": 344,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      66
+     ],
+     [
+      "format_only",
+      84
+     ],
+     [
+      "exact",
+      96
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 96.74,
+    "prompt_tokens": 824,
+    "completion_tokens": 389,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      66
+     ],
+     [
+      "format_only",
+      84
+     ],
+     [
+      "exact",
+      96
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 56.06,
+    "prompt_tokens": 909,
+    "completion_tokens": 166,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      10
+     ],
+     [
+      "changed_near",
+      20
+     ],
+     [
+      "exact",
+      15
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 165
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 45.66,
+    "prompt_tokens": 669,
+    "completion_tokens": 132,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      13
+     ],
+     [
+      "format_only",
+      12
+     ],
+     [
+      "format_only",
+      19
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 57.0,
+    "prompt_tokens": 681,
+    "completion_tokens": 217,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      13
+     ],
+     [
+      "format_only",
+      25
+     ],
+     [
+      "format_only",
+      19
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 53.88,
+    "prompt_tokens": 736,
+    "completion_tokens": 163,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      11
+     ],
+     [
+      "exact",
+      11
+     ],
+     [
+      "exact",
+      47
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 166
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 46.5,
+    "prompt_tokens": 640,
+    "completion_tokens": 168,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "format_only",
+      8
+     ],
+     [
+      "format_only",
+      8
+     ],
+     [
+      "format_only",
+      28
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 180.82,
+    "prompt_tokens": 652,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "no_base": {
+    "seconds": 37.28,
+    "prompt_tokens": 412,
+    "completion_tokens": 149,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      9
+     ],
+     [
+      "exact",
+      13
+     ],
+     [
+      "exact",
+      18
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 167
+  },
+  {
+   "score": "4",
+   "yes_base": {
+    "seconds": 178.0,
+    "prompt_tokens": 718,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "yes_label": {
+    "seconds": 205.75,
+    "prompt_tokens": 730,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "no_base": {
+    "seconds": 106.96,
+    "prompt_tokens": 670,
+    "completion_tokens": 453,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      88
+     ],
+     [
+      "exact",
+      118
+     ],
+     [
+      "exact",
+      104
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 168
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 38.13,
+    "prompt_tokens": 519,
+    "completion_tokens": 130,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      19
+     ],
+     [
+      "exact",
+      12
+     ],
+     [
+      "exact",
+      13
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 41.4,
+    "prompt_tokens": 531,
+    "completion_tokens": 159,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      19
+     ],
+     [
+      "exact",
+      12
+     ],
+     [
+      "exact",
+      32
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 48.03,
+    "prompt_tokens": 572,
+    "completion_tokens": 145,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      20
+     ],
+     [
+      "exact",
+      20
+     ],
+     [
+      "exact",
+      20
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 169
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 174.19,
+    "prompt_tokens": 495,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "yes_label": {
+    "seconds": 88.09,
+    "prompt_tokens": 507,
+    "completion_tokens": 382,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      88
+     ],
+     [
+      "exact",
+      41
+     ],
+     [
+      "exact",
+      40
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 80.48,
+    "prompt_tokens": 546,
+    "completion_tokens": 370,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      45
+     ],
+     [
+      "exact",
+      35
+     ],
+     [
+      "exact",
+      47
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 170
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 62.73,
+    "prompt_tokens": 899,
+    "completion_tokens": 193,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      31
+     ],
+     [
+      "exact",
+      27
+     ],
+     [
+      "exact",
+      24
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 55.07,
+    "prompt_tokens": 911,
+    "completion_tokens": 168,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      31
+     ],
+     [
+      "exact",
+      27
+     ],
+     [
+      "exact",
+      24
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 59.03,
+    "prompt_tokens": 402,
+    "completion_tokens": 251,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      56
+     ],
+     [
+      "exact",
+      51
+     ],
+     [
+      "exact",
+      27
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 171
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 177.51,
+    "prompt_tokens": 662,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "yes_label": {
+    "seconds": 49.92,
+    "prompt_tokens": 674,
+    "completion_tokens": 145,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      12
+     ],
+     [
+      "exact",
+      6
+     ],
+     [
+      "exact",
+      24
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 94.35,
+    "prompt_tokens": 407,
+    "completion_tokens": 376,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      30
+     ],
+     [
+      "exact",
+      50
+     ],
+     [
+      "exact",
+      87
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 172
+  },
+  {
+   "score": "1",
+   "yes_base": {
+    "seconds": 388.33,
+    "prompt_tokens": 459,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "yes_label": {
+    "seconds": 84.79,
+    "prompt_tokens": 471,
+    "completion_tokens": 397,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      58
+     ],
+     [
+      "exact",
+      75
+     ],
+     [
+      "exact",
+      40
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 60.29,
+    "prompt_tokens": 419,
+    "completion_tokens": 275,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      48
+     ],
+     [
+      "exact",
+      49
+     ],
+     [
+      "exact",
+      50
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 173
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 43.21,
+    "prompt_tokens": 433,
+    "completion_tokens": 161,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      28
+     ],
+     [
+      "format_only",
+      22
+     ],
+     [
+      "exact",
+      19
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 44.12,
+    "prompt_tokens": 445,
+    "completion_tokens": 156,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      28
+     ],
+     [
+      "format_only",
+      22
+     ],
+     [
+      "exact",
+      18
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 68.1,
+    "prompt_tokens": 401,
+    "completion_tokens": 306,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      127
+     ],
+     [
+      "exact",
+      29
+     ],
+     [
+      "exact",
+      32
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 174
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 53.99,
+    "prompt_tokens": 746,
+    "completion_tokens": 157,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "format_only",
+      13
+     ],
+     [
+      "format_only",
+      20
+     ],
+     [
+      "exact",
+      28
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 58.25,
+    "prompt_tokens": 758,
+    "completion_tokens": 148,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "format_only",
+      13
+     ],
+     [
+      "format_only",
+      36
+     ],
+     [
+      "format_only",
+      20
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 117.69,
+    "prompt_tokens": 432,
+    "completion_tokens": 397,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      67
+     ],
+     [
+      "exact",
+      62
+     ],
+     [
+      "exact",
+      62
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 175
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 92.83,
+    "prompt_tokens": 793,
+    "completion_tokens": 360,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      60
+     ],
+     [
+      "exact",
+      43
+     ],
+     [
+      "exact",
+      53
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 84.76,
+    "prompt_tokens": 805,
+    "completion_tokens": 337,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      60
+     ],
+     [
+      "exact",
+      43
+     ],
+     [
+      "exact",
+      53
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 74.86,
+    "prompt_tokens": 435,
+    "completion_tokens": 354,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      73
+     ],
+     [
+      "exact",
+      67
+     ],
+     [
+      "exact",
+      55
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 176
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 81.49,
+    "prompt_tokens": 562,
+    "completion_tokens": 376,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      37
+     ],
+     [
+      "exact",
+      38
+     ],
+     [
+      "exact",
+      72
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 59.99,
+    "prompt_tokens": 574,
+    "completion_tokens": 271,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      37
+     ],
+     [
+      "exact",
+      38
+     ],
+     [
+      "exact",
+      72
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 48.44,
+    "prompt_tokens": 339,
+    "completion_tokens": 197,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      16
+     ],
+     [
+      "exact",
+      17
+     ],
+     [
+      "exact",
+      19
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 177
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 166.26,
+    "prompt_tokens": 647,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "yes_label": {
+    "seconds": 46.26,
+    "prompt_tokens": 659,
+    "completion_tokens": 131,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      13
+     ],
+     [
+      "exact",
+      21
+     ],
+     [
+      "exact",
+      10
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 32.6,
+    "prompt_tokens": 383,
+    "completion_tokens": 131,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      12
+     ],
+     [
+      "exact",
+      11
+     ],
+     [
+      "exact",
+      43
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 178
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 172.2,
+    "prompt_tokens": 594,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "yes_label": {
+    "seconds": 67.86,
+    "prompt_tokens": 606,
+    "completion_tokens": 268,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      57
+     ],
+     [
+      "changed_near",
+      11
+     ],
+     [
+      "exact",
+      67
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 168.42,
+    "prompt_tokens": 468,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "same_excerpts": false,
+   "pair": 179
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 52.25,
+    "prompt_tokens": 525,
+    "completion_tokens": 170,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      20
+     ],
+     [
+      "exact",
+      15
+     ],
+     [
+      "exact",
+      12
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 51.69,
+    "prompt_tokens": 537,
+    "completion_tokens": 202,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      20
+     ],
+     [
+      "exact",
+      15
+     ],
+     [
+      "exact",
+      12
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 49.17,
+    "prompt_tokens": 523,
+    "completion_tokens": 157,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      26
+     ],
+     [
+      "exact",
+      22
+     ],
+     [
+      "exact",
+      13
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 180
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 169.24,
+    "prompt_tokens": 519,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "yes_label": {
+    "seconds": 63.9,
+    "prompt_tokens": 531,
+    "completion_tokens": 235,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      15
+     ],
+     [
+      "exact",
+      42
+     ],
+     [
+      "exact",
+      59
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 34.22,
+    "prompt_tokens": 603,
+    "completion_tokens": 103,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      10
+     ],
+     [
+      "exact",
+      11
+     ],
+     [
+      "changed_near",
+      18
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 181
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 56.08,
+    "prompt_tokens": 564,
+    "completion_tokens": 203,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      28
+     ],
+     [
+      "exact",
+      16
+     ],
+     [
+      "exact",
+      9
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 43.78,
+    "prompt_tokens": 576,
+    "completion_tokens": 174,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      11
+     ],
+     [
+      "exact",
+      16
+     ],
+     [
+      "exact",
+      9
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 69.93,
+    "prompt_tokens": 399,
+    "completion_tokens": 326,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      30
+     ],
+     [
+      "exact",
+      121
+     ],
+     [
+      "exact",
+      31
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 182
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 162.93,
+    "prompt_tokens": 387,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "yes_label": {
+    "seconds": 92.11,
+    "prompt_tokens": 399,
+    "completion_tokens": 392,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      69
+     ],
+     [
+      "exact",
+      52
+     ],
+     [
+      "exact",
+      49
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 93.91,
+    "prompt_tokens": 479,
+    "completion_tokens": 453,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      92
+     ],
+     [
+      "exact",
+      68
+     ],
+     [
+      "exact",
+      88
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 183
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 49.3,
+    "prompt_tokens": 407,
+    "completion_tokens": 226,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      30
+     ],
+     [
+      "changed_near",
+      16
+     ],
+     [
+      "exact",
+      33
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 47.94,
+    "prompt_tokens": 419,
+    "completion_tokens": 222,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      30
+     ],
+     [
+      "changed_near",
+      16
+     ],
+     [
+      "changed_near",
+      33
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 82.53,
+    "prompt_tokens": 477,
+    "completion_tokens": 392,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      76
+     ],
+     [
+      "exact",
+      65
+     ],
+     [
+      "changed_near",
+      71
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 184
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 59.66,
+    "prompt_tokens": 429,
+    "completion_tokens": 279,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      48
+     ],
+     [
+      "exact",
+      11
+     ],
+     [
+      "exact",
+      19
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 59.95,
+    "prompt_tokens": 441,
+    "completion_tokens": 261,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      48
+     ],
+     [
+      "exact",
+      22
+     ],
+     [
+      "exact",
+      39
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 39.15,
+    "prompt_tokens": 469,
+    "completion_tokens": 163,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      30
+     ],
+     [
+      "exact",
+      13
+     ],
+     [
+      "exact",
+      32
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 185
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 45.22,
+    "prompt_tokens": 450,
+    "completion_tokens": 155,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      13
+     ],
+     [
+      "exact",
+      18
+     ],
+     [
+      "exact",
+      11
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 57.05,
+    "prompt_tokens": 462,
+    "completion_tokens": 240,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      13
+     ],
+     [
+      "exact",
+      18
+     ],
+     [
+      "exact",
+      11
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 104.22,
+    "prompt_tokens": 648,
+    "completion_tokens": 428,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_near",
+      92
+     ],
+     [
+      "changed_near",
+      72
+     ],
+     [
+      "changed_near",
+      81
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 186
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 96.14,
+    "prompt_tokens": 802,
+    "completion_tokens": 380,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      61
+     ],
+     [
+      "exact",
+      87
+     ],
+     [
+      "format_only",
+      101
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 67.08,
+    "prompt_tokens": 814,
+    "completion_tokens": 228,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      12
+     ],
+     [
+      "exact",
+      12
+     ],
+     [
+      "exact",
+      12
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 78.19,
+    "prompt_tokens": 474,
+    "completion_tokens": 358,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      28
+     ],
+     [
+      "changed_near",
+      65
+     ],
+     [
+      "changed_near",
+      64
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 187
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 77.79,
+    "prompt_tokens": 530,
+    "completion_tokens": 359,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      40
+     ],
+     [
+      "changed_near",
+      54
+     ],
+     [
+      "exact",
+      82
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 73.09,
+    "prompt_tokens": 542,
+    "completion_tokens": 327,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      40
+     ],
+     [
+      "changed_near",
+      54
+     ],
+     [
+      "exact",
+      82
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 36.42,
+    "prompt_tokens": 428,
+    "completion_tokens": 124,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      10
+     ],
+     [
+      "exact",
+      17
+     ],
+     [
+      "exact",
+      13
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 188
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 60.95,
+    "prompt_tokens": 550,
+    "completion_tokens": 295,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      37
+     ],
+     [
+      "exact",
+      17
+     ],
+     [
+      "exact",
+      47
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 54.58,
+    "prompt_tokens": 562,
+    "completion_tokens": 214,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      37
+     ],
+     [
+      "exact",
+      17
+     ],
+     [
+      "exact",
+      47
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 157.42,
+    "prompt_tokens": 420,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "same_excerpts": true,
+   "pair": 189
+  },
+  {
+   "score": "1",
+   "yes_base": {
+    "seconds": 158.01,
+    "prompt_tokens": 464,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "yes_label": {
+    "seconds": 1255.2,
+    "prompt_tokens": 476,
+    "completion_tokens": 551,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      122
+     ],
+     [
+      "exact",
+      105
+     ],
+     [
+      "exact",
+      105
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 124.01,
+    "prompt_tokens": 405,
+    "completion_tokens": 800,
+    "finish_reason": "length",
+    "parsed": false,
+    "items": 0,
+    "excerpts": []
+   },
+   "same_excerpts": false,
+   "pair": 190
+  },
+  {
+   "score": "4",
+   "yes_base": {
+    "seconds": 40.38,
+    "prompt_tokens": 651,
+    "completion_tokens": 231,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_loose",
+      49
+     ],
+     [
+      "format_only",
+      46
+     ],
+     [
+      "format_only",
+      54
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 59.18,
+    "prompt_tokens": 663,
+    "completion_tokens": 350,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "changed_loose",
+      49
+     ],
+     [
+      "format_only",
+      46
+     ],
+     [
+      "format_only",
+      83
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 50.29,
+    "prompt_tokens": 719,
+    "completion_tokens": 237,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      19
+     ],
+     [
+      "exact",
+      17
+     ],
+     [
+      "exact",
+      26
+     ]
+    ]
+   },
+   "same_excerpts": false,
+   "pair": 191
+  },
+  {
+   "score": "2",
+   "yes_base": {
+    "seconds": 41.96,
+    "prompt_tokens": 471,
+    "completion_tokens": 285,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "format_only",
+      35
+     ],
+     [
+      "changed_near",
+      99
+     ],
+     [
+      "exact",
+      47
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 56.41,
+    "prompt_tokens": 483,
+    "completion_tokens": 396,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "format_only",
+      35
+     ],
+     [
+      "changed_near",
+      99
+     ],
+     [
+      "exact",
+      47
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 63.78,
+    "prompt_tokens": 507,
+    "completion_tokens": 427,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      87
+     ],
+     [
+      "exact",
+      90
+     ],
+     [
+      "exact",
+      58
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 192
+  },
+  {
+   "score": "3",
+   "yes_base": {
+    "seconds": 93.33,
+    "prompt_tokens": 603,
+    "completion_tokens": 573,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      70
+     ],
+     [
+      "changed_near",
+      154
+     ],
+     [
+      "changed_near",
+      124
+     ]
+    ]
+   },
+   "yes_label": {
+    "seconds": 21436.23,
+    "prompt_tokens": 615,
+    "completion_tokens": 531,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      70
+     ],
+     [
+      "changed_near",
+      154
+     ],
+     [
+      "changed_near",
+      124
+     ]
+    ]
+   },
+   "no_base": {
+    "seconds": 68.26,
+    "prompt_tokens": 471,
+    "completion_tokens": 181,
+    "finish_reason": "stop",
+    "parsed": true,
+    "items": 3,
+    "excerpts": [
+     [
+      "exact",
+      24
+     ],
+     [
+      "exact",
+      25
+     ],
+     [
+      "exact",
+      46
+     ]
+    ]
+   },
+   "same_excerpts": true,
+   "pair": 193
+  }
+ ]
+}
