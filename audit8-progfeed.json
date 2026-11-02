@@ -1,0 +1,347 @@
+{
+ "audit": 8,
+ "audit8_sha256_lf": "3a95bc68e2c2f4e52d1b958c6e2a8a0568f9b1cc093b9ce0c7ec1ce7342b75b9",
+ "dataset": {
+  "commit": "e020c7c013187dba7b4130991eadc539d115526a",
+  "csv_rows": 17385,
+  "csv_sha256": "228124c59a5b5a87dec983b43099ec31abe6ca1dcfba45e3aaddc3d83382895b",
+  "labs_with_context": [
+   "lab02",
+   "lab03",
+   "lab05",
+   "lab06",
+   "lab07",
+   "lab09",
+   "lab10",
+   "lab11"
+  ],
+  "license": "CC BY 4.0",
+  "nl_rows": 343,
+  "nl_units": 343,
+  "repo": "umass-ml4ed/progFeed-dataset-public",
+  "submission_files": 9567,
+  "tar_sha256": "084fe8f3070436eef8646f452f69fef2fc7430974dfd2e47e909814faf77e234",
+  "tc_rows": 1083,
+  "tc_units": 1083
+ },
+ "finished_utc": "2026-11-01T19:44:06Z",
+ "labs_without_context": {
+  "nl": 0,
+  "tc": 0
+ },
+ "per_lab": {
+  "lab03": {
+   "block": {
+    "context": 0,
+    "exact": 0,
+    "unsourced": 0,
+    "ws": 0
+   },
+   "code": {
+    "context": 1,
+    "exact": 34,
+    "unsourced": 16,
+    "ws": 22
+   },
+   "fenced": 0,
+   "hints": 171,
+   "literal": {
+    "context": 0,
+    "file": 9,
+    "other": 5
+   },
+   "name": {
+    "context": 4,
+    "file": 231,
+    "known": 0,
+    "unsourced": 0
+   },
+   "spans": 322,
+   "students": 76,
+   "with_spans": 161
+  },
+  "lab05": {
+   "block": {
+    "context": 0,
+    "exact": 0,
+    "unsourced": 0,
+    "ws": 0
+   },
+   "code": {
+    "context": 8,
+    "exact": 14,
+    "unsourced": 6,
+    "ws": 3
+   },
+   "fenced": 0,
+   "hints": 38,
+   "literal": {
+    "context": 0,
+    "file": 18,
+    "other": 0
+   },
+   "name": {
+    "context": 0,
+    "file": 52,
+    "known": 1,
+    "unsourced": 0
+   },
+   "spans": 102,
+   "students": 21,
+   "with_spans": 33
+  },
+  "lab06": {
+   "block": {
+    "context": 0,
+    "exact": 0,
+    "unsourced": 0,
+    "ws": 0
+   },
+   "code": {
+    "context": 0,
+    "exact": 3,
+    "unsourced": 4,
+    "ws": 0
+   },
+   "fenced": 0,
+   "hints": 35,
+   "literal": {
+    "context": 0,
+    "file": 0,
+    "other": 0
+   },
+   "name": {
+    "context": 2,
+    "file": 96,
+    "known": 0,
+    "unsourced": 0
+   },
+   "spans": 105,
+   "students": 19,
+   "with_spans": 34
+  },
+  "lab07": {
+   "block": {
+    "context": 0,
+    "exact": 0,
+    "unsourced": 0,
+    "ws": 0
+   },
+   "code": {
+    "context": 0,
+    "exact": 10,
+    "unsourced": 4,
+    "ws": 4
+   },
+   "fenced": 0,
+   "hints": 36,
+   "literal": {
+    "context": 0,
+    "file": 2,
+    "other": 0
+   },
+   "name": {
+    "context": 0,
+    "file": 65,
+    "known": 0,
+    "unsourced": 0
+   },
+   "spans": 85,
+   "students": 22,
+   "with_spans": 34
+  },
+  "lab09": {
+   "block": {
+    "context": 0,
+    "exact": 0,
+    "unsourced": 0,
+    "ws": 0
+   },
+   "code": {
+    "context": 11,
+    "exact": 27,
+    "unsourced": 7,
+    "ws": 3
+   },
+   "fenced": 0,
+   "hints": 63,
+   "literal": {
+    "context": 1,
+    "file": 4,
+    "other": 1
+   },
+   "name": {
+    "context": 5,
+    "file": 61,
+    "known": 0,
+    "unsourced": 2
+   },
+   "spans": 122,
+   "students": 22,
+   "with_spans": 49
+  }
+ },
+ "plan": "PLAN-8.md",
+ "plan_sha256_lf": "ca580531c0c9b92d89d48002160c566d81cce3c84706c2b80be8b1d7b4262af3",
+ "predictions": [
+  {
+   "ci95": [
+    87.61,
+    93.52
+   ],
+   "den": 343,
+   "direction": ">",
+   "floor": 200,
+   "id": "P1",
+   "num": 311,
+   "rate_pct": 90.67,
+   "students": 119,
+   "threshold": 50.0,
+   "unit": "hints",
+   "verdict": "holds",
+   "what": "nl hints with at least one backtick code span"
+  },
+  {
+   "ci95": [
+    59.71,
+    75.15
+   ],
+   "den": 177,
+   "direction": ">",
+   "floor": 150,
+   "id": "P2",
+   "num": 120,
+   "rate_pct": 67.8,
+   "students": 67,
+   "threshold": 70.0,
+   "unit": "code spans",
+   "verdict": "inconclusive",
+   "what": "code spans found in the student's submitted file (exact or whitespace-only difference)"
+  },
+  {
+   "ci95": null,
+   "den": 120,
+   "direction": ">",
+   "floor": 150,
+   "id": "P3",
+   "num": 88,
+   "rate_pct": 73.33,
+   "students": 57,
+   "threshold": 90.0,
+   "unit": "found code spans",
+   "verdict": "underpowered",
+   "what": "found code spans that match the file exactly"
+  },
+  {
+   "ci95": [
+    0.0,
+    1.01
+   ],
+   "den": 519,
+   "direction": "<",
+   "floor": 150,
+   "id": "P4",
+   "num": 2,
+   "rate_pct": 0.39,
+   "students": 113,
+   "threshold": 10.0,
+   "unit": "name spans",
+   "verdict": "holds",
+   "what": "name spans found nowhere (not in the file, problem text or prompt, not a Python name)"
+  },
+  {
+   "ci95": [
+    20.3,
+    39.47
+   ],
+   "den": 116,
+   "direction": "<",
+   "floor": 100,
+   "id": "P5",
+   "num": 34,
+   "rate_pct": 29.31,
+   "students": 67,
+   "threshold": 30.0,
+   "unit": "hints with code spans",
+   "verdict": "inconclusive",
+   "what": "hints with code spans that hold at least one code span found nowhere"
+  }
+ ],
+ "reps": 10000,
+ "seconds": 3.1,
+ "seed": 20261101,
+ "source_match": {
+  "nl": {
+   "file": 343,
+   "folder": 0,
+   "snippet": 0
+  },
+  "tc": {
+   "file": 1083,
+   "folder": 0,
+   "snippet": 0
+  }
+ },
+ "totals": {
+  "nl": {
+   "block": {
+    "context": 0,
+    "exact": 0,
+    "unsourced": 0,
+    "ws": 0
+   },
+   "code": {
+    "context": 20,
+    "exact": 88,
+    "unsourced": 37,
+    "ws": 32
+   },
+   "fenced": 0,
+   "hints": 343,
+   "literal": {
+    "context": 1,
+    "file": 33,
+    "other": 6
+   },
+   "name": {
+    "context": 11,
+    "file": 505,
+    "known": 1,
+    "unsourced": 2
+   },
+   "spans": 736,
+   "students": 119,
+   "with_spans": 311
+  },
+  "tc": {
+   "block": {
+    "context": 0,
+    "exact": 0,
+    "unsourced": 0,
+    "ws": 0
+   },
+   "code": {
+    "context": 0,
+    "exact": 0,
+    "unsourced": 0,
+    "ws": 0
+   },
+   "fenced": 0,
+   "hints": 1083,
+   "literal": {
+    "context": 0,
+    "file": 0,
+    "other": 0
+   },
+   "name": {
+    "context": 0,
+    "file": 0,
+    "known": 0,
+    "unsourced": 0
+   },
+   "spans": 0,
+   "students": 156,
+   "with_spans": 0
+  }
+ }
+}

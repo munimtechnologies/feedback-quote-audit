@@ -3,21 +3,22 @@
 By MV2 of Munim, Inc. Made with AI agents working in his name. Text CC BY 4.0.
 
 Each audit here wrote its predictions into a plan committed before its sealed run read any quote. This page
-puts all 34 of them in one place, with the verdict exactly as its RESULTS file states it, so nobody has to
-read nine reports to see the track record. Numbers are copied from the RESULTS files; where this page and a
-RESULTS file disagree, the RESULTS file is right. `predictions.json` holds the same table.
+puts all 42 of them in one place, with the verdict exactly as its RESULTS file states it (audit 8's "holds" is
+listed as "held"), so nobody has to read eleven reports to see the track record. Numbers are copied from the
+RESULTS files; where this page and a RESULTS file disagree, the RESULTS file is right. `predictions.json` holds
+the same table.
 
 ## Tally
 
 | Verdict | Count |
 |---|---|
-| held | 12 |
+| held | 16 |
 | reversed (the whole 95% CI on the opposite side) | 9 |
 | did not hold (level target missed, not a direction) | 2 |
 | no clear difference (CI spans zero) | 1 |
-| inconclusive (equivalence test: CI neither inside nor outside the band) | 1 |
-| underpowered (too few quotes for the plan's floor; no verdict) | 9 |
-| **Total** | **34** |
+| inconclusive (CI straddles the threshold or the edge of the band) | 4 |
+| underpowered (too few quotes for the plan's floor; no verdict) | 10 |
+| **Total** | **42** |
 
 Audits 1-3 (one model, GLM-4.7, on one IELTS dataset, including 1b and 2b) got their *direction* wrong 9
 times out of 12 direction predictions (2 held, 1 no clear difference). Their other 6 predictions were levels
@@ -26,7 +27,8 @@ exploratory, and audit 1's H1 did not hold. Audit 4, on an independent dataset w
 three. Audit 5, on a third dataset, missed its level target narrowly (6.17% against a 5% bound) and had too
 few quotes to test its two comparisons. Follow-up 5b found that audit 5's filter had set most of the quoting
 aside; on the wider set, its exploratory G4 held. Audit 6 generated its own feedback with two small models;
-all six of its verdicts are underpowered.
+all six of its verdicts are underpowered. Audit 7 re-ran audit 6's Qwen test with a longer token limit: two of
+three held. Audit 8 moved to programming hints from a real course: two held, two inconclusive, one underpowered.
 The patterns that replicated across datasets: most quotes keep the student's words, and short quotes change
 words more often than long ones (tested and held in audits 2-4; same direction but underpowered in audit 5,
 and same direction descriptively on 5b's wider set).
@@ -129,6 +131,35 @@ Qwen lost 30-40% of its replies to the 450-token limit because its excerpts ran 
 about half of SmolLM's "excerpts" could not be found in the essay at all. Neither model wrote enough short
 excerpts for C1.
 
+## Audit 7: the powered re-test of audit 6, Qwen2.5-1.5B with 800 tokens ([PLAN-7.md](PLAN-7.md), [RESULTS-7.md](RESULTS-7.md))
+
+292 new matched pairs (147 onward), pooled from four shards. S1 and L1 needed 600 located excerpts a side, T1 150.
+
+| ID | Prediction | Observed | Verdict |
+|---|---|---|---|
+| S1 | With the baseline prompt, ELL essays' excerpts change words more than matched non-ELL essays' | 15.82% (670) vs 9.97% (682), diff +5.85 pts (CI +1.26 to +10.41) | held |
+| L1 | Adding the label moves the ELL rate by less than 4 points | 12.64% (720) vs 15.82% (670), diff -3.18 pts (CI -6.16 to -0.31) | inconclusive |
+| T1 | Excerpts in replies over 450 tokens change words more than those in shorter replies | 20.73% (381) vs 11.00% (1,691), diff +9.74 pts (CI +3.40 to +16.47) | held |
+
+S1 holds on the 177 pairs where all three replies could be read, too (+6.64 pts, CI +2.06 to +11.21; not a
+verdict). Audit 6's opposite point estimate came from replies cut at 450 tokens, which T1 shows were the less
+faithful ones.
+
+## Audit 8: programming hints in a real course, ProgFeed / gpt-4o-mini ([PLAN-8.md](PLAN-8.md), [RESULTS-8.md](RESULTS-8.md))
+
+343 natural-language hints to 119 students; CIs resample students.
+
+| ID | Prediction | Observed | Verdict |
+|---|---|---|---|
+| P1 | More than 50% of hints contain a backtick span | 90.7% (311 / 343), CI 87.6-93.5% | held |
+| P2 | More than 70% of code spans are in the student's file (exact or spacing only) | 67.8% (120 / 177), CI 59.7-75.2% | inconclusive |
+| P3 | More than 90% of found code spans match exactly | 73.3% (88 / 120); floor 150 | underpowered |
+| P4 | Fewer than 10% of name spans are found nowhere | 0.39% (2 / 519), CI 0.0-1.0% | held |
+| P5 | Fewer than 30% of hints with code spans hold a code span found nowhere | 29.3% (34 / 116), CI 20.3-39.5% | inconclusive |
+
+37 of 177 code spans (20.9%) are in neither the student's file nor the problem text or prompt, although the
+prompt said "Do not suggest code changes".
+
 ## What the record says
 
 - Point and direction guesses from intuition were unreliable on a single model: in audits 1-3, nine of
@@ -138,10 +169,16 @@ excerpts for C1.
   3.97% on 5b's wider set), and short quotes are where word changes concentrate (audits 2, 3 and 4).
 - Model matters more than size: per-model word-changed rates on FeedType span 0.22% to 13.2%, and in audit 6
   two small models of similar size kept the student's words in about 9 in 10 and about 1 in 5 excerpts.
+- Who the student is can matter: in audit 7 one small model changed English learners' words more often than a
+  matched classmate's (15.8% vs 10.0%).
+- A token limit is not neutral: the replies it cuts off were the less faithful ones (audit 7, T1), and an
+  underpowered run can point the wrong way (audit 6's S1).
+- Code is different from prose: hints name the student's variables almost perfectly, but a fifth of the code
+  snippets they show are not the student's code (audit 8).
 - Feedback that quotes rarely gives little to test: a power floor fixed in advance is what stopped audit 5
   from over-reading 16 changed quotes, and audit 6 from reading a 9-point gap with a CI that spans zero.
 - A filter carried from one dataset to another needs checking: audit 1's rewrite cue list set aside three
   quarters of SpecEval's matched quotes, almost all for a "for example" or "such as" in front of them.
 
-Limits are those of each audit: double quotes only, a heuristic for suggested rewrites, and similarity as a
-proxy that no counts-only pass can replace with human reading.
+Limits are those of each audit: double quotes only (backticks in audit 8), a heuristic for suggested rewrites,
+and similarity as a proxy that no counts-only pass can replace with human reading.

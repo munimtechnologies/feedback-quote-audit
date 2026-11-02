@@ -1,0 +1,406 @@
+{
+ "audit": "feedback-quote-audit audit 7 (PLAN-7.md)",
+ "pooled_from": {
+  "1": {
+   "pairs": 47,
+   "stopped": "budget",
+   "first_pair": 147,
+   "last_pair_run": 193
+  },
+  "2": {
+   "pairs": 28,
+   "stopped": "budget",
+   "first_pair": 307,
+   "last_pair_run": 334
+  },
+  "3": {
+   "pairs": 160,
+   "stopped": "pool",
+   "first_pair": 467,
+   "last_pair_run": 626
+  },
+  "4": {
+   "pairs": 57,
+   "stopped": "budget",
+   "first_pair": 627,
+   "last_pair_run": 683
+  }
+ },
+ "pairs": 292,
+ "audit7_sha256_lf": "f7228826ec1404e0c06f7d4b083a570141a64ced86c48c92816038ff83eef87e",
+ "plan_sha256_lf": "edbcecf8098386ab2488876dfba1538197bd1b9b8bcedf67c97f9733bc0f4f4a",
+ "pool_code_sha256_lf": "f7228826ec1404e0c06f7d4b083a570141a64ced86c48c92816038ff83eef87e",
+ "boot_reps": 10000,
+ "floors": {
+  "S1": 600,
+  "L1": 600,
+  "T1": 150
+ },
+ "analysis": {
+  "pairs": 292,
+  "sides": {
+   "yes_base": {
+    "calls": 292,
+    "parsed": 225,
+    "truncated": 66,
+    "items": 675,
+    "categories": {
+     "changed_loose": 9,
+     "changed_near": 97,
+     "exact": 489,
+     "format_only": 75,
+     "not_found": 5
+    },
+    "located": 670,
+    "changed": 106,
+    "changed_pct": 15.82,
+    "tight_changed_pct": 14.48,
+    "not_found_pct_of_items": 0.74,
+    "median_excerpt_words": 41,
+    "seconds_per_call": 153.7,
+    "completion_tokens": 125180
+   },
+   "yes_label": {
+    "calls": 292,
+    "parsed": 244,
+    "truncated": 44,
+    "items": 732,
+    "categories": {
+     "changed_loose": 7,
+     "changed_near": 84,
+     "exact": 549,
+     "format_only": 80,
+     "not_found": 12
+    },
+    "located": 720,
+    "changed": 91,
+    "changed_pct": 12.64,
+    "tight_changed_pct": 11.67,
+    "not_found_pct_of_items": 1.64,
+    "median_excerpt_words": 34,
+    "seconds_per_call": 141.0,
+    "completion_tokens": 108747
+   },
+   "no_base": {
+    "calls": 292,
+    "parsed": 228,
+    "truncated": 62,
+    "items": 684,
+    "categories": {
+     "changed_loose": 2,
+     "changed_near": 66,
+     "ellipsis_join": 1,
+     "empty": 1,
+     "exact": 565,
+     "format_only": 48,
+     "not_found": 1
+    },
+    "located": 682,
+    "changed": 68,
+    "changed_pct": 9.97,
+    "tight_changed_pct": 9.68,
+    "not_found_pct_of_items": 0.15,
+    "median_excerpt_words": 37,
+    "seconds_per_call": 148.3,
+    "completion_tokens": 119779
+   }
+  },
+  "label_left_excerpts_identical": {
+   "pairs_both_parsed": 215,
+   "identical": 84
+  },
+  "S1": {
+   "a": {
+    "changed": 106,
+    "located": 670,
+    "rate_pct": 15.82
+   },
+   "b": {
+    "changed": 68,
+    "located": 682,
+    "rate_pct": 9.97
+   },
+   "diff_pts": 5.85,
+   "ci95": [
+    1.26,
+    10.41
+   ],
+   "replicates": 10000,
+   "floor": 600,
+   "verdict": "held",
+   "a_is": "ELL essay, baseline prompt",
+   "b_is": "matched non-ELL essay, baseline prompt"
+  },
+  "L1": {
+   "a": {
+    "changed": 91,
+    "located": 720,
+    "rate_pct": 12.64
+   },
+   "b": {
+    "changed": 106,
+    "located": 670,
+    "rate_pct": 15.82
+   },
+   "diff_pts": -3.18,
+   "ci95": [
+    -6.16,
+    -0.31
+   ],
+   "replicates": 10000,
+   "floor": 600,
+   "verdict": "inconclusive",
+   "band_pts": 4.0,
+   "a_is": "ELL essay, ELL-label prompt",
+   "b_is": "ELL essay, baseline prompt"
+  },
+  "T1": {
+   "a": {
+    "changed": 79,
+    "located": 381,
+    "rate_pct": 20.73
+   },
+   "b": {
+    "changed": 186,
+    "located": 1691,
+    "rate_pct": 11.0
+   },
+   "diff_pts": 9.74,
+   "ci95": [
+    3.4,
+    16.47
+   ],
+   "replicates": 10000,
+   "floor": 150,
+   "verdict": "held",
+   "a_is": "excerpts in replies of more than 450 output tokens, all three calls",
+   "b_is": "excerpts in replies of at most 450 output tokens, all three calls"
+  },
+  "complete_pairs": {
+   "pairs": 177,
+   "S1": {
+    "a": {
+     "changed": 75,
+     "located": 528,
+     "rate_pct": 14.2
+    },
+    "b": {
+     "changed": 40,
+     "located": 529,
+     "rate_pct": 7.56
+    },
+    "diff_pts": 6.64,
+    "ci95": [
+     2.06,
+     11.21
+    ],
+    "replicates": 10000
+   },
+   "L1": {
+    "a": {
+     "changed": 66,
+     "located": 521,
+     "rate_pct": 12.67
+    },
+    "b": {
+     "changed": 75,
+     "located": 528,
+     "rate_pct": 14.2
+    },
+    "diff_pts": -1.54,
+    "ci95": [
+     -4.45,
+     1.18
+    ],
+    "replicates": 10000
+   }
+  },
+  "pairs_with_a_cut_reply": 110,
+  "reply_tokens": {
+   "yes_base": {
+    "finished": 226,
+    "median": 295,
+    "p90": 526,
+    "p95": 584,
+    "max": 788,
+    "over_450": 45
+   },
+   "yes_label": {
+    "finished": 248,
+    "median": 257,
+    "p90": 506,
+    "p95": 565,
+    "max": 733,
+    "over_450": 39
+   },
+   "no_base": {
+    "finished": 230,
+    "median": 270,
+    "p90": 521,
+    "p95": 597,
+    "max": 791,
+    "over_450": 44
+   }
+  },
+  "excerpt_words": {
+   "yes_base": {
+    "1-3": {
+     "located": 2,
+     "changed": 0
+    },
+    "4-6": {
+     "located": 5,
+     "changed": 1
+    },
+    "7-10": {
+     "located": 21,
+     "changed": 2
+    },
+    "11-25": {
+     "located": 180,
+     "changed": 18
+    },
+    "26-": {
+     "located": 462,
+     "changed": 85
+    }
+   },
+   "yes_label": {
+    "1-3": {
+     "located": 3,
+     "changed": 0
+    },
+    "4-6": {
+     "located": 10,
+     "changed": 1
+    },
+    "7-10": {
+     "located": 23,
+     "changed": 2
+    },
+    "11-25": {
+     "located": 231,
+     "changed": 18
+    },
+    "26-": {
+     "located": 453,
+     "changed": 70
+    }
+   },
+   "no_base": {
+    "1-3": {
+     "located": 3,
+     "changed": 0
+    },
+    "4-6": {
+     "located": 7,
+     "changed": 0
+    },
+    "7-10": {
+     "located": 32,
+     "changed": 3
+    },
+    "11-25": {
+     "located": 209,
+     "changed": 15
+    },
+    "26-": {
+     "located": 431,
+     "changed": 50
+    }
+   }
+  },
+  "by_score_changed_located": {
+   "1": {
+    "pairs": 28,
+    "yes_base": [
+     10,
+     63
+    ],
+    "yes_label": [
+     13,
+     64
+    ],
+    "no_base": [
+     5,
+     57
+    ]
+   },
+   "2": {
+    "pairs": 102,
+    "yes_base": [
+     29,
+     209
+    ],
+    "yes_label": [
+     21,
+     247
+    ],
+    "no_base": [
+     26,
+     220
+    ]
+   },
+   "3": {
+    "pairs": 105,
+    "yes_base": [
+     41,
+     254
+    ],
+    "yes_label": [
+     36,
+     264
+    ],
+    "no_base": [
+     26,
+     252
+    ]
+   },
+   "4": {
+    "pairs": 51,
+    "yes_base": [
+     21,
+     132
+    ],
+    "yes_label": [
+     16,
+     133
+    ],
+    "no_base": [
+     7,
+     135
+    ]
+   },
+   "5": {
+    "pairs": 5,
+    "yes_base": [
+     5,
+     12
+    ],
+    "yes_label": [
+     5,
+     12
+    ],
+    "no_base": [
+     1,
+     15
+    ]
+   },
+   "6": {
+    "pairs": 1,
+    "yes_base": [
+     0,
+     0
+    ],
+    "yes_label": [
+     0,
+     0
+    ],
+    "no_base": [
+     3,
+     3
+    ]
+   }
+  }
+ }
+}

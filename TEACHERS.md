@@ -1,8 +1,8 @@
 # When AI feedback quotes your students: a short guide for teachers
 
-What the finished audits of AI essay feedback (audits 1-6 and follow-ups 1b, 2b and 5b) found, and a five-minute way to check a tool
-yourself. By MV2 of Munim, Inc. Made with AI agents working in his name; it has not yet been reviewed by a
-teacher. Text CC BY 4.0.
+What the finished audits of AI feedback (audits 1-8 and follow-ups 1b, 2b and 5b) found, and a five-minute way
+to check a tool yourself. By MV2 of Munim, Inc. Made with AI agents working in his name; it has not yet been
+reviewed by a teacher. Text CC BY 4.0.
 
 ## Why it matters
 
@@ -13,9 +13,9 @@ write, and the error they actually made goes unseen. A teacher skimming the feed
 
 ## What the audits found
 
-All numbers are counts from public datasets; no essay or feedback text was read or published. Each audit
+All numbers are counts from public datasets; no essay, code or feedback text was read or published. Each audit
 was planned in writing before any quote was counted (see [`PREDICTIONS.md`](PREDICTIONS.md) for the
-34 predictions and how each came out).
+42 predictions and how each came out).
 
 1. **Most quotes keep the student's words, but a small share do not, and the share depends on the model.**
    - GLM-4.7 feedback on 8,946 IELTS essays: 95.7% of 50,742 quotes keep the student's words once
@@ -53,13 +53,27 @@ was planned in writing before any quote was counted (see [`PREDICTIONS.md`](PRED
    ranked lower for specificity changed the student's words in 10.03% of its quotes against 2.48% for
    top-ranked feedback. This was an exploratory comparison ([`RESULTS-5b.md`](RESULTS-5b.md)).
 
-8. **Small models you can run on a laptop differ enormously.** Audit 6 had two small open models (1.5 and
-   1.7 billion parameters) write feedback on grade 6-12 essays from PERSUADE 2.0, asking for excerpts
-   "copied exactly, word for word". About 9 in 10 of Qwen2.5-1.5B's excerpts kept the student's words;
-   about 1 in 5 of SmolLM2-1.7B's did, and half of its "excerpts" were not in the essay at all
-   ([`RESULTS-6.md`](RESULTS-6.md)). The audit's real question, whether telling the model the student is an
-   English language learner changes how faithfully it quotes them, got no answer: there were too few
-   excerpts to meet the plan's bar, so it stays open.
+8. **English learners' words were changed more often, in one small model.** Audit 6 had two small open
+   models (1.5 and 1.7 billion parameters) write feedback on grade 6-12 essays from PERSUADE 2.0, asking for
+   excerpts "copied exactly, word for word"; they differed enormously (about 9 in 10 vs about 1 in 5 excerpts
+   kept the student's words, [`RESULTS-6.md`](RESULTS-6.md)). Audit 7 re-ran the better one on 292 new pairs
+   with room to finish its replies. An English language learner's words were changed in 15.8% of excerpts,
+   against 10.0% for a classmate whose essay had the same prompt and score. Telling the model "this student is
+   an English language learner" did not make it worse (it lowered the rate a little). Long replies changed
+   words about twice as often as short ones ([`RESULTS-7.md`](RESULTS-7.md)). Check English learners'
+   quoted sentences first.
+
+9. **Telling the model to "copy the student's words exactly" made no clear difference.** In a separate
+   preregistered test, adding that line to the prompt of two small local models gave 94.1% exact quotes
+   against 94.3% without it; which model was used mattered far more (about 98-99% vs 88-90%)
+   ([feedback-commons RESULTS-v6](https://github.com/munimtechnologies/feedback-commons/blob/main/research/RESULTS-v6.md)).
+   A prompt instruction is not a check.
+
+10. **Programming hints: names are right, code snippets need checking.** In a real introductory Python
+    course (ProgFeed), gpt-4o-mini's hints named the student's own variables and functions almost perfectly
+    (2 of 519 names were found nowhere). But 37 of 177 code snippets shown in the hints (21%) were neither in
+    the student's file nor in the assignment, although the model was told not to suggest code
+    ([`RESULTS-8.md`](RESULTS-8.md)). When a hint says "your line `...`", find that line in the student's code.
 
 ## A five-minute check
 
@@ -79,22 +93,24 @@ was planned in writing before any quote was counted (see [`PREDICTIONS.md`](PRED
      the student wrote.
    - **Exact**, **Same words** and **Same words, some left out** keep the student's words.
 4. Try it on three or four essays before trusting a tool or a prompt, including at least one strong essay
-   (finding 6).
+   (finding 6) and at least one by an English learner (finding 8).
+5. For programming hints, the page checks double-quoted text only; search the student's file for each
+   snippet in `code font` by hand (finding 10).
 
 ## For students
 
-When feedback quotes you, find that sentence in your draft before you fix it. If the quote does not
-match what you wrote, the comment may be about a sentence you never wrote.
+When feedback quotes you, find that sentence (or that line of code) in your draft before you fix it. If the
+quote does not match what you wrote, the comment may be about something you never wrote.
 
 ## Limits
 
-- The audits cover four public datasets (IELTS practice essays, university essays, and two sets of US
-  school essays) and the models that produced or were run on them, not the tools in any particular school.
+- The audits cover five public datasets (IELTS practice essays, university essays, two sets of US school
+  essays and one university programming course) and the models that produced or were run on them, not the
+  tools in any particular school.
 - They measure copying, not whether the feedback is good or correct.
 - Similarity is a proxy. No one read the quotes, so a heavily reworded misquote and a suggested phrase
   can look alike.
-- Whether telling a model a student is an English language learner changes how it quotes them is still
-  untested: audit 6 had too few excerpts for a verdict ([`RESULTS-6.md`](RESULTS-6.md)). A larger re-test
-  with one model is being designed ([`groundwork/audit-7/DESIGN.md`](groundwork/audit-7/DESIGN.md)).
+- The English-learner finding (8) comes from one small model and one prompt; it shows the effect can happen,
+  not how often it happens in the tools schools use.
 
 -- MV2, Munim, Inc., mv2@munimtech.com
