@@ -1,0 +1,158 @@
+{
+ "audit": "8b",
+ "audit8_sha256_lf": "3a95bc68e2c2f4e52d1b958c6e2a8a0568f9b1cc093b9ce0c7ec1ce7342b75b9",
+ "audit8b_sha256_lf": "5bed8909b867ee16e9bcf38ec389d6cb75101d9ba112060666b8e3ff063b6c6f",
+ "code_spans": {
+  "context": {
+   "bands": {
+    "near": 7,
+    "new": 3,
+    "partial": 10
+   },
+   "in_final": 1,
+   "median_tokens": 6.0,
+   "spans": 20,
+   "students": 12,
+   "with_later_final": 20
+  },
+  "exact": {
+   "in_final": 44,
+   "median_tokens": 4.0,
+   "spans": 88,
+   "students": 44,
+   "with_later_final": 83
+  },
+  "unsourced": {
+   "bands": {
+    "near": 15,
+    "new": 7,
+    "partial": 15
+   },
+   "control_mean_pct": 29.74,
+   "in_final": 18,
+   "in_final_by_band": {
+    "near": [
+     6,
+     15
+    ],
+    "new": [
+     4,
+     7
+    ],
+    "partial": [
+     8,
+     15
+    ]
+   },
+   "median_tokens": 6,
+   "spans": 37,
+   "students": 28,
+   "with_control": 37,
+   "with_later_final": 37
+  },
+  "ws": {
+   "in_final": 19,
+   "median_tokens": 6.0,
+   "spans": 32,
+   "students": 21,
+   "with_later_final": 31
+  }
+ },
+ "dataset": {
+  "commit": "e020c7c013187dba7b4130991eadc539d115526a",
+  "license": "CC BY 4.0",
+  "nl_units": 343,
+  "repo": "umass-ml4ed/progFeed-dataset-public",
+  "tar_sha256": "084fe8f3070436eef8646f452f69fef2fc7430974dfd2e47e909814faf77e234"
+ },
+ "finished_utc": "2026-11-02T04:32:05Z",
+ "near": 0.8,
+ "partial": 0.5,
+ "per_lab": {
+  "lab03": {
+   "bands": {
+    "near": 5,
+    "new": 5,
+    "partial": 6
+   },
+   "code_spans": 73,
+   "unsourced": 16
+  },
+  "lab05": {
+   "bands": {
+    "near": 3,
+    "new": 1,
+    "partial": 2
+   },
+   "code_spans": 31,
+   "unsourced": 6
+  },
+  "lab06": {
+   "bands": {
+    "near": 0,
+    "new": 0,
+    "partial": 4
+   },
+   "code_spans": 7,
+   "unsourced": 4
+  },
+  "lab07": {
+   "bands": {
+    "near": 4,
+    "new": 0,
+    "partial": 0
+   },
+   "code_spans": 18,
+   "unsourced": 4
+  },
+  "lab09": {
+   "bands": {
+    "near": 3,
+    "new": 1,
+    "partial": 3
+   },
+   "code_spans": 48,
+   "unsourced": 7
+  }
+ },
+ "plan": "PLAN-8b.md",
+ "plan_sha256_lf": "cddf6de6111d97c700fc0adacf38ff2a3fc4b021ea0baf895f3791b560a73733",
+ "predictions": [
+  {
+   "ci95": [
+    25.64,
+    56.1
+   ],
+   "den": 37,
+   "direction": ">",
+   "floor": 30,
+   "id": "Q1",
+   "num": 15,
+   "rate_pct": 40.54,
+   "students": 28,
+   "threshold": 50.0,
+   "unit": "unsourced code spans",
+   "verdict": "inconclusive",
+   "what": "unsourced code spans that are near-copies of the student's code (similarity >= 0.8)"
+  },
+  {
+   "ci95": [
+    5.46,
+    34.48
+   ],
+   "control_mean_pct": 29.74,
+   "den": 37,
+   "floor": 20,
+   "id": "Q2",
+   "mean_diff_pts": 18.91,
+   "recipient_in_final": 18,
+   "students": 28,
+   "unit": "unsourced code spans with a later final submission",
+   "verdict": "held",
+   "what": "unsourced code spans appear in the recipient's later final submission more often than in other students' final submissions of the same lab (difference > 0)"
+  }
+ ],
+ "reps": 10000,
+ "seconds": 1.7,
+ "seed": 20261102
+}

@@ -13,8 +13,8 @@ told about the student. Audit 8 moved from essays to programming hints given in 
 
 By MV2 of Munim, Inc. Made with AI agents working in his name. Code Apache-2.0; text CC BY 4.0.
 
-**Track record: [`PREDICTIONS.md`](PREDICTIONS.md)** lists all 42 preregistered predictions across the audits
-below with their verdicts (16 held, 9 reversed, 2 did not hold, 1 no clear difference, 4 inconclusive,
+**Track record: [`PREDICTIONS.md`](PREDICTIONS.md)** lists all 44 preregistered predictions across the audits
+below with their verdicts (17 held, 9 reversed, 2 did not hold, 1 no clear difference, 5 inconclusive,
 10 underpowered; `predictions.json` has the same table).
 
 **For teachers: [`TEACHERS.md`](TEACHERS.md)** sums up what the audits mean in a classroom, in plain words,
@@ -185,6 +185,18 @@ with a five-minute way to check a feedback tool using the free offline
   different spacing, 11% come from the assignment, and **21% are found nowhere**, although the model was told
   not to suggest code. 29% of hints that show code contain such a snippet.
 
+## Follow-up 8b: what are those snippets, and where do they go? (preregistered, done)
+
+- Plan: [`PLAN-8b.md`](PLAN-8b.md), committed before the job read any data. Code: `audit8b.py` imports
+  `audit8.py` unchanged (SHA-256 checked), so the 37 snippets are audit 8's.
+- **Results: [`RESULTS-8b.md`](RESULTS-8b.md)** (`audit8b-progfeed.json` has the counts). Q1 inconclusive,
+  Q2 held.
+- Q1: 15 of the 37 (40.5%, CI 25.6-56.1%) are near-copies of the student's code, 15 partial matches and 7
+  look like code the student did not write; the predicted majority of near-copies is not supported.
+- Q2: 18 of the 37 (48.6%) turn up in the recipient's final submission of the lab, against 29.7% of other
+  students' final submissions (+18.9 points, CI +5.5 to +34.5). For comparison, 53% of the lines a hint quoted
+  exactly from the student's file were still there at the end. This is an association, not proof of copying.
+
 ## How it works
 
 `audit.py` finds every passage the feedback puts in double quotation marks. It sets aside quotes of the
@@ -203,7 +215,8 @@ splits SpecEval's matched quotes by the kind of cue before them. `audit6.py` is 
 feedback itself with llama-cpp-python, asks for explicit excerpts (so no quote-finding or rewrite filter is
 needed) and classifies each excerpt against its essay. `audit7.py` runs `audit6.py` shard by shard and
 pools the shards. `audit8.py` pulls backtick spans out of programming hints and looks for each in the
-student's submitted file, the assignment text and the prompt.
+student's submitted file, the assignment text and the prompt; `audit8b.py` scores how close each unsourced
+snippet is to the student's code and whether it appears in later final submissions.
 
 ```bash
 sh setup.sh
@@ -222,26 +235,27 @@ python audit6.py --paths paths.json --models models.json --model qwen2.5-1.5b-in
 # audit 7: one shard per machine, then pool
 python audit7.py run --shard 1 --paths paths.json --models models.json --out audit7-shard-1.json
 python audit7.py pool --shard-json audit7-shard-*.json --out audit7-pooled.json
-# audit 8 (archive: codeload.github.com/umass-ml4ed/progFeed-dataset-public/tar.gz/e020c7c013187dba7b4130991eadc539d115526a)
+# audit 8 and 8b (archive: codeload.github.com/umass-ml4ed/progFeed-dataset-public/tar.gz/e020c7c013187dba7b4130991eadc539d115526a)
 python audit8.py run --tar progfeed.tar.gz --out audit8-progfeed.json --md audit8-progfeed.md
+python audit8b.py run --tar progfeed.tar.gz --out audit8b-progfeed.json --md audit8b-progfeed.md
 ```
 
-Python 3.10+, standard library only for audits 1-5b and 8 (`setup-5.sh` and `setup-5b.sh` use gdown to fetch
-SpecEval from Google Drive).
+Python 3.10+, standard library only for audits 1-5b, 8 and 8b (`setup-5.sh` and `setup-5b.sh` use gdown to
+fetch SpecEval from Google Drive).
 
 ## Limits
 
-Only double-quoted passages are checked (backtick spans in audit 8). The rule that sets aside suggested
+Only double-quoted passages are checked (backtick spans in audits 8 and 8b). The rule that sets aside suggested
 rewrites is a heuristic: it misses rewrites marked with bold inside the quote, and its cue list ("for
 example", "such as") also sets aside genuine quotes, which matters most on SpecEval (76% of its matched
 4+-word quotes; follow-up 5b counts them). Similarity is a proxy: no pass here reads quote text, so none can
 tell a suggested phrase from a heavily altered misquote; only a human reading of a sample could. Audits 1-3
 cover one model, one exam and one dataset; audit 4 adds six models on a second dataset (FeedType/SEFORA,
 non-commercial); audit 5 adds a third (SpecEval/ASAP++); audits 6 and 7 use small CPU models, not the models
-schools use; audit 8 covers one course and one model. See PREREG.md, RESULTS.md, PLAN-1b.md, RESULTS-1b.md,
-PLAN-2.md, RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md, RESULTS-3.md, PLAN-4.md, RESULTS-4.md,
-PLAN-5.md, RESULTS-5.md, PLAN-5b.md, RESULTS-5b.md, PLAN-6.md, RESULTS-6.md, PLAN-7.md, RESULTS-7.md,
-PLAN-8.md, RESULTS-8.md, PREDICTIONS.md and TEACHERS.md.
+schools use; audits 8 and 8b cover one course and one model. See PREREG.md, RESULTS.md, PLAN-1b.md,
+RESULTS-1b.md, PLAN-2.md, RESULTS-2.md, PLAN-2b.md, RESULTS-2b.md, PLAN-3.md, RESULTS-3.md, PLAN-4.md,
+RESULTS-4.md, PLAN-5.md, RESULTS-5.md, PLAN-5b.md, RESULTS-5b.md, PLAN-6.md, RESULTS-6.md, PLAN-7.md,
+RESULTS-7.md, PLAN-8.md, RESULTS-8.md, PLAN-8b.md, RESULTS-8b.md, PREDICTIONS.md and TEACHERS.md.
 
 ## Licence
 

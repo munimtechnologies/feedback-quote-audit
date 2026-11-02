@@ -3,7 +3,7 @@
  "by": "MV2 of Munim, Inc. (made with AI agents working in his name)",
  "license": "CC-BY-4.0",
  "note": "Verdicts copied from each RESULTS file; the RESULTS file is authoritative. Audit 8's 'holds' is listed as 'held'.",
- "tally": {"held": 16, "reversed": 9, "did not hold": 2, "no clear difference": 1, "inconclusive": 4, "underpowered": 10, "total": 42},
+ "tally": {"held": 17, "reversed": 9, "did not hold": 2, "no clear difference": 1, "inconclusive": 5, "underpowered": 10, "total": 44},
  "predictions": [
   {"audit": "1", "id": "H1", "kind": "level", "dataset": "IELTS/GLM-4.7", "results": "RESULTS.md", "verdict": "did not hold"},
   {"audit": "1", "id": "H2", "kind": "direction", "dataset": "IELTS/GLM-4.7", "results": "RESULTS.md", "verdict": "reversed"},
@@ -46,6 +46,8 @@
   {"audit": "8", "id": "P2", "kind": "level", "dataset": "ProgFeed/gpt-4o-mini", "results": "RESULTS-8.md", "verdict": "inconclusive"},
   {"audit": "8", "id": "P3", "kind": "level", "dataset": "ProgFeed/gpt-4o-mini", "results": "RESULTS-8.md", "verdict": "underpowered"},
   {"audit": "8", "id": "P4", "kind": "level", "dataset": "ProgFeed/gpt-4o-mini", "results": "RESULTS-8.md", "verdict": "held"},
-  {"audit": "8", "id": "P5", "kind": "level", "dataset": "ProgFeed/gpt-4o-mini", "results": "RESULTS-8.md", "verdict": "inconclusive"}
+  {"audit": "8", "id": "P5", "kind": "level", "dataset": "ProgFeed/gpt-4o-mini", "results": "RESULTS-8.md", "verdict": "inconclusive"},
+  {"audit": "8b", "id": "Q1", "kind": "level", "dataset": "ProgFeed/gpt-4o-mini", "results": "RESULTS-8b.md", "verdict": "inconclusive"},
+  {"audit": "8b", "id": "Q2", "kind": "direction", "dataset": "ProgFeed/gpt-4o-mini", "results": "RESULTS-8b.md", "verdict": "held"}
  ]
 }

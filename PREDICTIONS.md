@@ -3,8 +3,8 @@
 By MV2 of Munim, Inc. Made with AI agents working in his name. Text CC BY 4.0.
 
 Each audit here wrote its predictions into a plan committed before its sealed run read any quote. This page
-puts all 42 of them in one place, with the verdict exactly as its RESULTS file states it (audit 8's "holds" is
-listed as "held"), so nobody has to read eleven reports to see the track record. Numbers are copied from the
+puts all 44 of them in one place, with the verdict exactly as its RESULTS file states it (audit 8's "holds" is
+listed as "held"), so nobody has to read twelve reports to see the track record. Numbers are copied from the
 RESULTS files; where this page and a RESULTS file disagree, the RESULTS file is right. `predictions.json` holds
 the same table.
 
@@ -12,13 +12,13 @@ the same table.
 
 | Verdict | Count |
 |---|---|
-| held | 16 |
+| held | 17 |
 | reversed (the whole 95% CI on the opposite side) | 9 |
 | did not hold (level target missed, not a direction) | 2 |
 | no clear difference (CI spans zero) | 1 |
-| inconclusive (CI straddles the threshold or the edge of the band) | 4 |
+| inconclusive (CI straddles the threshold or the edge of the band) | 5 |
 | underpowered (too few quotes for the plan's floor; no verdict) | 10 |
-| **Total** | **42** |
+| **Total** | **44** |
 
 Audits 1-3 (one model, GLM-4.7, on one IELTS dataset, including 1b and 2b) got their *direction* wrong 9
 times out of 12 direction predictions (2 held, 1 no clear difference). Their other 6 predictions were levels
@@ -29,6 +29,7 @@ few quotes to test its two comparisons. Follow-up 5b found that audit 5's filter
 aside; on the wider set, its exploratory G4 held. Audit 6 generated its own feedback with two small models;
 all six of its verdicts are underpowered. Audit 7 re-ran audit 6's Qwen test with a longer token limit: two of
 three held. Audit 8 moved to programming hints from a real course: two held, two inconclusive, one underpowered.
+Follow-up 8b: one held, one inconclusive.
 The patterns that replicated across datasets: most quotes keep the student's words, and short quotes change
 words more often than long ones (tested and held in audits 2-4; same direction but underpowered in audit 5,
 and same direction descriptively on 5b's wider set).
@@ -160,6 +161,18 @@ faithful ones.
 37 of 177 code spans (20.9%) are in neither the student's file nor the problem text or prompt, although the
 prompt said "Do not suggest code changes".
 
+## Follow-up 8b: what those 37 snippets are ([PLAN-8b.md](PLAN-8b.md), [RESULTS-8b.md](RESULTS-8b.md))
+
+37 unsourced code snippets in hints to 28 students; CIs resample students.
+
+| ID | Prediction | Observed | Verdict |
+|---|---|---|---|
+| Q1 | More than 50% of unsourced code snippets are near-copies of the student's code (token similarity at least 0.8) | 40.5% (15 / 37), CI 25.6-56.1% | inconclusive |
+| Q2 | Unsourced snippets appear in the recipient's final submission more often than in other students' final submissions of the same lab | 48.6% (18 / 37) vs 29.7%, diff +18.9 pts (CI +5.5 to +34.5) | held |
+
+Q2 is an association, not proof of copying: the recipient's final code grows out of their own earlier code, and
+the control removes only code that every student writes.
+
 ## What the record says
 
 - Point and direction guesses from intuition were unreliable on a single model: in audits 1-3, nine of
@@ -174,11 +187,12 @@ prompt said "Do not suggest code changes".
 - A token limit is not neutral: the replies it cuts off were the less faithful ones (audit 7, T1), and an
   underpowered run can point the wrong way (audit 6's S1).
 - Code is different from prose: hints name the student's variables almost perfectly, but a fifth of the code
-  snippets they show are not the student's code (audit 8).
+  snippets they show are not the student's code (audit 8), and about half of those end up in that student's
+  final submission (follow-up 8b).
 - Feedback that quotes rarely gives little to test: a power floor fixed in advance is what stopped audit 5
   from over-reading 16 changed quotes, and audit 6 from reading a 9-point gap with a CI that spans zero.
 - A filter carried from one dataset to another needs checking: audit 1's rewrite cue list set aside three
   quarters of SpecEval's matched quotes, almost all for a "for example" or "such as" in front of them.
 
-Limits are those of each audit: double quotes only (backticks in audit 8), a heuristic for suggested rewrites,
-and similarity as a proxy that no counts-only pass can replace with human reading.
+Limits are those of each audit: double quotes only (backticks in audits 8 and 8b), a heuristic for suggested
+rewrites, and similarity as a proxy that no counts-only pass can replace with human reading.

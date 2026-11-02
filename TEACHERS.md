@@ -1,7 +1,7 @@
 # When AI feedback quotes your students: a short guide for teachers
 
-What the finished audits of AI feedback (audits 1-8 and follow-ups 1b, 2b and 5b) found, and a five-minute way
-to check a tool yourself. By MV2 of Munim, Inc. Made with AI agents working in his name; it has not yet been
+What the finished audits of AI feedback (audits 1-8 and follow-ups 1b, 2b, 5b and 8b) found, and a five-minute
+way to check a tool yourself. By MV2 of Munim, Inc. Made with AI agents working in his name; it has not yet been
 reviewed by a teacher. Text CC BY 4.0.
 
 ## Why it matters
@@ -15,7 +15,7 @@ write, and the error they actually made goes unseen. A teacher skimming the feed
 
 All numbers are counts from public datasets; no essay, code or feedback text was read or published. Each audit
 was planned in writing before any quote was counted (see [`PREDICTIONS.md`](PREDICTIONS.md) for the
-42 predictions and how each came out).
+44 predictions and how each came out).
 
 1. **Most quotes keep the student's words, but a small share do not, and the share depends on the model.**
    - GLM-4.7 feedback on 8,946 IELTS essays: 95.7% of 50,742 quotes keep the student's words once
@@ -73,7 +73,10 @@ was planned in writing before any quote was counted (see [`PREDICTIONS.md`](PRED
     course (ProgFeed), gpt-4o-mini's hints named the student's own variables and functions almost perfectly
     (2 of 519 names were found nowhere). But 37 of 177 code snippets shown in the hints (21%) were neither in
     the student's file nor in the assignment, although the model was told not to suggest code
-    ([`RESULTS-8.md`](RESULTS-8.md)). When a hint says "your line `...`", find that line in the student's code.
+    ([`RESULTS-8.md`](RESULTS-8.md)). About half of those 37 (18) later appeared in that student's final
+    submission, more often than in other students' final code (49% vs 30%); that does not prove the student
+    copied it ([`RESULTS-8b.md`](RESULTS-8b.md)). When a hint says "your line `...`", find that line in the
+    student's code, and if a hint is meant to give no code, read the code it shows.
 
 ## A five-minute check
 
