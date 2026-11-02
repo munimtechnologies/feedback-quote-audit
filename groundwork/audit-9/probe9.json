@@ -1,0 +1,883 @@
+{
+ "dataset_commit": "12c258f397d6df5892c773349499f5c36b7f567c",
+ "files": {
+  "mrbench_v3_devset.json": {
+   "all": {
+    "labels": {
+     "Actionability": {
+      "No": 797,
+      "To some extent": 369,
+      "Yes": 1310,
+      "other": 0
+     },
+     "Mistake_Identification": {
+      "No": 370,
+      "To some extent": 174,
+      "Yes": 1932,
+      "other": 0
+     },
+     "Mistake_Location": {
+      "No": 713,
+      "To some extent": 220,
+      "Yes": 1543,
+      "other": 0
+     },
+     "Providing_Guidance": {
+      "No": 566,
+      "To some extent": 503,
+      "Yes": 1407,
+      "other": 0
+     }
+    },
+    "quote_words": {
+     "0": 1,
+     "1": 22,
+     "2-3": 17,
+     "4-6": 18,
+     "7+": 113
+    },
+    "quotes": 171,
+    "responses": 2476,
+    "with_cue_number": 319,
+    "with_number": 1627,
+    "with_quote": 160
+   },
+   "bytes": 1578346,
+   "conversations": 300,
+   "cue_number_sentences": {
+    "you added": 16,
+    "you answered": 1,
+    "you arrived at": 6,
+    "you calculated": 39,
+    "you counted": 2,
+    "you divided": 6,
+    "you found": 6,
+    "you get": 13,
+    "you got": 36,
+    "you had": 7,
+    "you have": 32,
+    "you mentioned": 14,
+    "you multiplied": 10,
+    "you said": 11,
+    "you say": 2,
+    "you stated": 2,
+    "you subtracted": 8,
+    "you used": 5,
+    "you wrote": 3,
+    "you've": 75,
+    "your answer": 5,
+    "your calculation": 48,
+    "your final": 7,
+    "your solution": 19,
+    "your total": 5,
+    "your work": 7
+   },
+   "no_student_turn": 0,
+   "per_tutor": {
+    "Expert": {
+     "labels": {
+      "Actionability": {
+       "No": 20,
+       "To some extent": 39,
+       "Yes": 241,
+       "other": 0
+      },
+      "Mistake_Identification": {
+       "No": 18,
+       "To some extent": 57,
+       "Yes": 225,
+       "other": 0
+      },
+      "Mistake_Location": {
+       "No": 58,
+       "To some extent": 45,
+       "Yes": 197,
+       "other": 0
+      },
+      "Providing_Guidance": {
+       "No": 47,
+       "To some extent": 48,
+       "Yes": 205,
+       "other": 0
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 1,
+      "2-3": 1,
+      "4-6": 0,
+      "7+": 0
+     },
+     "quotes": 2,
+     "responses": 300,
+     "with_cue_number": 30,
+     "with_number": 180,
+     "with_quote": 2
+    },
+    "GPT4": {
+     "labels": {
+      "Actionability": {
+       "No": 149,
+       "To some extent": 13,
+       "Yes": 138,
+       "other": 0
+      },
+      "Mistake_Identification": {
+       "No": 16,
+       "To some extent": 2,
+       "Yes": 282,
+       "other": 0
+      },
+      "Mistake_Location": {
+       "No": 37,
+       "To some extent": 13,
+       "Yes": 250,
+       "other": 0
+      },
+      "Providing_Guidance": {
+       "No": 41,
+       "To some extent": 31,
+       "Yes": 228,
+       "other": 0
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 3,
+      "2-3": 2,
+      "4-6": 5,
+      "7+": 1
+     },
+     "quotes": 11,
+     "responses": 300,
+     "with_cue_number": 28,
+     "with_number": 269,
+     "with_quote": 9
+    },
+    "Gemini": {
+     "labels": {
+      "Actionability": {
+       "No": 64,
+       "To some extent": 67,
+       "Yes": 169,
+       "other": 0
+      },
+      "Mistake_Identification": {
+       "No": 29,
+       "To some extent": 14,
+       "Yes": 257,
+       "other": 0
+      },
+      "Mistake_Location": {
+       "No": 93,
+       "To some extent": 31,
+       "Yes": 176,
+       "other": 0
+      },
+      "Providing_Guidance": {
+       "No": 47,
+       "To some extent": 85,
+       "Yes": 168,
+       "other": 0
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 2,
+      "2-3": 2,
+      "4-6": 1,
+      "7+": 1
+     },
+     "quotes": 6,
+     "responses": 300,
+     "with_cue_number": 12,
+     "with_number": 147,
+     "with_quote": 4
+    },
+    "Llama31405B": {
+     "labels": {
+      "Actionability": {
+       "No": 44,
+       "To some extent": 30,
+       "Yes": 226,
+       "other": 0
+      },
+      "Mistake_Identification": {
+       "No": 9,
+       "To some extent": 6,
+       "Yes": 285,
+       "other": 0
+      },
+      "Mistake_Location": {
+       "No": 22,
+       "To some extent": 26,
+       "Yes": 252,
+       "other": 0
+      },
+      "Providing_Guidance": {
+       "No": 16,
+       "To some extent": 46,
+       "Yes": 238,
+       "other": 0
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 4,
+      "2-3": 0,
+      "4-6": 5,
+      "7+": 19
+     },
+     "quotes": 28,
+     "responses": 300,
+     "with_cue_number": 98,
+     "with_number": 262,
+     "with_quote": 27
+    },
+    "Llama318B": {
+     "labels": {
+      "Actionability": {
+       "No": 114,
+       "To some extent": 61,
+       "Yes": 125,
+       "other": 0
+      },
+      "Mistake_Identification": {
+       "No": 36,
+       "To some extent": 21,
+       "Yes": 243,
+       "other": 0
+      },
+      "Mistake_Location": {
+       "No": 108,
+       "To some extent": 31,
+       "Yes": 161,
+       "other": 0
+      },
+      "Providing_Guidance": {
+       "No": 65,
+       "To some extent": 101,
+       "Yes": 134,
+       "other": 0
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 1,
+      "2-3": 4,
+      "4-6": 1,
+      "7+": 4
+     },
+     "quotes": 10,
+     "responses": 300,
+     "with_cue_number": 61,
+     "with_number": 249,
+     "with_quote": 10
+    },
+    "Mistral": {
+     "labels": {
+      "Actionability": {
+       "No": 48,
+       "To some extent": 48,
+       "Yes": 204,
+       "other": 0
+      },
+      "Mistake_Identification": {
+       "No": 12,
+       "To some extent": 18,
+       "Yes": 270,
+       "other": 0
+      },
+      "Mistake_Location": {
+       "No": 52,
+       "To some extent": 35,
+       "Yes": 213,
+       "other": 0
+      },
+      "Providing_Guidance": {
+       "No": 47,
+       "To some extent": 64,
+       "Yes": 189,
+       "other": 0
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 3,
+      "2-3": 2,
+      "4-6": 1,
+      "7+": 83
+     },
+     "quotes": 89,
+     "responses": 300,
+     "with_cue_number": 47,
+     "with_number": 217,
+     "with_quote": 86
+    },
+    "Novice": {
+     "labels": {
+      "Actionability": {
+       "No": 59,
+       "To some extent": 14,
+       "Yes": 3,
+       "other": 0
+      },
+      "Mistake_Identification": {
+       "No": 13,
+       "To some extent": 29,
+       "Yes": 34,
+       "other": 0
+      },
+      "Mistake_Location": {
+       "No": 60,
+       "To some extent": 2,
+       "Yes": 14,
+       "other": 0
+      },
+      "Providing_Guidance": {
+       "No": 62,
+       "To some extent": 4,
+       "Yes": 10,
+       "other": 0
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 0,
+      "2-3": 0,
+      "4-6": 0,
+      "7+": 0
+     },
+     "quotes": 0,
+     "responses": 76,
+     "with_cue_number": 5,
+     "with_number": 18,
+     "with_quote": 0
+    },
+    "Phi3": {
+     "labels": {
+      "Actionability": {
+       "No": 257,
+       "To some extent": 11,
+       "Yes": 32,
+       "other": 0
+      },
+      "Mistake_Identification": {
+       "No": 214,
+       "To some extent": 7,
+       "Yes": 79,
+       "other": 0
+      },
+      "Mistake_Location": {
+       "No": 223,
+       "To some extent": 4,
+       "Yes": 73,
+       "other": 0
+      },
+      "Providing_Guidance": {
+       "No": 189,
+       "To some extent": 60,
+       "Yes": 51,
+       "other": 0
+      }
+     },
+     "quote_words": {
+      "0": 1,
+      "1": 3,
+      "2-3": 3,
+      "4-6": 2,
+      "7+": 3
+     },
+     "quotes": 12,
+     "responses": 300,
+     "with_cue_number": 8,
+     "with_number": 153,
+     "with_quote": 10
+    },
+    "Sonnet": {
+     "labels": {
+      "Actionability": {
+       "No": 42,
+       "To some extent": 86,
+       "Yes": 172,
+       "other": 0
+      },
+      "Mistake_Identification": {
+       "No": 23,
+       "To some extent": 20,
+       "Yes": 257,
+       "other": 0
+      },
+      "Mistake_Location": {
+       "No": 60,
+       "To some extent": 33,
+       "Yes": 207,
+       "other": 0
+      },
+      "Providing_Guidance": {
+       "No": 52,
+       "To some extent": 64,
+       "Yes": 184,
+       "other": 0
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 5,
+      "2-3": 3,
+      "4-6": 3,
+      "7+": 2
+     },
+     "quotes": 13,
+     "responses": 300,
+     "with_cue_number": 30,
+     "with_number": 132,
+     "with_quote": 12
+    }
+   },
+   "responses": 2476,
+   "sha256": "a395feab801de50d44b73e1e9b88f84824a1f1d92e15ae86842d90c2b6dbf33c",
+   "student_last_turn_with_number": 279
+  },
+  "mrbench_v3_testset.json": {
+   "all": {
+    "labels": {
+     "Actionability": {
+      "No": 0,
+      "To some extent": 0,
+      "Yes": 0,
+      "other": 1547
+     },
+     "Mistake_Identification": {
+      "No": 0,
+      "To some extent": 0,
+      "Yes": 0,
+      "other": 1547
+     },
+     "Mistake_Location": {
+      "No": 0,
+      "To some extent": 0,
+      "Yes": 0,
+      "other": 1547
+     },
+     "Providing_Guidance": {
+      "No": 0,
+      "To some extent": 0,
+      "Yes": 0,
+      "other": 1547
+     }
+    },
+    "quote_words": {
+     "0": 0,
+     "1": 21,
+     "2-3": 15,
+     "4-6": 7,
+     "7+": 62
+    },
+    "quotes": 105,
+    "responses": 1547,
+    "with_cue_number": 206,
+    "with_number": 981,
+    "with_quote": 80
+   },
+   "bytes": 680779,
+   "conversations": 191,
+   "cue_number_sentences": {
+    "you added": 11,
+    "you arrived at": 3,
+    "you calculated": 25,
+    "you came up with": 1,
+    "you divided": 5,
+    "you get": 11,
+    "you got": 5,
+    "you had": 5,
+    "you have": 18,
+    "you mentioned": 14,
+    "you multiplied": 17,
+    "you said": 18,
+    "you say": 2,
+    "you subtracted": 4,
+    "you used": 1,
+    "you wrote": 4,
+    "you've": 45,
+    "your answer": 3,
+    "your calculation": 42,
+    "your final": 7,
+    "your result": 1,
+    "your solution": 13,
+    "your total": 1,
+    "your work": 3
+   },
+   "no_student_turn": 0,
+   "per_tutor": {
+    "Tutor_1": {
+     "labels": {
+      "Actionability": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Identification": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Location": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Providing_Guidance": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 15,
+      "2-3": 6,
+      "4-6": 2,
+      "7+": 7
+     },
+     "quotes": 30,
+     "responses": 191,
+     "with_cue_number": 22,
+     "with_number": 121,
+     "with_quote": 11
+    },
+    "Tutor_2": {
+     "labels": {
+      "Actionability": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Identification": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Location": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Providing_Guidance": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 0,
+      "2-3": 2,
+      "4-6": 1,
+      "7+": 11
+     },
+     "quotes": 14,
+     "responses": 191,
+     "with_cue_number": 30,
+     "with_number": 123,
+     "with_quote": 14
+    },
+    "Tutor_3": {
+     "labels": {
+      "Actionability": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Identification": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Location": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Providing_Guidance": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 0,
+      "2-3": 1,
+      "4-6": 0,
+      "7+": 7
+     },
+     "quotes": 8,
+     "responses": 191,
+     "with_cue_number": 31,
+     "with_number": 128,
+     "with_quote": 8
+    },
+    "Tutor_4": {
+     "labels": {
+      "Actionability": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Identification": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Location": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Providing_Guidance": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 2,
+      "2-3": 4,
+      "4-6": 2,
+      "7+": 7
+     },
+     "quotes": 15,
+     "responses": 191,
+     "with_cue_number": 22,
+     "with_number": 118,
+     "with_quote": 13
+    },
+    "Tutor_5": {
+     "labels": {
+      "Actionability": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Identification": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Location": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Providing_Guidance": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 4,
+      "2-3": 1,
+      "4-6": 0,
+      "7+": 8
+     },
+     "quotes": 13,
+     "responses": 191,
+     "with_cue_number": 23,
+     "with_number": 126,
+     "with_quote": 9
+    },
+    "Tutor_6": {
+     "labels": {
+      "Actionability": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Identification": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Location": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Providing_Guidance": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 0,
+      "2-3": 0,
+      "4-6": 0,
+      "7+": 11
+     },
+     "quotes": 11,
+     "responses": 191,
+     "with_cue_number": 29,
+     "with_number": 125,
+     "with_quote": 11
+    },
+    "Tutor_7": {
+     "labels": {
+      "Actionability": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Identification": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Location": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Providing_Guidance": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 0,
+      "2-3": 0,
+      "4-6": 0,
+      "7+": 6
+     },
+     "quotes": 6,
+     "responses": 191,
+     "with_cue_number": 27,
+     "with_number": 111,
+     "with_quote": 6
+    },
+    "Tutor_8": {
+     "labels": {
+      "Actionability": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Identification": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Mistake_Location": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      },
+      "Providing_Guidance": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 191
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 0,
+      "2-3": 1,
+      "4-6": 2,
+      "7+": 5
+     },
+     "quotes": 8,
+     "responses": 191,
+     "with_cue_number": 21,
+     "with_number": 115,
+     "with_quote": 8
+    },
+    "Tutor_9": {
+     "labels": {
+      "Actionability": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 19
+      },
+      "Mistake_Identification": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 19
+      },
+      "Mistake_Location": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 19
+      },
+      "Providing_Guidance": {
+       "No": 0,
+       "To some extent": 0,
+       "Yes": 0,
+       "other": 19
+      }
+     },
+     "quote_words": {
+      "0": 0,
+      "1": 0,
+      "2-3": 0,
+      "4-6": 0,
+      "7+": 0
+     },
+     "quotes": 0,
+     "responses": 19,
+     "with_cue_number": 1,
+     "with_number": 14,
+     "with_quote": 0
+    }
+   },
+   "responses": 1547,
+   "sha256": "5a73434fd9e1dfc73026e146d3709f95f2483a51a5e5b354bc96d981448d92cd",
+   "student_last_turn_with_number": 180
+  }
+ },
+ "finished_utc": "2026-11-02T06:06:28Z",
+ "license": "CC BY-SA 4.0",
+ "probe": "audit-9 groundwork (opportunity counts only)",
+ "seconds": 0.2
+}
