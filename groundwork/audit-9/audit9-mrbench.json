@@ -1,0 +1,427 @@
+{
+ "audit": "9",
+ "audit9_sha256_lf": "1cbbd587a875431e18d26813e478ce52d87b797ec61767bb8cec72dfac307d27",
+ "dataset": {
+  "commit": "12c258f397d6df5892c773349499f5c36b7f567c",
+  "files": {
+   "mrbench_v3_devset.json": {
+    "bytes": 1578346,
+    "records": 300,
+    "sha256": "a395feab801de50d44b73e1e9b88f84824a1f1d92e15ae86842d90c2b6dbf33c"
+   },
+   "mrbench_v3_testset.json": {
+    "bytes": 680779,
+    "records": 191,
+    "sha256": "5a73434fd9e1dfc73026e146d3709f95f2483a51a5e5b354bc96d981448d92cd"
+   }
+  },
+  "license": "CC BY-SA 4.0",
+  "pinned": true,
+  "repo": "kaushal0494/UnifyingAITutorEvaluation"
+ },
+ "descriptive": {
+  "broad": {
+   "context": 26,
+   "equivalent": 0,
+   "n": 264,
+   "nowhere": 12,
+   "student": 226,
+   "unsourced_pct": 14.39
+  },
+  "llm_vs_human_dev": {
+   "a_den": 139,
+   "a_num": 18,
+   "a_pct": 12.95,
+   "b_den": 21,
+   "b_num": 6,
+   "b_pct": 28.57,
+   "ci95": null,
+   "dialogues": 127,
+   "diff_pts": -15.62,
+   "note": "descriptive, no verdict: a = LLM tutors, b = human tutors (dev set)"
+  },
+  "mistake_location_strict": {
+   "No": {
+    "context": 4,
+    "equivalent": 0,
+    "n": 31,
+    "nowhere": 3,
+    "student": 24
+   },
+   "To some extent": {
+    "context": 1,
+    "equivalent": 0,
+    "n": 13,
+    "nowhere": 0,
+    "student": 12
+   },
+   "Yes": {
+    "context": 14,
+    "equivalent": 0,
+    "n": 116,
+    "nowhere": 2,
+    "student": 100
+   }
+  },
+  "per_tutor_strict": {
+   "mrbench_v3_devset.json/Expert": {
+    "context": 2,
+    "equivalent": 0,
+    "n": 20,
+    "nowhere": 3,
+    "student": 15,
+    "unsourced_pct": 25.0
+   },
+   "mrbench_v3_devset.json/GPT4": {
+    "context": 2,
+    "equivalent": 0,
+    "n": 7,
+    "nowhere": 0,
+    "student": 5,
+    "unsourced_pct": 28.57
+   },
+   "mrbench_v3_devset.json/Gemini": {
+    "context": 1,
+    "equivalent": 0,
+    "n": 3,
+    "nowhere": 0,
+    "student": 2,
+    "unsourced_pct": 33.33
+   },
+   "mrbench_v3_devset.json/Llama31405B": {
+    "context": 1,
+    "equivalent": 0,
+    "n": 51,
+    "nowhere": 1,
+    "student": 49,
+    "unsourced_pct": 3.92
+   },
+   "mrbench_v3_devset.json/Llama318B": {
+    "context": 3,
+    "equivalent": 0,
+    "n": 39,
+    "nowhere": 0,
+    "student": 36,
+    "unsourced_pct": 7.69
+   },
+   "mrbench_v3_devset.json/Mistral": {
+    "context": 5,
+    "equivalent": 0,
+    "n": 15,
+    "nowhere": 0,
+    "student": 10,
+    "unsourced_pct": 33.33
+   },
+   "mrbench_v3_devset.json/Novice": {
+    "context": 0,
+    "equivalent": 0,
+    "n": 1,
+    "nowhere": 1,
+    "student": 0,
+    "unsourced_pct": 100.0
+   },
+   "mrbench_v3_devset.json/Phi3": {
+    "context": 0,
+    "equivalent": 0,
+    "n": 1,
+    "nowhere": 0,
+    "student": 1,
+    "unsourced_pct": 0.0
+   },
+   "mrbench_v3_devset.json/Sonnet": {
+    "context": 5,
+    "equivalent": 0,
+    "n": 23,
+    "nowhere": 0,
+    "student": 18,
+    "unsourced_pct": 21.74
+   },
+   "mrbench_v3_testset.json/Tutor_1": {
+    "context": 0,
+    "equivalent": 0,
+    "n": 7,
+    "nowhere": 0,
+    "student": 7,
+    "unsourced_pct": 0.0
+   },
+   "mrbench_v3_testset.json/Tutor_2": {
+    "context": 1,
+    "equivalent": 0,
+    "n": 10,
+    "nowhere": 0,
+    "student": 9,
+    "unsourced_pct": 10.0
+   },
+   "mrbench_v3_testset.json/Tutor_3": {
+    "context": 0,
+    "equivalent": 0,
+    "n": 13,
+    "nowhere": 0,
+    "student": 13,
+    "unsourced_pct": 0.0
+   },
+   "mrbench_v3_testset.json/Tutor_4": {
+    "context": 0,
+    "equivalent": 0,
+    "n": 10,
+    "nowhere": 0,
+    "student": 10,
+    "unsourced_pct": 0.0
+   },
+   "mrbench_v3_testset.json/Tutor_5": {
+    "context": 0,
+    "equivalent": 0,
+    "n": 10,
+    "nowhere": 0,
+    "student": 10,
+    "unsourced_pct": 0.0
+   },
+   "mrbench_v3_testset.json/Tutor_6": {
+    "context": 0,
+    "equivalent": 0,
+    "n": 12,
+    "nowhere": 0,
+    "student": 12,
+    "unsourced_pct": 0.0
+   },
+   "mrbench_v3_testset.json/Tutor_7": {
+    "context": 0,
+    "equivalent": 0,
+    "n": 10,
+    "nowhere": 0,
+    "student": 10,
+    "unsourced_pct": 0.0
+   },
+   "mrbench_v3_testset.json/Tutor_8": {
+    "context": 0,
+    "equivalent": 0,
+    "n": 11,
+    "nowhere": 0,
+    "student": 11,
+    "unsourced_pct": 0.0
+   },
+   "mrbench_v3_testset.json/Tutor_9": {
+    "context": 1,
+    "equivalent": 0,
+    "n": 1,
+    "nowhere": 0,
+    "student": 0,
+    "unsourced_pct": 100.0
+   }
+  },
+  "quotes": {
+   "attributed": {
+    "context": 5,
+    "n": 35,
+    "near": 0,
+    "nowhere": 6,
+    "student": 24
+   },
+   "per_tutor": {
+    "mrbench_v3_devset.json/Expert": {
+     "context": 1,
+     "n": 1,
+     "near": 0,
+     "nowhere": 0,
+     "student": 0
+    },
+    "mrbench_v3_devset.json/GPT4": {
+     "context": 3,
+     "n": 8,
+     "near": 0,
+     "nowhere": 1,
+     "student": 4
+    },
+    "mrbench_v3_devset.json/Gemini": {
+     "context": 0,
+     "n": 4,
+     "near": 0,
+     "nowhere": 3,
+     "student": 1
+    },
+    "mrbench_v3_devset.json/Llama31405B": {
+     "context": 5,
+     "n": 11,
+     "near": 0,
+     "nowhere": 2,
+     "student": 4
+    },
+    "mrbench_v3_devset.json/Llama318B": {
+     "context": 1,
+     "n": 9,
+     "near": 0,
+     "nowhere": 0,
+     "student": 8
+    },
+    "mrbench_v3_devset.json/Mistral": {
+     "context": 1,
+     "n": 7,
+     "near": 0,
+     "nowhere": 2,
+     "student": 4
+    },
+    "mrbench_v3_devset.json/Phi3": {
+     "context": 0,
+     "n": 8,
+     "near": 0,
+     "nowhere": 8,
+     "student": 0
+    },
+    "mrbench_v3_devset.json/Sonnet": {
+     "context": 1,
+     "n": 8,
+     "near": 0,
+     "nowhere": 1,
+     "student": 6
+    },
+    "mrbench_v3_testset.json/Tutor_1": {
+     "context": 1,
+     "n": 11,
+     "near": 0,
+     "nowhere": 8,
+     "student": 2
+    },
+    "mrbench_v3_testset.json/Tutor_2": {
+     "context": 3,
+     "n": 6,
+     "near": 0,
+     "nowhere": 2,
+     "student": 1
+    },
+    "mrbench_v3_testset.json/Tutor_3": {
+     "context": 1,
+     "n": 2,
+     "near": 0,
+     "nowhere": 0,
+     "student": 1
+    },
+    "mrbench_v3_testset.json/Tutor_4": {
+     "context": 0,
+     "n": 8,
+     "near": 0,
+     "nowhere": 3,
+     "student": 5
+    },
+    "mrbench_v3_testset.json/Tutor_5": {
+     "context": 1,
+     "n": 6,
+     "near": 0,
+     "nowhere": 2,
+     "student": 3
+    },
+    "mrbench_v3_testset.json/Tutor_6": {
+     "context": 1,
+     "n": 3,
+     "near": 0,
+     "nowhere": 0,
+     "student": 2
+    },
+    "mrbench_v3_testset.json/Tutor_7": {
+     "context": 0,
+     "n": 3,
+     "near": 0,
+     "nowhere": 0,
+     "student": 3
+    },
+    "mrbench_v3_testset.json/Tutor_8": {
+     "context": 0,
+     "n": 4,
+     "near": 0,
+     "nowhere": 1,
+     "student": 3
+    }
+   },
+   "spans": 232,
+   "unattributed": {
+    "context": 14,
+    "n": 64,
+    "near": 0,
+    "nowhere": 27,
+    "student": 23
+   },
+   "wrappers": 133,
+   "wrappers_per_tutor": {
+    "mrbench_v3_devset.json/Llama31405B": 13,
+    "mrbench_v3_devset.json/Mistral": 79,
+    "mrbench_v3_testset.json/Tutor_1": 4,
+    "mrbench_v3_testset.json/Tutor_2": 8,
+    "mrbench_v3_testset.json/Tutor_3": 6,
+    "mrbench_v3_testset.json/Tutor_4": 5,
+    "mrbench_v3_testset.json/Tutor_5": 3,
+    "mrbench_v3_testset.json/Tutor_6": 8,
+    "mrbench_v3_testset.json/Tutor_7": 3,
+    "mrbench_v3_testset.json/Tutor_8": 4
+   }
+  },
+  "strict": {
+   "context": 21,
+   "equivalent": 0,
+   "n": 244,
+   "nowhere": 5,
+   "student": 218,
+   "unsourced_pct": 10.66
+  }
+ },
+ "finished_utc": "2026-11-02T17:17:14Z",
+ "floors": {
+  "level": 150,
+  "side": 30
+ },
+ "plan": "PLAN-9.md",
+ "plan_sha256_lf": "2a30841d69cce248b4b446be63db2e66c4a0037fd5a1443831cd0ee400a03fcd",
+ "predictions": [
+  {
+   "ci95": [
+    6.41,
+    15.35
+   ],
+   "den": 244,
+   "dialogues": 195,
+   "direction": ">",
+   "floor": 150,
+   "id": "R1",
+   "num": 26,
+   "rate_pct": 10.66,
+   "threshold": 5.0,
+   "verdict": "held",
+   "what": "restatement sentences with no number from any student turn (context or nowhere), all tutors, dev + test"
+  },
+  {
+   "ci95": [
+    0.41,
+    4.02
+   ],
+   "den": 244,
+   "dialogues": 195,
+   "direction": ">",
+   "floor": 150,
+   "id": "R2",
+   "num": 5,
+   "rate_pct": 2.05,
+   "threshold": 2.0,
+   "verdict": "inconclusive",
+   "what": "restatement sentences whose numbers are nowhere in the dialogue, all tutors, dev + test"
+  },
+  {
+   "a_den": 44,
+   "a_num": 8,
+   "a_pct": 18.18,
+   "b_den": 116,
+   "b_num": 16,
+   "b_pct": 13.79,
+   "ci95": [
+    -8.02,
+    17.82
+   ],
+   "dialogues": 127,
+   "diff_pts": 4.39,
+   "floor": 30,
+   "id": "R3",
+   "verdict": "no clear difference",
+   "what": "share with no student number is higher in replies labelled Mistake_Location 'No' or 'To some extent' (a) than in replies labelled 'Yes' (b), dev set"
+  }
+ ],
+ "reps": 10000,
+ "seconds": 1.9,
+ "seed": 20261103
+}
