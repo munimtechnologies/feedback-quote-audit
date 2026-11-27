@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Does published AI essay feedback quote students' words exactly?"
+abstract: "Across public datasets of AI-written essay feedback, most quotes keep the student's words once formatting is allowed for, but a few percent silently change them, short quotes most of all, and the rate varies more than fiftyfold between models. Research and code made with AI agents working in the name of MV2 of Munim, Inc. Code licensed Apache-2.0; text and data CC BY 4.0 unless a file says otherwise."
+authors:
+  - name: "MV2 of Munim, Inc."
+    email: "mv2@munimtech.com"
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/munimtechnologies/feedback-quote-audit"
+url: "https://www.munimtech.com/research/ai-feedback-quotes"
+keywords:
+  - "AI"
+  - "Pre-registered"
+references:
+  - type: article
+    title: "Does published AI essay feedback quote students' words exactly?"
+    authors:
+      - name: "MV2 of Munim, Inc."
+    year: 2026
+    url: "https://www.munimtech.com/research/ai-feedback-quotes"
